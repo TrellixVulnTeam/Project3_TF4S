@@ -1,0 +1,39 @@
+To make a new angular app: 
+
+In powerShell do this:
+
+powershell -ExecutionPolicy Bypass ng new Ang-Test-App
+
+cd Ang-Test-App
+
+
+-ExecutionPolicy Bypass ng serve -> (launches your website)
+
+------------------------------------------------------------------------------------------
+
+To make a text field and have it change the display of some text in a paragraph block:
+In the html file put:
+
+<input type="text" [(ngModel)] ="name">
+<p>{{name}}</p>
+
+Basically says to store contents of that text box into some variable
+
+-------------------------------------------------------------------------------------------------------
+To make a new component in the PowerShell Command Line
+go to directory and:
+
+ng generate component componentName
+
+for shorthand do this:
+
+ng g c componentName
+
+It does all the directory creation for you
+
+To updat hosting: 
+ng build 
+ npm run aws-deploy
+
+deploys build to aws
+
