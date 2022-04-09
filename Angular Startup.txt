@@ -37,3 +37,24 @@ ng build
 
 deploys build to aws
 
+
+
+When running the backend, make sure Nodemon is running. Navigate to backend folder and
+
+backend> npm run dev
+
+When you want to start the backend server normally, do
+
+ backend> npm run start
+
+
+when developing for both front end and back end have 2 terminal windows open and do
+
+for front end
+ navigate to jollyranchers-project3> ng serve
+
+for back end
+nagivate to backend> npm run dev
+
+
+
