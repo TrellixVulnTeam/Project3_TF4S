@@ -1,0 +1,24 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "This is the repository for Software Engineering Project 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FNeffati/Project3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FNeffati/Project3/issues"
+  },
+  "homepage": "https://github.com/FNeffati/Project3#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "googleapis": "^100.0.0"
+  }
+}
