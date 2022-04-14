@@ -1,9 +1,20 @@
 from bs4 import BeautifulSoup
 import requests
 import pymongo
+from pymongo import MongoClient
 
 
+# Author: Nisanur Genc
 
+
+def get_database():
+    # Provide the mongodb atlas url to connect python to mongodb using pymongo
+    CONNECTION_STRING = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+    # Create a connection using MongoClient
+    client = MongoClient(CONNECTION_STRING)
+
+    return client['jollyranchers']
 
 
 url = "https://www.epa.gov/nutrientpollution/effects-human-health"
@@ -26,8 +37,14 @@ print(symptoms)
 db = get_database()
 collection = db["symptoms"]
 
+big_dict = {'sympt': symptoms}
+
+print(big_dict)
+
 try:
-    collection.insert_many(symptoms)
+    print("Potato")
+    collection.insert_one(big_dict)
+    print("here")
     print(f"Inserted {len(symptoms)} symptoms")
 except:
-    print('an error occured symptoms were not stored to db')
+    print('an error occurred symptoms were not stored to db')
