@@ -8,7 +8,7 @@ const shell = require('shelljs');
 var app = express();
 
 let counter = 0;
-cron.schedule('0 1 * * *', function(){
+cron.schedule('8 1 * * *', function(){
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes");
 })
