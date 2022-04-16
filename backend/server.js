@@ -8,10 +8,12 @@ const shell = require('shelljs');
 var app = express();
 
 let counter = 0;
-cron.schedule('15 0 * * *', function(){
+cron.schedule('27 1 * * *', function(){
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes");
-})
+}, {
+    timezone: "America/New_York"
+});
 
 
 app.get('/', function(req, res) {
