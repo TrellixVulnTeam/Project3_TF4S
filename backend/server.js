@@ -7,13 +7,9 @@ const shell = require('shelljs');
 var app = express();
 
 let counter = 0;
-cron.schedule('55 21 * * * *', function(){
+cron.schedule('03 22 * * * *', function(){
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes");
-},{
-
-    timezone: "America/New_York" //easter time zone
-
 })
 
 
