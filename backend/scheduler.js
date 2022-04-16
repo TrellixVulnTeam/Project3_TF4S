@@ -6,7 +6,11 @@ const shell = require('shelljs')
 //before running this file
 
 let counter = 0;
-cron.schedule('* * * * * *', function(){
+cron.schedule('0 0 * * * *', function(){
     counter = counter + 1;
-    console.log("scheduled task running: " + counter + " tiimes");
+    //console.log("scheduled task running: " + counter + " tiimes");
+},{
+
+    timezone: "America/New_York" //easter time zone
+
 })
