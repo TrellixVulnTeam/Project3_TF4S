@@ -13,7 +13,7 @@ let app = express();
 let counter = 0;
 let checker = 0;
 let currentDIr = path.dirname(__filename);
-cron.schedule('05 23 * * *', function(){ //time  is in military time
+cron.schedule('11 23 * * *', function(){ //time  is in military time
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes" );
 }, {
@@ -31,7 +31,7 @@ let options = {
 
 app.get('/', function(req, res)
 {
-    PythonShell.run('twitter_requests.py', options, function (err, results) {
+    PythonShell.run('twitter_requests.py', null, function (err, results) {
         if (err) throw err;
         // results is an array consisting of messages collected during execution
         checker++;
