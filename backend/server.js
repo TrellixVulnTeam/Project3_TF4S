@@ -2,7 +2,7 @@
 var express = require('express');
 const cron = require('node-cron');
 const shell = require('shelljs');
-const PythonShell = require('python-shell');
+let {PythonShell} = require('python-shell')
 
 
 //to get this working, run this script in pm2 start server.js when connected to server
@@ -10,7 +10,7 @@ const PythonShell = require('python-shell');
 var app = express();
 
 let counter = 0;
-cron.schedule('40 10 * * *', function(){
+cron.schedule('53 10 * * *', function(){
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes");
 }, {
