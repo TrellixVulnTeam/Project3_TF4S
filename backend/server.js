@@ -10,9 +10,10 @@ let {PythonShell} = require('python-shell')
 var app = express();
 
 let counter = 0;
-cron.schedule('53 10 * * *', function(){
+let checker = 0;
+cron.schedule('58 22 * * *', function(){ //time  is in military time
     counter = counter + 1;
-    //console.log("scheduled task running: " + counter + " tiimes");
+    //console.log("scheduled task running: " + counter + " tiimes" );
 }, {
     timezone: "America/New_York"
 });
@@ -31,10 +32,11 @@ app.get('/', function(req, res)
     PythonShell.run('twitter_requests.py', options, function (err, results) {
         if (err) throw err;
         // results is an array consisting of messages collected during execution
+        checker++;
         console.log('results: %j', results);
     });
 
-    res.send('Daily Midnight check updated ' + counter + 'times');
+    res.send('Daily Midnight check updated ' + counter + 'times' + checker);
 })
 var server = app.listen(8080, function()
 {
