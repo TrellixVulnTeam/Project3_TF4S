@@ -3,15 +3,17 @@ var express = require('express');
 const cron = require('node-cron');
 const shell = require('shelljs');
 let {PythonShell} = require('python-shell')
+const path = require("path");
 
 
 //to get this working, run this script in pm2 start server.js when connected to server
 
-var app = express();
+let app = express();
 
 let counter = 0;
 let checker = 0;
-cron.schedule('58 22 * * *', function(){ //time  is in military time
+let currentDIr = path.dirname(__filename);
+cron.schedule('05 23 * * *', function(){ //time  is in military time
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes" );
 }, {
@@ -20,9 +22,9 @@ cron.schedule('58 22 * * *', function(){ //time  is in military time
 
 let options = {
     mode: 'text',
-    pythonPath: '',
+    pythonPath: 'backend/twitter_requests.py',
     pythonOptions: ['-u'], // get print results in real-time
-    scriptPath: '',
+    scriptPath: currentDIr,
     args: []
 };
 
