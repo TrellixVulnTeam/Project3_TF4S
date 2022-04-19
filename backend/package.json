@@ -4,6 +4,7 @@
     "express": "^4.17.3",
     "mongodb": "^4.5.0",
     "node-cron": "^3.0.0",
+    "python-shell": "^3.0.1",
     "shelljs": "^0.8.5"
   },
   "scripts": {

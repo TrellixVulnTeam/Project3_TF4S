@@ -58,44 +58,47 @@ def pull_tweets(tweets, full_query):
             tweets[tweet_id] = {"created_at": result['created_at'], "username": result['user']['name'], "text": result['text']}
     return tweets
 
-tweets = {}
+#TODO: Add a remove all method and uncomment the insert_many method so that it deletes all tweets and repopulates DB.
+def tweetAPICall():
 
-# key word for searching tweets
-query = ['redtide']
-hashtags = ["#redtide","#RedTideFlorida","#FloridaRedTide","#redtidesucks"]
-accounts = ["from:MoteMarineLab","from:noaacoastalsci","from:NOAAResearch"]
+    tweets = {}
 
-# the URL base for the API call
-url_base = "https://api.twitter.com/1.1/search/tweets.json?q="
-# search coniditions: takes the recent 100 tweets
-search_terms = "&result_type=recent&count=100"
+    # key word for searching tweets
+    query = ['redtide']
+    hashtags = ["#redtide","#RedTideFlorida","#FloridaRedTide","#redtidesucks"]
+    accounts = ["from:MoteMarineLab","from:noaacoastalsci","from:NOAAResearch"]
 
-# list for tweets from wanted accounts with the wanted hashtags
-tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags)+" "+" OR ".join(accounts))+search_terms)
-# list for tweets from wanted accounts with the wanted keyword
-tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(query)+" "+" OR ".join(accounts))+search_terms)
-# list for tweets with the wanted hashtags
-tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
+    # the URL base for the API call
+    url_base = "https://api.twitter.com/1.1/search/tweets.json?q="
+    # search coniditions: takes the recent 100 tweets
+    search_terms = "&result_type=recent&count=100"
 
-for tweet_id, tweet_data in tweets.items():
-    print("Tweet id:",tweet_id)
-    print("Tweet user:",tweet_data['username'])
-    print("Tweet text:",tweet_data['text'])
-    print("Tweet time:",tweet_data['created_at'])
-    print("________________________________\n")
+    # list for tweets from wanted accounts with the wanted hashtags
+    tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags)+" "+" OR ".join(accounts))+search_terms)
+    # list for tweets from wanted accounts with the wanted keyword
+    tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(query)+" "+" OR ".join(accounts))+search_terms)
+    # list for tweets with the wanted hashtags
+    tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
 
-# prints how many tweets have been printed above.
-print("Printed " + str(len(tweets)) + " tweets.\n")
+    for tweet_id, tweet_data in tweets.items():
+        print("Tweet id:",tweet_id)
+        print("Tweet user:",tweet_data['username'])
+        print("Tweet text:",tweet_data['text'])
+        print("Tweet time:",tweet_data['created_at'])
+        print("________________________________\n")
 
-# Adding them to mongo
+    # prints how many tweets have been printed above.
+    print("Printed " + str(len(tweets)) + " tweets.\n")
 
-# gets the database
-dbname = get_database()
-collection_name = dbname["tweets"]
-tweet_list = tweets.values()
+    # Adding them to mongo
 
-#collection_name.insert_many(tweet_list)
+    # gets the database
+    dbname = get_database()
+    collection_name = dbname["tweets"]
+    tweet_list = tweets.values()
 
-item_details = collection_name.find()
-for item in item_details:
-        print(item)
+    #collection_name.insert_many(tweet_list)
+
+    item_details = collection_name.find()
+    for item in item_details:
+            print(item)
