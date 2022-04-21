@@ -12,7 +12,7 @@ let app = express();
 
 let counter = 0;
 let checker = 0;
-let currentDIr = path.dirname(__filename);
+let currentDir = path.dirname(__filename);
 cron.schedule('11 23 * * *', function(){ //time  is in military time
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes" );
@@ -22,9 +22,9 @@ cron.schedule('11 23 * * *', function(){ //time  is in military time
 
 let options = {
     mode: 'text',
-    pythonPath: 'backend/twitter_requests.py',
     pythonOptions: ['-u'], // get print results in real-time
-    scriptPath: currentDIr,
+    scriptPath: currentDir,
+    encoding: "utf-8",
     args: []
 };
 

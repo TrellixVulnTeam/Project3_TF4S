@@ -3,6 +3,14 @@ twitter_requests.py
 
 This file calls the API and pulls the tweets for Red Tide Webpage.
 
+############################
+IMPORTANT:
+All print statements with string values MUST be encoded to utf-8 to successfully be run in Node.js
+
+Any print statements of dictionary elements MUST be commented out  before deploying to server
+These print statements will cause errors otherwise
+############################
+
 Execution:		>> python3 twitter_requests.py
 
 @author Nisanur Genc
@@ -14,6 +22,7 @@ import json
 import urllib.parse
 from pymongo import MongoClient
 import pymongo
+
 
 def get_database():
     # Provide the mongodb atlas url to connect python to mongodb using pymongo
@@ -81,10 +90,10 @@ tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(query)+" "+"
 tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
 
 for tweet_id, tweet_data in tweets.items():
-    print("Tweet id:",tweet_id)
-    print("Tweet user:",tweet_data['username'])
-    print("Tweet text:",tweet_data['text'])
-    print("Tweet time:",tweet_data['created_at'])
+    print("Tweet id:".encode("utf-8"),tweet_id)
+    print("Tweet user:".encode("utf-8"),tweet_data['username'].encode("utf-8"))
+    print("Tweet text:".encode("utf-8"),tweet_data['text'].encode("utf-8"))
+    print("Tweet time:".encode("utf-8"),tweet_data['created_at'].encode("utf-8"))
     print("________________________________\n")
 
 # prints how many tweets have been printed above.
@@ -100,5 +109,8 @@ tweet_list = tweets.values()
 #collection_name.insert_many(tweet_list)
 
 item_details = collection_name.find()
-for item in item_details:
-        print(item)
+#for item in item_details:
+        #does not work when called through nodeJS.
+        #Dictionary elements do not automatically encode when printing
+        #You need to get the key and value separately to encode them
+        #print( item)
