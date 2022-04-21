@@ -13,7 +13,7 @@ let app = express();
 let counter = 0;
 let checker = 0;
 let currentDir = path.dirname(__filename);
-cron.schedule('11 23 * * *', function(){ //time  is in military time
+cron.schedule('34 10 * * *', function(){ //time  is in military time
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes" );
 }, {
