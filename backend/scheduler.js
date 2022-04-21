@@ -6,7 +6,7 @@ const shell = require('shelljs')
 //before running this file
 
 let counter = 0;
-cron.schedule('29 10 * * * *', function(){
+cron.schedule('31 10 * * * *', function(){
     counter = counter + 1;
     //console.log("scheduled task running: " + counter + " tiimes");
 },{
