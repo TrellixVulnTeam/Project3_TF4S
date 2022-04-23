@@ -10,6 +10,10 @@ const path = require("path");
 
 let app = express();
 
+app.listen(8000, () => {
+    console.log('Server started!')
+})
+
 let counter = 0;
 let checker = 0;
 let currentDir = path.dirname(__filename);

@@ -75,3 +75,6 @@ ng serve --host 0.0.0.0 --port 4200 --disableHostCheck true
 
 Atlas user: jollyranchers2022
 pass: project3
+
+running API with proxy file
+powershell -ExecutionPolicy Bypass ng serve --proxy-config proxy.conf.json
