@@ -110,21 +110,17 @@ works smoothly.
     </div>
 
     <div class="column col2">
-      <div style="overflow-y: scroll; max-height: 70vh;">
+      <h3>RELATED TWEETS:</h3>
+      <br/>
+      <div style="overflow-y: scroll; max-height: 70vh; border: 5px solid #791313; box-shadow: 10px 10px 8px #888888;">
         <!-- tweets -->
         <div *ngFor="let tweet of getTwitterData()">
-          <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;">
+          <div class="placeholderItem" style="background-color: #C5EAFA; height: fit-content; text-align: left;">
             <br/>
+            <strong> <p style="font-size: medium; margin: 15px"> {{tweet.username}}: </p> </strong>
+            <p style="margin: 15px"> {{tweet.text}}</p>
+            <i><p style="margin: 15px"> {{tweet.created_at}} </p></i>
             <br/>
-            <div style="padding: 10%"><strong>
-              <p style="color: black;">
-                <span style="color: black;">●</span> {{tweet.text}}</p>
-              <p style="color: black;">
-                <span style="color: black;">●</span> {{tweet.username}}</p>
-              <p style="color: black;">
-                <span style="color: black;">●</span> {{tweet.created_at}}</p>
-            </strong>
-            </div>
           </div>
         </div>
         <!--
@@ -133,16 +129,9 @@ works smoothly.
         </select>
         <input type="hidden" #selection>-->
 
-
-
-        <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;"></div>
-        <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;"></div>
-        <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;"></div>
-        <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;"></div>
-        <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;"></div>
-        <div class="placeholderItem" style="background-color: #C5EAFA; height: 100px;"></div>
         <!-- tweets -->
       </div>
+      <br/>
 
       <div>
         <div class="placeholderItem" style="text-align: center;">
