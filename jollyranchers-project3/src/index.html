@@ -6,8 +6,43 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
 </head>
 <body>
   <app-root></app-root>
+  <script  type="text/javascript" >
+    // import { DomSanitizer } from '@angular/platform-browser';
+    function update(option) {
+
+      let source = "";
+
+      console.log(option);
+
+
+      if(option =="fox13")
+      {
+
+        source = "https://www.youtube.com/watch?v=TMVteA-FzFA";
+      }
+      else if(option == "10Tampa")
+      {
+        source = "https://www.youtube.com/embed/tgbNymZ7vqY"
+      }
+      else if(option=="abc")
+      {
+        source = "https://www.youtube.com/watch?v=SCnK--ebTxE&list=OLAK5uy_kQm6ddTOsg6k62g5E6IFKECRWPAZD0e-4&index=2";
+      }
+      else if(option=="general")
+      {
+        source = "https://www.youtube.com/watch?v=NBqx2cHmuGk&list=OLAK5uy_m9EiltakhrlR8igBu-t-eHclppe2zpOfU&index=6";
+      }
+      source = source.replace("watch?v=", "embed/");
+
+      document.getElementById('vidPlayer').src = source;
+    }
+
+    update();
+  </script>
 </body>
 </html>

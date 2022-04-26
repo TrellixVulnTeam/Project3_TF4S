@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Youtube</title>
+</head>
+
+
+<body>
+<div class="placeholderItem" style="text-align: center;">
+  <h3 style="font-size: x-large; text-align: left;">
+    <label for="videos">Choose a Video Source:</label>
+
+    <select name="Choose a Video Source:" id="videos"  onchange="update(this.value)">
+      <option value="fox13">Fox 13 Tampa Bay</option>
+      <option value="10Tampa">10 Tampa Bay</option>
+      <option value="abc">ABC Action News</option>
+      <option value="general">Red Tide General</option>
+    </select>
+
+  </h3> <br/>
+  <br/>
+  <h3 style="font-size: x-large; background-color: black; color: white; height: 360px;">
+    <iframe id="vidPlayer" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0"  allowfullscreen>
+    </iframe>
+  </h3> <br/>
+
+  <h3 id="displayTest">Test</h3>
+
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
