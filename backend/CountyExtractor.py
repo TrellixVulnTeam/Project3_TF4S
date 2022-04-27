@@ -35,6 +35,7 @@ for row in allTableRows:
     row = re.sub(',', '', row)
     row = re.sub(r"(\w)([A-Z])", r"\1 \2", row)
 
-    print('"' + row + '"')
+    print('<option value=\"'+row+'\">')
+
     # Saving the list of Cities in a Dictionary with the value being the frequency, initially set to 0
     counties.append(row)
