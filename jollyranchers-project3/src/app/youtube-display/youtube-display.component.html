@@ -7,21 +7,25 @@
 <body>
 <div class="placeholderItem" style="text-align: center;">
   <h3 style="font-size: x-large; text-align: left;">
-    <label for="videos">Choose a Video Source:</label>
+    <label for="select">Choose a Video Source:</label>
 
-    <select name="Choose a Video Source:" id="videos"  onchange="update(this.value)">
-      <option value="fox13">Fox 13 Tampa Bay</option>
-      <option value="10Tampa">10 Tampa Bay</option>
-      <option value="abc">ABC Action News</option>
+    <select id="select" name="Choose a Video Source:"   >
       <option value="general">Red Tide General</option>
+      <option value="wfla8">WFLA News Channel 8</option>
+      <option value="fox13">Fox 13 Tampa Bay</option>
+      <!-- Can Add Back in Tampa10 if we can figure out why it's returning a blank database -->
+      <option value="abcAction">ABC Action News</option>
+
     </select>
 
   </h3> <br/>
   <br/>
   <h3 style="font-size: x-large; background-color: black; color: white; height: 360px;">
-    <iframe id="vidPlayer" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0"  allowfullscreen>
+    <iframe id="vidPlayer" width="420" height="315" src="https://www.youtube.com/embed/q-oLKiHRmBc?playlist=q-oLKiHRmBc,BxP-ZSJKc6Q,8Xz_8VyfUPk,wyVpm7RSJ7g,OZ50-Ru1_zA,R7t7qrH_dsc,s9WdqTv7vUw,-WJ0hi_Pi44,KfoTZllvF6M"  allowfullscreen>
     </iframe>
   </h3> <br/>
+
+
 
   <h3 id="displayTest">Test</h3>
 

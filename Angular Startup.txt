@@ -7,7 +7,7 @@ powershell -ExecutionPolicy Bypass ng new Ang-Test-App
 cd Ang-Test-App
 
 
--ExecutionPolicy Bypass ng serve -> (launches your website)
+ powershell -ExecutionPolicy Bypass ng serve -> (launches your website)
 
 ------------------------------------------------------------------------------------------
 

@@ -11,16 +11,19 @@
 <body>
   <app-root></app-root>
   <script  type="text/javascript" >
-    // import { DomSanitizer } from '@angular/platform-browser';
-    function update(option) {
+
+    function update(option)
+    {
+
 
       let source = "";
+      let urls = [];
 
-      console.log(option);
 
 
       if(option =="fox13")
       {
+          console.log("working");
 
         source = "https://www.youtube.com/watch?v=TMVteA-FzFA";
       }
@@ -41,7 +44,6 @@
       document.getElementById('vidPlayer').src = source;
     }
 
-    update();
   </script>
 
   <script>

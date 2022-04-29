@@ -23,13 +23,163 @@
 </div>
 <!-- NAV ENDS HERE -->
 
+<<<<<<< Updated upstream
 <!-- main content container -->
 <div class="jumbotron">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 offset-sm-2">
         <router-outlet></router-outlet>
+=======
+
+<!--s
+'Body' refers to anything between the footer and the header.
+It has it's own special styling rules defined in the globals.css file to make sure everything
+works smoothly.
+-->
+<div class="body">
+
+  <div style="background-color: #f3eaea; color: black;   border-bottom: 2px solid #791313; font-size: large; padding: 1%; ">
+    <p>
+      <b>Onshore winds bring red tide near the shore, please stay away from the shore.</b>
+    </p>
+  </div>
+
+  <div class="columnContainer">
+
+    <div class="column col1">
+
+      <div style="background-color: #f3eaea; color: black;  border: 2px solid #791313; font-size: large; padding: 1%; ">
+        <p>
+          <b><br/>
+            TWITTER DATA PLACEHOLDER
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            Data visualization
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            end of placeholder
+            <br/>
+            <br/>
+          </b>
+        </p>
+      </div>
+
+      <div class="row" style="margin-top: 25px;">
+
+        <div class="small-column first">
+          <!-- youtube -->
+         <app-youtube-display></app-youtube-display>
+          <!-- youtube -->
+        </div>
+
+        <div class="small-column second">
+          <br/>
+          <h3 style="font-size: x-large; text-align: left;">
+            <strong>Related Podcasts:</strong>
+          </h3> <br/>
+
+          <div style="overflow-y: scroll; max-height: 50vh;">
+            <!-- spotify  -->
+            <div class="placeholderItem" style="background-color: #1DB954; height: 100px;">
+              <br/>
+              <br/>
+              <h3 style="font-size: large; text-align: center;">
+                <strong>Podcast placeholder</strong>
+              </h3> <br/>
+              <div style="padding: 30%">
+                <strong>
+                  <p style="color: black;">
+                    <span style="color: black;">●</span> [insert podcast]</p>
+                </strong>
+              </div>
+            </div>
+
+
+            <div class="placeholderItem" style="background-color: #1DB954; height: 100px;"></div>
+            <div class="placeholderItem" style="background-color: #1DB954; height: 100px;"></div>
+            <div class="placeholderItem" style="background-color: #1DB954; height: 100px;"></div>
+            <!-- spotify -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column col2">
+      <h3>RELATED TWEETS:</h3>
+      <br/>
+      <div style="overflow-y: scroll; max-height: 70vh; border: 5px solid #791313; box-shadow: 10px 10px 8px #888888;">
+        <!-- tweets -->
+        <div *ngFor="let tweet of getTwitterData()">
+          <div class="placeholderItem" style="background-color: #C5EAFA; height: fit-content; text-align: left;">
+            <br/>
+            <strong> <p style="font-size: medium; margin: 15px"> {{tweet.username}}: </p> </strong>
+            <p style="margin: 15px"> {{tweet.text}}</p>
+            <i><p style="margin: 15px"> {{tweet.created_at}} </p></i>
+            <br/>
+          </div>
+        </div>
+        <!--
+        <select>
+          <option  *ngFor="let tweet of getTwitterData()" [value]="tweet">{{tweet.username}}</option>
+        </select>
+        <input type="hidden" #selection>-->
+
+        <!-- tweets -->
+      </div>
+      <br/>
+
+      <div>
+        <div class="placeholderItem" style="text-align: center;">
+          <br/>
+          <h3 style="font-size: x-large; text-align: left;">
+            <strong>Guidelines:</strong>
+          </h3>
+          <div style="font-size: x-large; background-color: #f3eaea; color: black; height: 360px;">
+            <p><strong>[insert guidelines]</strong></p>
+          </div>
+        </div>
+>>>>>>> Stashed changes
       </div>
     </div>
   </div>
 </div>
+<<<<<<< Updated upstream
+=======
+
+<div style="background-color: #f3eaea;
+                    color: black;
+                    font-size: large;
+                    padding: 1%;
+                    height: 150px;
+                    margin: 1%;
+                    bottom: 1px">
+  <p>
+    <b>Sensor data here</b>
+  </p>
+</div>
+
+<!-- FOOTER STARTS HERE -->
+<div class="footer">
+  <div>
+    <div class="textContainer">
+      Presented by JollyRanchers  |  2022
+    </div>
+  </div>
+</div>
+<!-- FOOTER ENDS HERE -->
+
+</html>
+>>>>>>> Stashed changes

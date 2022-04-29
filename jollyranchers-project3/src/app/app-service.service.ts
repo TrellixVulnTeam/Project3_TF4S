@@ -5,7 +5,8 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AppServiceService {
+export class AppServiceService
+{
 
   constructor(private http : HttpClient) { }
 
@@ -22,14 +23,9 @@ export class AppServiceService {
        result = await this.http.get('http://localhost:8000/api/symptoms');
       return result;
     }
-    else if(platform == "youtube")
+    else if(platform == "podcasts")
     {
-      result = await this.http.get('http://localhost:8000/api/youtube');
-      return result;
-    }
-    else if(platform == "spotify")
-    {
-      result = await this.http.get('http://localhost:8000/api/spotify');
+      result = await this.http.get('http://localhost:8000/api/podcasts');
       return result;
     }
     else if(platform == "sensorData")
@@ -43,6 +39,42 @@ export class AppServiceService {
       console.log("invalid database selected");
       return null;
     }
+  }
 
+  async getYoutubeVideos(category : string)
+  {
+
+
+      let result;
+      if(category == "fox13")
+      {
+        result = await this.http.get('http://localhost:8000/api/youtube/fox13');
+        return result;
+      }
+    if(category == "tampa10")
+    {
+      result = await this.http.get('http://localhost:8000/api/youtube/tampa10');
+      return result;
+    }
+    if(category == "abcAction")
+    {
+      result = await this.http.get('http://localhost:8000/api/youtube/abcAction');
+      return result;
+    }
+    if(category == "wfla8")
+    {
+      result = await this.http.get('http://localhost:8000/api/youtube/wfla8');
+      return result;
+    }
+    if(category == "general")
+    {
+      result = await this.http.get('http://localhost:8000/api/youtube/general');
+      return result;
+    }
+      else
+      {
+        console.log("invalid database selected");
+        return null;
+      }
   }
 }

@@ -4,12 +4,12 @@ const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongod
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 module.exports = {
-    getDatabaseInfo: async function (collectionName) {
+    getDatabaseInfo: async function (databaseName, collectionName) {
 
         try {
 
             await client.connect();
-            const cursor = await client.db("jollyranchers").collection(collectionName).find({});
+            const cursor = await client.db(databaseName).collection(collectionName).find({});
 
             const result = await cursor.toArray();
             console.log(result);
@@ -18,7 +18,7 @@ module.exports = {
                 result.forEach((r, i) => {
 
                     //  console.log();
-                    console.log(`_id: ${r._id}`);
+                   // console.log(`_id: ${r._id}`);
                 });
 
                 return result;

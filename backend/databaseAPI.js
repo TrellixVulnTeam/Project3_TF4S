@@ -26,26 +26,55 @@ app.route('/api/cats').post((req, res) => {
 })*/
 
 app.route('/api/twitter').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo('tweets');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'tweets');
     res.send(results);
 })
 
 app.route('/api/symptoms').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo('symptoms');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'symptoms');
     res.send(results);
 })
 
-app.route('/api/youtube').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo('youtube');
+
+
+//youtube API
+app.route('/api/youtube/fox13').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'fox13');
+    console.log("working");
     res.send(results);
 })
 
-app.route('/api/spotify').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo('spotify');
+app.route('/api/youtube/tampa10').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'tampa10');
+    res.send(results);
+})
+
+app.route('/api/youtube/abcAction').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'abcAction');
+    res.send(results);
+})
+
+app.route('/api/youtube/wfla8').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'wfla8');
+    res.send(results);
+})
+
+app.route('/api/youtube/general').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'general');
+    res.send(results);
+})
+
+
+
+
+
+
+app.route('/api/podcasts').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts"');
     res.send(results);
 })
 
 app.route('/api/sensorData').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo('sensorData');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers", 'sensorData');
     res.send(results);
 })
