@@ -70,7 +70,7 @@ app.route('/api/youtube/general').get(async (req, res) => {
 
 
 app.route('/api/podcasts').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts"');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts');
     res.send(results);
 })
 

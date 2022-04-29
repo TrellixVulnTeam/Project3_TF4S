@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDataFromAPI("twitter")
-    this.getDataFromAPI("spotify")
+    this.getDataFromAPI("podcasts")
   }
 
   async getDataFromAPI(platform: string) {
@@ -44,9 +44,9 @@ export class HomeComponent implements OnInit {
         }, (error) => {
           console.log("error is ", error);
         });
-      } else if (platform == "spotify") {
+      } else if (platform == "podcasts") {
         result.subscribe((response) => {
-          console.log("response", response);
+          console.log("spotify", response);
           this.spotifyData = response;
         }, (error) => {
           console.log("error is ", error);
