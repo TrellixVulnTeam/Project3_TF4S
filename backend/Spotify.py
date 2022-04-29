@@ -63,6 +63,7 @@ for link in links:
         if word in description:
             print("Bingo! ")
             print(description)
+            
             wanted_podcasts.append(link)
 
 """
