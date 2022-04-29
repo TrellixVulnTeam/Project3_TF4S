@@ -9,6 +9,8 @@ import { YoutubeDisplayComponent } from './youtube-display/youtube-display.compo
 import { HomeComponent } from './home/home.component';
 import { ForumComponent } from './forum/forum.component';
 import {FormsModule} from "@angular/forms";
+import { TwitterDisplayComponent } from './twitter-display/twitter-display.component';
+import { SpotifyDisplayComponent } from './spotify-display/spotify-display.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {FormsModule} from "@angular/forms";
     DataPullerComponent,
     YoutubeDisplayComponent,
     HomeComponent,
-    ForumComponent
+    ForumComponent,
+    TwitterDisplayComponent,
+    SpotifyDisplayComponent
   ],
   imports: [
     BrowserModule,

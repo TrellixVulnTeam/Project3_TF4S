@@ -77,4 +77,13 @@ export class AppServiceService
         return null;
       }
   }
+
+  async getTweets()
+  {
+    let result;
+    result = await this.http.get('http://localhost:8000/api/twitter');
+    return result;
+  }
+
+
 }

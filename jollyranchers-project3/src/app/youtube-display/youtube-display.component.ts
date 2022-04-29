@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AppServiceService} from "../app-service.service";
-import {single} from "rxjs";
+
 
 
 
@@ -107,84 +107,17 @@ export class YoutubeDisplayComponent implements OnInit
       }
     return;
 
-
-    //return playlist;
-
-    /*await this.delay(10);
-
-     const result2 = await this.service.getYoutubeVideos("tampa10")!;
-
-        if (result2 != null) {
-          //checks which database you chose and stores the data accordingly
-          result2.subscribe((response) => {
-            console.log("tampa", response);
-            this.tampaPlaylist = this.buildPlaylist(response);
-            this.tampa10 = response;
-            console.log(this.tampaPlaylist.toString());
-
-          }, (error) => {
-            console.log("error is ", error);
-          });
-        }
-
-
-
-    await this.delay(10);
-
-    const result3 = await this.service.getYoutubeVideos("abcAction")!;
-    if (result3 != null) {
-      //checks which database you chose and stores the data accordingly
-      result3.subscribe((response) => {
-        console.log("abc", response);
-        this.abcPlaylist = this.buildPlaylist(response);
-        this.abcAction = response;
-        console.log(this.abcAction.toString());
-      }, (error) => {
-        console.log("error is ", error);
-      });
-    }
-
-    await this.delay(10);
-
-    const result4 = await this.service.getYoutubeVideos("wfla8")!;
-    if (result4 != null) {
-      //checks which database you chose and stores the data accordingly
-      result4.subscribe((response) => {
-        console.log("wfla8", response);
-        this.wflaPlaylist = this.buildPlaylist(response);
-        this.wfla8 = response;
-        console.log(this.wflaPlaylist.toString());
-      }, (error) => {
-        console.log("error is ", error);
-      });
-    }
-
-    await this.delay(10);
-
-    const result5 = await this.service.getYoutubeVideos("general")!;
-    if (result5 != null) {
-      //checks which database you chose and stores the data accordingly
-      result5.subscribe((response) => {
-        console.log("general", response);
-        this.generalPlayList = this.buildPlaylist(response);
-        this.general = response;
-        console.log(this.generalPlayList.toString());
-      }, (error) => {
-        console.log("error is ", error);
-      });
-    }*/
-
   }
 
 
   async getYoutubeData() {
     const select: HTMLSelectElement = document.getElementById("select") as HTMLSelectElement;
     var collection = select.value;
-    const iFrame: HTMLIFrameElement = document.getElementById('vidPlayer')! as HTMLIFrameElement;
+    //const iFrame: HTMLIFrameElement = document.getElementById('vidPlayer')! as HTMLIFrameElement;
 
     this.callYoutubeAPI(collection);
 
-    if (collection == "fox13")
+    /*if (collection == "fox13")
     {
 
 
@@ -221,13 +154,9 @@ export class YoutubeDisplayComponent implements OnInit
       console.log(playlist);
       iFrame.src = playlist.toString();
       return this.general;
-    }
+    }*/
   }
 
-  delay(ms: number)
-  {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
 
   async buildPlaylist( collection : any )
   {

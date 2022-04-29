@@ -80,15 +80,7 @@ works smoothly.
       <br/>
       <div style="overflow-y: scroll; max-height: 70vh; border: 5px solid #791313; box-shadow: 10px 10px 8px #888888;">
         <!-- tweets -->
-        <div *ngFor="let tweet of getTwitterData()">
-          <div class="placeholderItem" style="background-color: #C5EAFA; height: fit-content; text-align: left;">
-            <br/>
-            <strong> <p style="font-size: medium; margin: 15px"> {{tweet.username}}: </p> </strong>
-            <p style="margin: 15px"> {{tweet.text}}</p>
-            <i><p style="margin: 15px"> {{tweet.created_at}} </p></i>
-            <br/>
-          </div>
-        </div>
+      <app-twitter-display></app-twitter-display>
         <!--
         <select>
           <option  *ngFor="let tweet of getTwitterData()" [value]="tweet">{{tweet.username}}</option>
