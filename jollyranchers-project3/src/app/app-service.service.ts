@@ -23,9 +23,9 @@ export class AppServiceService
        result = await this.http.get('http://localhost:8000/api/symptoms');
       return result;
     }
-    else if(platform == "podcasts")
+    else if(platform == "spotify")
     {
-      result = await this.http.get('http://localhost:8000/api/podcasts');
+      result = await this.http.get('http://localhost:8000/api/spotify');
       return result;
     }
     else if(platform == "sensorData")

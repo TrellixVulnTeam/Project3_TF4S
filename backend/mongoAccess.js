@@ -9,7 +9,7 @@ module.exports = {
         try {
 
             await client.connect();
-            const cursor = await client.db("jollyranchers").collection("podcasts").find({});
+            const cursor = await client.db(databaseName).collection(collectionName).find({});
 
             const result = await cursor.toArray();
             console.log(result);
