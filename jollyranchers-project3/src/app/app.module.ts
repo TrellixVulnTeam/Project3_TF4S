@@ -10,6 +10,7 @@ import { ForumComponent } from './forum/forum.component';
 import {FormsModule} from "@angular/forms";
 import { TwitterDisplayComponent } from './twitter-display/twitter-display.component';
 import { SpotifyDisplayComponent } from './spotify-display/spotify-display.component';
+import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SpotifyDisplayComponent } from './spotify-display/spotify-display.compo
     HomeComponent,
     ForumComponent,
     TwitterDisplayComponent,
-    SpotifyDisplayComponent
+    SpotifyDisplayComponent,
+    SymptomsDisplayComponent
   ],
   imports: [
     BrowserModule,
