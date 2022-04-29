@@ -85,5 +85,12 @@ export class AppServiceService
     return result;
   }
 
+  async getPodcasts()
+  {
+    let result;
+    result = await this.http.get('http://localhost:8000/api/spotify');
+    return result;
+  }
+
 
 }

@@ -11,7 +11,7 @@ export class DataPullerService {
   constructor(private http: HttpClient) {
   }
 
-    getData(platform: string): Observable<DataRequest> {
-      return this.http.get<DataRequest>('http://localhost:8000/api/')
-    }
+  getData(platform: string): Observable<DataRequest> {
+    return this.http.get<DataRequest>('http://localhost:8000/api/')
+  }
 }

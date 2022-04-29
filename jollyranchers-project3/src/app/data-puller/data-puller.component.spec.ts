@@ -10,7 +10,7 @@ describe('DataPullerComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DataPullerComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
