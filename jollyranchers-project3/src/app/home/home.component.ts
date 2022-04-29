@@ -7,7 +7,7 @@ export class HomeComponent implements OnInit {
   private twitterData: any = [];
   private symptomsData: any = [];
   private youtubeData: any = [];
-  private spotifyData: any = [];
+  spotifyData: any = [];
   private sensorData: any = [];
 
   constructor(private service: AppServiceService) {
@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDataFromAPI("twitter")
+    this.getDataFromAPI("spotify")
   }
 
   async getDataFromAPI(platform: string) {
@@ -67,6 +68,10 @@ export class HomeComponent implements OnInit {
 
   getTwitterData() {
     return this.twitterData;
+  }
+
+  getSpotifyData(){
+    return this.spotifyData;
   }
 
 }
