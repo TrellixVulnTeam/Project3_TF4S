@@ -43,5 +43,38 @@
 
     update();
   </script>
+
+  <script>
+    /*
+    This document is used in Request Info page to check the required fields
+    */
+
+    //function to check validation (Required field)
+    function checkReqFields() {
+      var returnValue;
+      var text = document.getElementById("textArea").value;
+      var location = document.getElementById("location").value;
+
+      returnValue = true;
+      // checks the text
+      if (text.trim() == "") {
+        document.getElementById("reqtextArea").innerHTML = "* Text is required.";
+        returnValue = false;
+      }
+      // checks the location
+      if (location.trim() == "") {
+        document.getElementById("reqLocation").innerHTML = "* Location is required.";
+        returnValue = false;
+      }
+      return returnValue;
+    }
+  </script>
+
+  <script>
+    var loadFile = function(event) {
+    var image = document.getElementById('outputIMG');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    };
+  </script>
 </body>
 </html>

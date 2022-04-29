@@ -12,8 +12,10 @@
       </div>
       <div class="options" id="options">
         <ul>
-          <li><a class="nav-item nav-link" routerLink="/">Home</a></li>
-          <li><a class="nav-item nav-link" routerLink="/forum">Forum</a></li>
+          <li><a class="nav-item nav-link" routerLink="/"
+                 [style.display]="path == '' ? 'none' : 'inherit'">Home</a></li>
+          <li><a class="nav-item nav-link" routerLink="/forum"
+                 [style.display]="path == '' ? 'inherit' : 'none'">Forum</a></li>
         </ul>
       </div>
     </div>

@@ -1,1 +1,190 @@
-<h1>Forum Page</h1>
+<body>
+<!--s
+'Body' refers to anything between the footer and the header.
+It has it's own special styling rules defined in the globals.css file to make sure everything
+works smoothly.
+-->
+<div class="body">
+
+  <div class="form-bar">
+    <div style="border-right: 2px solid #791313;"><!-- sidebar -->
+      <div class="reqInfo" style="margin: 20px">
+        <!-- header for the form -->
+        <h1 style="border-bottom: solid; border-color: #172C58; padding-bottom: 2px;">Create a post:</h1>
+        <p style="color: #a3475e">* indicates required fields.</p><br/>
+
+        <!-- form to be able to check fields if they are empty and be able to enter information -->
+        <form onsubmit="return checkReqFields()">
+          <!-- input field for the text -->
+          <strong>* Text: </strong><br/><br/>
+          <textarea class="field" type="text" id="textArea" maxlength="300" minlength="1" rows="8" cols="50"
+                    placeholder="Start typing here..." [(ngModel)]="textArea" [ngModelOptions]="{standalone: true}"
+          ></textarea>
+          <br/>
+          <span id='charLimit'>Remaining characters: {{300-textArea.length}}</span>
+          <br/><br/>
+          <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
+          <br/><br/>
+          <!-- input field for the location -->
+          <strong>* Choose your location: </strong><br/><br/>
+          <input class="field" list="locations" name="location" id="location" style="width: 100%"><br/><br/>
+          <span id="reqLocation" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
+          <datalist id="locations">
+            <option value="Miami-Dade County">
+            <option value="Broward County">
+            <option value="Palm Beach County">
+            <option value="Hillsborough County">
+            <option value="Orange County">
+            <option value="Pinellas County">
+            <option value="Duval County">
+            <option value="Lee County">
+            <option value="Polk County">
+            <option value="Brevard County">
+            <option value="Volusia County">
+            <option value="Pasco County">
+            <option value="Seminole County">
+            <option value="Sarasota County">
+            <option value="Manatee County">
+            <option value="Collier County">
+            <option value="Osceola County">
+            <option value="Marion County">
+            <option value="Lake County">
+            <option value="St.Lucie County">
+            <option value="Escambia County">
+            <option value="Leon County">
+            <option value="Alachua County">
+            <option value="St.Johns County">
+            <option value="Clay County">
+            <option value="Okaloosa County">
+            <option value="Hernando County">
+            <option value="Charlotte County">
+            <option value="Bay County">
+            <option value="Santa Rosa County">
+            <option value="Martin County">
+            <option value="Indian River County">
+            <option value="Citrus County">
+            <option value="Sumter County">
+            <option value="Flagler County">
+            <option value="Highlands County">
+            <option value="Nassau County">
+            <option value="Monroe County">
+            <option value="Putnam County">
+            <option value="Walton County">
+            <option value="Columbia County">
+            <option value="Jackson County">
+            <option value="Gadsden County">
+            <option value="Suwannee County">
+            <option value="Okeechobee County">
+            <option value="Hendry County">
+            <option value="Levy County">
+            <option value="De Soto County">
+            <option value="Wakulla County">
+            <option value="Baker County">
+            <option value="Bradford County">
+            <option value="Hardee County">
+            <option value="Washington County">
+            <option value="Taylor County">
+            <option value="Holmes County">
+            <option value="Madison County">
+            <option value="Gilchrist County">
+            <option value="Dixie County">
+            <option value="Union County">
+            <option value="Gulf County">
+            <option value="Hamilton County">
+            <option value="Calhoun County">
+            <option value="Jefferson County">
+            <option value="Glades County">
+            <option value="Franklin County">
+            <option value="Lafayette County">
+            <option value="Liberty County">
+          </datalist>
+          <br/><br/>
+          <p><label for="file" style="cursor: pointer;">Upload Image:</label></p>
+          <p><input type="file" accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
+
+          <p><input id="submit" type="submit" value="Submit"/></p> <!-- submit button for the information -->
+        </form>
+      </div>
+    </div>
+
+    <div><!-- non-sidebar -->
+      <br/>
+      <section>
+        <figure class = "card">
+          <div class = "card_hero">
+            <img class="card_img" id="outputIMG"/>
+            <div class="card_middle">
+              <p class="card_middle-text">LOCATION</p>
+            </div>
+          </div>
+          <div class = "card-content">
+            <div class="card_info">
+              <p class = "card_address"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor posuere ac ut consequat semper viverra nam libero. Duis at consectetur lorem donec massa sapien faucibus et. </p>
+              <p class="card_details">something </p>
+            </div>
+            <div class="card_buttons">
+              <a href="#" class ="card_btn"> LIKE</a>
+            </div>
+          </div>
+        </figure>
+      </section>
+      <br/>
+      <section>
+        <figure class = "card">
+          <div class = "card_hero">
+            <img class="card_img" id="output"/>
+            <div class="card_middle">
+              <p class="card_middle-text">TITLE</p>
+            </div>
+          </div>
+          <div class = "card-content">
+            <div class="card_info">
+              <h5 class ="card_price"> LOCATION</h5>
+              <p class = "card_address"> ADDRESS </p>
+              <p class="card_details">something </p>
+            </div>
+            <div class="card_buttons">
+              <a href="#" class ="card_btn"> LIKE</a>
+            </div>
+          </div>
+        </figure>
+      </section>
+      <br/>
+      <section>
+        <figure class = "card">
+          <div class = "card_hero">
+            <img class="card_img" id="output"/>
+            <div class="card_middle">
+              <p class="card_middle-text">TITLE</p>
+            </div>
+          </div>
+          <div class = "card-content">
+            <div class="card_info">
+              <h5 class ="card_price"> LOCATION</h5>
+              <p class = "card_address"> ADDRESS </p>
+              <p class="card_details">something </p>
+            </div>
+            <div class="card_buttons">
+              <a href="#" class ="card_btn"> LIKE</a>
+            </div>
+          </div>
+        </figure>
+      </section>
+      <br/>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER STARTS HERE -->
+<div class="footer">
+  <div>
+    <div class="textContainer">
+      Presented by JollyRanchers  |  2022
+    </div>
+  </div>
+</div>
+<!-- FOOTER ENDS HERE -->
+</body>
+
+

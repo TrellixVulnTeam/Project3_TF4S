@@ -1,0 +1,145 @@
+.form-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-bar > :first-child {
+  flex-grow: 1;
+}
+
+.form-bar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 40%;
+}
+
+#textArea {
+  resize: none;
+  box-sizing: border-box;
+}
+
+.field {
+  box-shadow: 3px 3px 10px #654f7a;
+}
+
+/* Style of the error */
+.reqError {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+#submit {
+  height: 40px;
+  width: 150px;
+  font-weight: bold;
+  font-size: large;
+  background-color: #791313;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px #654f7a;
+}
+
+/*
+*{
+box-sizing: border-box;
+}
+
+body {
+background-color: #eee;
+font-family: "Poppins", sans-serif;
+font-size: 62.5%;
+color: #444;
+}*/
+
+/* ------------ display posts -----------*/
+section{
+  height: 60vh;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card{
+  background-color: #ffffff;
+  box-shadow: 0 0 0.9375em rgb(103, 4, 4);
+  width: 800px;
+  border-radius: 4px;
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.card_hero{
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.card_content{
+  flex: 1;
+  padding: 35px 35px 25px 35px;
+}
+
+.card_img{
+  display: block;
+  width: 100%;
+}
+
+.card_middle{
+  flex: 1;
+  padding: 35px 35px 25px 35px;
+}
+
+.card_middle-text{
+  background-color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 400;
+  border-radius: 2px;
+  padding: 10px 22px;
+  box-shadow: 0 0 0.9375em;
+}
+
+.card_content{
+  flex:1;
+  padding: 35px 35px 25px 35px;
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card_info{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: auto;
+}
+
+.card_address{
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.card_details{
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.card_buttons{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_btn{
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: royalblue;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+/* ------------ display posts -----------*/
+

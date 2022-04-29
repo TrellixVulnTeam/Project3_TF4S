@@ -8,6 +8,7 @@ import { DataPullerComponent } from './data-puller/data-puller.component';
 import { YoutubeDisplayComponent } from './youtube-display/youtube-display.component';
 import { HomeComponent } from './home/home.component';
 import { ForumComponent } from './forum/forum.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ForumComponent } from './forum/forum.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
