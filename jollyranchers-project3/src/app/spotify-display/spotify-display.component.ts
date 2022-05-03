@@ -11,7 +11,6 @@ import {DomSanitizer, SafeResourceUrl , SafeUrl} from "@angular/platform-browser
 
 export class SpotifyDisplayComponent implements OnInit
 {
-  pod : string | undefined;
   podcasts: any = [];
   constructor(private service: AppServiceService, private sanitizer: DomSanitizer) {
   }

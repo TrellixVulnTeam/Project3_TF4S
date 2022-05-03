@@ -107,7 +107,7 @@ dbname = get_database()
 collection_name = dbname["tweets"]
 tweet_list = tweets.values()
 
-#collection_name.insert_many(tweet_list)
+collection_name.insert_many(tweet_list)
 
 item_details = collection_name.find()
 #for item in item_details:
