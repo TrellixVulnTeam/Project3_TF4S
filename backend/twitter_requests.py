@@ -64,7 +64,7 @@ def pull_tweets(tweets, full_query):
         # checks the tweet id and retweeted tweets to avoid duplication
         if tweet_id not in tweets and result['text'][0:2] != "RT":
             # adds tweets with the elements of when it was created, username and text
-            tweets[tweet_id] = {"created_at": result['created_at'], "username": result['user']['name'], "text": result['text'], "profile_image_url": result['profile_image_url']}
+            tweets[tweet_id] = {"created_at": result['created_at'], "username": result['user']['name'], "text": result['text'], "profile_image_url": result['user']['profile_image_url']}
     return tweets
 
 #TODO: Add a remove all method and uncomment the insert_many method so that it deletes all tweets and repopulates DB.
