@@ -95,7 +95,7 @@ export class AppServiceService
   async getForumPosts()
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/forum');
+    result = await this.http.get('http://localhost:8000/api/forum/posts');
     return result;
   }
 
