@@ -1,9 +1,13 @@
 <div *ngFor="let tweet of getTwitterData()">
-  <div class="placeholderItem" style="background-color: #C5EAFA; height: fit-content; text-align: left;">
+  <div class="placeholderItem" style="height: fit-content; text-align: left;">
+    <div style="float: left">
+      <img style="
+          width: 25%;
+          border-radius: 50%;" src="{{tweet.profile_image_url}}" alt="profile picture">
+      <strong> <p style="width: 75%; font-size: medium" > {{tweet.username}}: </p> </strong>
+    </div>
     <br/>
-    <strong> <p style="font-size: medium; margin: 15px" > {{tweet.username}}: </p> </strong>
     <p style="margin: 15px"> {{tweet.text}}</p>
     <i><p style="margin: 15px"> {{tweet.created_at}} </p></i>
-    <br/>
   </div>
 </div>

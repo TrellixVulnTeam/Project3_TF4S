@@ -6,8 +6,8 @@ import {AppServiceService} from "../app-service.service";
 export class ForumComponent
 {
 
+  textArea = '';
   private forumPosts : any = [];
-
 
 
   constructor(private service: AppServiceService) { }
