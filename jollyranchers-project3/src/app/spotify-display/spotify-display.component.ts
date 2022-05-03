@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
+import {DomSanitizer, SafeResourceUrl , SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-spotify-display',
   templateUrl: './spotify-display.component.html',
   styleUrls: ['./spotify-display.component.scss']
 })
+
+
 export class SpotifyDisplayComponent implements OnInit
 {
-
-  private podcasts: any = [];
-
-  constructor(private service: AppServiceService) { }
+  pod : string | undefined;
+  podcasts: any = [];
+  constructor(private service: AppServiceService, private sanitizer: DomSanitizer) {
+  }
+  getSanitizedURL(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   ngOnInit(): void
   {
@@ -49,3 +55,4 @@ export class SpotifyDisplayComponent implements OnInit
   }
 
 }
+

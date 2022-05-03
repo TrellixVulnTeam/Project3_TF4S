@@ -91,6 +91,13 @@ for link in wanted_podcasts:
     readyLinks.append(a[1])
 
 
+cleanList = []
+for link in readyLinks:
+    if link not in cleanList:
+        cleanList.append(link)
+
+
+
 def get_database():
     # Provide the mongodb atlas url to connect python to mongodb using pymongo
     CONNECTION_STRING = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
