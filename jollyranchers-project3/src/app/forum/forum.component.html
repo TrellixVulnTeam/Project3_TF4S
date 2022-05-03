@@ -14,7 +14,7 @@ works smoothly.
         <p style="color: #a3475e">* indicates required fields.</p><br/>
 
         <!-- form to be able to check fields if they are empty and be able to enter information -->
-        <form onsubmit="return checkReqFields()">
+        <form id="postForm" method="POST" action="/api/forum" onsubmit="return checkReqFields()">
           <!-- input field for the text -->
           <strong>* Text: </strong><br/><br/>
           <textarea class="field" type="text" id="textArea" maxlength="300" minlength="1" rows="8" cols="50"

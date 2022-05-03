@@ -33,5 +33,21 @@ module.exports = {
         } finally {
             await client.close();
         }
+    },
+
+    writeSingleDataEntry: async function (databaseName, collectionName, entry) {
+
+        try {
+
+            await client.connect();
+            const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
+
+            console.log(`New Listing Created id: ${result.insertedId}`);
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await client.close();
+        }
     }
 }

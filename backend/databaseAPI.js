@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 
 
 const cors = require('cors');
+var jsonParser = bodyParser.json();
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 var corsOptions = {
@@ -64,11 +66,39 @@ app.route('/api/youtube/general').get(async (req, res) => {
     res.send(results);
 })
 
+//forum routing
+app.post('/api/forum/submit', urlencodedParser, function (req, res)
+{
+    console.log(req.body);
+    if(!req.body.text)
+    {console.log("text field is empty");}
+    else if (!req.body.location)
+    {
+        console.log("location field is missing");
+    }
+    else
+    {
+        if(req.body.file)
+        {
+            //TODO: Need to process the image here somehow
+            const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req.body);
+        }
+        else
+        {
+            const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req.body);
+        }
 
+        res.send('Submitted from' + req.body.location)
+    }
 
+})
 
+app.route('/api/forum/posts').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'forumPosts');
+    res.send(results);
+})
 
-
+//spotify routing
 app.route('/api/spotify').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts');
     res.send(results);

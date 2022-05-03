@@ -117,44 +117,6 @@ export class YoutubeDisplayComponent implements OnInit
 
     this.callYoutubeAPI(collection);
 
-    /*if (collection == "fox13")
-    {
-
-
-        console.log(this.foxPlaylist.toString());
-       //iFrame.src = this.foxPlaylist.toString();
-
-
-
-      return this.fox13;
-
-
-    }
-    if (collection == "tampa10") {
-
-      let playlist = this.buildPlaylist(this.tampa10)
-
-      iFrame.src = this.tampaPlaylist.toString();
-      return this.tampa10;
-    }
-    if (collection == "abcAction") {
-      let playlist = this.buildPlaylist(this.abcAction)
-      console.log(playlist);
-      iFrame.src = playlist.toString();
-      return this.abcAction;
-    }
-    if (collection == "wfla8") {
-      let playlist = this.buildPlaylist(this.wfla8);
-      console.log(playlist);
-      iFrame.src = playlist.toString();
-      return this.wfla8;
-    }
-    if (collection == "general") {
-      let playlist = this.buildPlaylist(this.general)
-      console.log(playlist);
-      iFrame.src = playlist.toString();
-      return this.general;
-    }*/
   }
 
 

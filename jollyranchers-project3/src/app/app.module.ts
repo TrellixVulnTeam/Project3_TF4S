@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { TwitterDisplayComponent } from './twitter-display/twitter-display.component';
 import { SpotifyDisplayComponent } from './spotify-display/spotify-display.component';
 import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.component';
+import { ForumDisplayComponent } from './forum-display/forum-display.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.co
     ForumComponent,
     TwitterDisplayComponent,
     SpotifyDisplayComponent,
-    SymptomsDisplayComponent
+    SymptomsDisplayComponent,
+    ForumDisplayComponent
   ],
   imports: [
     BrowserModule,
