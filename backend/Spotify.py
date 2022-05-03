@@ -10,6 +10,11 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 """
+Resource:
+https://stackoverflow.com/questions/16180428/can-selenium-webdriver-open-browser-windows-silently-in-the-background
+"""
+
+"""
 Global Variables that we will be using throughout the program
 """
 keyWords = ['florida', 'red tide', 'fish', 'ocean', 'sea', 'algal', 'bloom', 'coast', 'karenia', 'brevis',
@@ -24,7 +29,11 @@ Here I am using Selenium to:
     - It would then scrape a list of all available Podcast episodes in that webpage
 """
 
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+op = webdriver.ChromeOptions()
+op.add_argument('headless')
+driver = webdriver.Chrome(options=op, service=Service(ChromeDriverManager().install()))
+
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get('https://open.spotify.com/search/Red%20Tide/episodes')
 time.sleep(5)
 searching = driver.find_elements(By.CLASS_NAME, 'LunqxlFIupJw_Dkx6mNx')
@@ -34,7 +43,6 @@ for item in searching:
     lnk = link.get_attribute('href')
     print(lnk)
     links.append(lnk)
-
 
 """
 After Getting all of the Podcasts links, we need to filter out the irrelevant Podcasts
@@ -55,7 +63,10 @@ for link in links:
         print("no more info")
     print("before sleep")
     time.sleep(3)
-    text = driver.find_element(By.CLASS_NAME, 'CTqnyEX1E8bCstZSENX_')
+    try:
+        text = driver.find_element(By.CLASS_NAME, 'CTqnyEX1E8bCstZSENX_')
+    except:
+        continue
     time.sleep(3)
     # print(text.text)
     description = text.text.lower()
@@ -63,23 +74,21 @@ for link in links:
         if word in description:
             print("Bingo! ")
             print(description)
-
             wanted_podcasts.append(link)
 
 """
 2 Ways you can do this:
-    - Either connect here and display directly on Angular -> 
+    - Either connect here and display directly on Angular ->
     - Have the iframe template put on Angular with the link as a variable and pull from the data base to fill up that variable
 
 """
-firstHalf_embed = '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/'
-secondHalf_embed = '?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>'
-readyForEmbed = []
+
+readyLinks = []
 for link in wanted_podcasts:
     a = re.sub('episode/', '<stop>', link)
     a = re.split('<stop>', a)
-    print(firstHalf_embed + a[1] + secondHalf_embed)
-    readyForEmbed.append(firstHalf_embed + a[1] + secondHalf_embed)
+    print(a[1])
+    readyLinks.append(a[1])
 
 
 def get_database():
@@ -93,12 +102,11 @@ def get_database():
 
 
 db = get_database()
+collection = db.get_collection("podcasts")
+collection.drop()
 collection = db.create_collection("podcasts")
 
-try:
-    print("Potato")
-    collection.insert_one(readyForEmbed)
-    print("here")
-    print(f"Inserted {len(readyForEmbed)} podcasts")
-except:
-    print('an error occurred symptoms were not stored to db')
+
+for link in readyLinks:
+    collection.insert_one({'Link': 'https://open.spotify.com/embed/episode/'+str(link)+'?utm_source=generator'})
+
