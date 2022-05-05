@@ -17,7 +17,12 @@ works smoothly.
 
     <div class="column col1">
 
-      <div style="background-color: #f3eaea; color: black; text-decoration: bold;  border: 2px solid #791313; font-size: large; padding: 1%; font-style: bald;">
+      <div style="background-color: #f3eaea;
+                  color: black;
+                  text-decoration: bold;
+                  border: 2px solid #791313;
+                  font-size: large;
+                  padding: 1%;">
         <p>
           <b><br/>
             TWITTER DATA PLACEHOLDER
@@ -45,24 +50,18 @@ works smoothly.
         </p>
       </div>
 
-      <div class="row" style="margin-top: 25px;">
+      <!-- youtube -->
+      <app-youtube-display></app-youtube-display>
+      <!-- youtube -->
 
-        <div class="small-column first">
-          <!-- youtube -->
-          <app-youtube-display></app-youtube-display>
-          <!-- youtube -->
-        </div>
+      <br/>
+      <h3 style="font-size: x-large; text-align: left;">
+        <strong>Related Podcasts:</strong>
+      </h3> <br/>
+      <!-- spotify  -->
+      <app-spotify-display></app-spotify-display>
+      <!-- spotify -->
 
-        <div>
-          <br/>
-          <h3 style="font-size: x-large; text-align: left;">
-            <strong>Related Podcasts:</strong>
-          </h3> <br/>
-          <!-- spotify  -->
-          <app-spotify-display></app-spotify-display>
-          <!-- spotify -->
-        </div>
-      </div>
     </div>
 
     <div class="column col2">
@@ -71,12 +70,6 @@ works smoothly.
       <div style="overflow-y: scroll; max-height: 70vh; border: 5px solid #657786; border-radius: 5%; box-shadow: 10px 10px 8px #888888;">
         <!-- tweets -->
       <app-twitter-display></app-twitter-display>
-        <!--
-        <select>
-          <option  *ngFor="let tweet of getTwitterData()" [value]="tweet">{{tweet.username}}</option>
-        </select>
-        <input type="hidden" #selection>-->
-
         <!-- tweets -->
       </div>
       <br/>
@@ -85,10 +78,10 @@ works smoothly.
         <div class="placeholderItem" style="text-align: center;">
           <br/>
           <h3 style="font-size: x-large; text-align: left;">
-            <strong>Guidelines:</strong>
-          </h3>
+            <strong>Symptoms and Guidelines:</strong>
+          </h3> <br/>
           <div style="font-size: x-large; background-color: #f3eaea; color: black; height: 360px;">
-            <p><strong>[insert guidelines]</strong></p>
+            <app-symptoms-display></app-symptoms-display>
           </div>
         </div>
       </div>
@@ -96,35 +89,5 @@ works smoothly.
   </div>
   <br/>
 </div>
-
-<!-- Symptom Data -->
-<div style="background-color: #f3eaea;
-                    color: black;
-                    text-decoration: bold;
-                    font-size: large;
-                    padding: 1%;
-                    font-style: bald;
-                    height: 150px;
-                    margin: 1%;
-                    bottom: 1px">
-  <p>
-    <app-symptoms-display></app-symptoms-display>
-  </p>
-</div>
-
-<div style="background-color: #f3eaea;
-                    color: black;
-                    text-decoration: bold;
-                    font-size: large;
-                    padding: 1%;
-                    font-style: bald;
-                    height: 150px;
-                    margin: 1%;
-                    bottom: 1px">
-  <p>
-    <b>Sensor data here</b>
-  </p>
-</div>
-
 
 </html>
