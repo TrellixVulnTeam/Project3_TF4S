@@ -1,17 +1,21 @@
+<br/>
+<br/>
 <div *ngFor="let tweet of getTwitterData()">
   <div class="placeholderItem" style="height: fit-content;
                                       text-align: left;
                                       background-color: #F5F8FA;
                                       font-family: 'Helvetica Neue';">
-    <div style="float: left">
-      <img style="
-          width: 25%;
-          border-radius: 50%;" src="{{tweet.profile_image_url}}" alt="profile picture">
-      <strong> <p style="width: 75%; font-size: medium" > {{tweet.username}}: </p> </strong>
+    <div style="float: left;
+                width: 10%;">
+      <img style=" width: 50px; height: 50px; border-radius: 50%;" src="{{tweet.profile_image_url}}" alt="profile picture">
     </div>
-    <p> this is the profile img baby : {{tweet.profile_image_url}} </p>
-    <br/>
-    <p> {{tweet.text}}</p>
-    <i><p> {{tweet.created_at}} </p></i>
-  </div>
+    <div style="float: left;
+                width: 70%;
+                margin-left: 20px">
+      <br/>
+      <strong> <p style="font-size: medium; width: 100%"> {{tweet.username}}: </p> </strong>
+    </div>
+  <br/>
+  <p> {{tweet.text}}</p>
+  <i><p> {{tweet.created_at}} </p></i>
 </div>
