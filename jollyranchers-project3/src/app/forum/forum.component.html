@@ -101,13 +101,21 @@ works smoothly.
           <br/><br/>
           <p><label for="file" style="cursor: pointer;">Upload Image:</label></p>
           <p><input type="file" accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
+          <br/>
+          <p><label style="cursor: pointer;">Add a tag:</label></p>
+          <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/>
 
           <p><input id="submit" type="submit" value="Submit"/></p> <!-- submit button for the information -->
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+
         </form>
       </div>
     </div>
 
-    <div class="main" style="overflow: auto"><!-- non-sidebar -->
+    <div class="main"><!-- non-sidebar -->
       <br/>
       <section>
         <figure class = "card">
@@ -132,7 +140,7 @@ works smoothly.
       <section>
         <figure class = "card">
           <div class = "card_hero">
-            <img class="card_img" id="output"/>
+            <img class="card_img"/>
             <div class="card_middle">
               <p class="card_middle-text">TITLE</p>
             </div>
@@ -153,7 +161,7 @@ works smoothly.
       <section>
         <figure class = "card">
           <div class = "card_hero">
-            <img class="card_img" id="output"/>
+            <img class="card_img"/>
             <div class="card_middle">
               <p class="card_middle-text">TITLE</p>
             </div>
@@ -173,18 +181,8 @@ works smoothly.
       <br/>
     </div>
   </div>
-
 </div>
 
-<!-- FOOTER STARTS HERE -->
-<div class="footer">
-  <div>
-    <div class="textContainer">
-      Presented by JollyRanchers  |  2022
-    </div>
-  </div>
-</div>
-<!-- FOOTER ENDS HERE -->
 </body>
 
 

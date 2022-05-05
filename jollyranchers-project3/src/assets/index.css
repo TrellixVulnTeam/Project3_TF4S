@@ -1,6 +1,6 @@
 .body {
     text-align: center;
-    /* overflow-y: hidden; */
+    /*overflow-y: hidden;*/
     font-family: futura-pt, sans-serif;
 }
 
@@ -21,7 +21,7 @@
     height: 80vh;
 }
 
-.col1 { 
+.col1 {
     margin-left: 15px;
     width: 60%;
 }
@@ -35,15 +35,15 @@
     float: left;
     padding: 10px;
 }
-  
+
 .first {
 width: 70%;
 }
-  
+
 .second {
 width: 25%;
 }
-  
+
 /* Clear floats after the columns */
 .row:after {
 content: "";

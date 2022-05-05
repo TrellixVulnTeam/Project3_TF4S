@@ -15,6 +15,8 @@ body {
     width: 100%;
     height: 80px;
     min-width: fit-content;
+    position: fixed;
+    z-index: 1;
 }
 
 .rtr-title {
@@ -22,7 +24,7 @@ body {
 } .nav > .rtr-title > .logo {
     display: inline-block;
     text-align: center;
-    top: 10px; 
+    top: 10px;
     height: 70px;
     width: 185px;
     position: absolute;
@@ -39,7 +41,7 @@ body {
 }
 
 .menu-title > h1 {
-    font-size: 32px; 
+    font-size: 32px;
     text-emphasis-style: 'overline';
 }
 .menu-title > p {
@@ -49,29 +51,20 @@ body {
 
 .options {
     min-width: 1000px;
-    width: fit-content;
     height: inherit;
     position: absolute;
-    right: 15px;
     display: inline;
-    /* width: 66.6vw; */
-    width: 50vw;
     text-align: center;
-
-    /* https://www.pixelstech.net/article/1566607923-Use-CSS-calc-to-align-an-element-vertically */
-    /* top: calc(8% - 23px); */
-    top: 52px;
+    top: 50px;
     right: 50px;
 
 } .options > ul, li {
     float: right;
-    list-style: none;
     display: inherit;
-    list-style-type: none;
     font-family: futura-pt, sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: white;
+    color: #791313;
 }
 
 .body {
@@ -84,7 +77,8 @@ body {
     background-color: #791313;
     width: 100%;
     height: 48px;
-    z-index: 5;
+    z-index: 1;
+    position: relative;
 } .footer > div {
     width: fit-content;
     margin-left: auto;
@@ -97,7 +91,7 @@ body {
     top: 13px;
     margin-left: 16px;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 }
 
