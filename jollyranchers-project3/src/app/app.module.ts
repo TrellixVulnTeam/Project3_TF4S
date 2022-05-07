@@ -12,6 +12,7 @@ import { TwitterDisplayComponent } from './twitter-display/twitter-display.compo
 import { SpotifyDisplayComponent } from './spotify-display/spotify-display.component';
 import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.component';
 import { ForumDisplayComponent } from './forum-display/forum-display.component';
+import { GraphDisplayComponent } from './graph-display/graph-display.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ForumDisplayComponent } from './forum-display/forum-display.component';
     TwitterDisplayComponent,
     SpotifyDisplayComponent,
     SymptomsDisplayComponent,
-    ForumDisplayComponent
+    ForumDisplayComponent,
+    GraphDisplayComponent
   ],
   imports: [
     BrowserModule,

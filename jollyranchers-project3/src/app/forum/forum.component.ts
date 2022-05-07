@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 
+
 @Component({
     templateUrl: 'forum.component.html', styleUrls:["forum.component.scss"]})
 export class ForumComponent
@@ -73,6 +74,7 @@ export class ForumComponent
 
     if(image !=null)
     {
+
       formData.append("file", image);
       fetch("http://localhost:8000/api/forum/submitImg", {
         method: 'POST',

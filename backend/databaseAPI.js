@@ -103,7 +103,7 @@ conn.once('open', () =>
 
     // all set!
 })
-
+let postNumber = 1; //keeps a counter to keep track of which image goes to each post
 const storage = new GridFsStorage({
     url: uri,
     file: (req, file) => {
@@ -112,10 +112,11 @@ const storage = new GridFsStorage({
                 if (err) {
                     return reject(err);
                 }
+                postNumber = getDate();
                 const filename = buf.toString('hex') + path.extname(file.originalname);
                 const fileInfo = {
-                    filename: filename,
-                    bucketName: 'uploads/'
+                    filename: postNumber,
+                    bucketName: 'postImages/'
                 };
                 resolve(fileInfo);
             });
@@ -136,10 +137,8 @@ const upload = multer({storage: storage});
 // upload.single("file"),
 app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 {
-    //console.log(req.body);
-    //console.log(req.file);
-    //res.json({file : req.file});
-    const results = require('./mongoAccess.js').writeImgForumPost("jollyranchers",'forumPosts', req.body, req.file);
+    const results = require('./mongoAccess.js').writeImgForumPost("jollyranchers",'forumPosts', req.body,  postNumber);
+
        /* if(req.body.file)
         {
             //TODO: Need to process the image here somehow
@@ -178,3 +177,32 @@ app.route('/api/sensorData').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers", 'sensorData');
     res.send(results);
 })
+
+function getDate()
+{
+    let date_ob = new Date();
+
+// current date
+// adjust 0 before single digit date
+    let date = ("0" + date_ob.getDate()).slice(-2);
+
+// current month
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+// current year
+    let year = date_ob.getFullYear();
+
+// current hours
+    let hours = date_ob.getHours();
+
+// current minutes
+    let minutes = date_ob.getMinutes();
+
+// current seconds
+    let seconds = date_ob.getSeconds();
+
+
+
+    console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
+    return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+}

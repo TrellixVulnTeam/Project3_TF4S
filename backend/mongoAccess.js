@@ -1,6 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const {mongo} = require("mongoose");
 const Grid = require("gridfs-stream");
+var fs = require('fs');
 
 
 
@@ -58,26 +59,33 @@ module.exports = {
         }
     },
 
-    writeImgForumPost: async function (databaseName, collectionName, entry, image)
+    writeImgForumPost: async function (databaseName, collectionName, entry, postNumber)
     {
         try {
 
             await client.connect();
-            console.log(entry);
-           /* const db = new mongo.Db('jollyranchers', new mongo.Server("127.0.0.1", 27017));
+            entry[ 'postNumber' ] = postNumber;
+            const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
+            console.log(`New Listing Created id: ${result.insertedId}`);
+
+           /* var imageAsBase64 = fs.readFileSync( image.path.toString(),'base64');
+            console.log(imageAsBase64);
+           */
+
+            /*const db = new mongo.Db('jollyranchers', new mongo.Server("127.0.0.1", 27017));
             gfs = Grid(db, mongo);
 
             // streaming to gridfs
             var writeStream = gfs.createWriteStream({
-                filename: 'entry.txt'
+                filename: result.insertedId
             });
-            fs.createReadStream('forumPosts').pipe(writestream);*/
+            fs.createReadStream('forumImages').pipe(writestream);*/
 
 
 
-            //const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
 
-            //console.log(`New Listing Created id: ${result.insertedId}`);
+
+
 
         } catch (e) {
             console.error(e);
