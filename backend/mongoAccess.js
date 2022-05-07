@@ -47,9 +47,8 @@ module.exports = {
         try {
 
             await client.connect();
-            var db = new mongo.Db('jollyranchers', new mongo.Server("127.0.0.1", 27017));
-            const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
 
+            const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
             console.log(`New Listing Created id: ${result.insertedId}`);
 
         } catch (e) {

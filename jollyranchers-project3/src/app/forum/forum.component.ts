@@ -86,7 +86,7 @@ export class ForumComponent
     }
     else
     {
-      fetch("http://localhost:8000/api/forum/submitImg", {
+      fetch("http://localhost:8000/api/forum/submit", {
         method: 'POST',
         body: formData
 

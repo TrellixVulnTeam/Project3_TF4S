@@ -104,6 +104,7 @@ conn.once('open', () =>
     // all set!
 })
 let postNumber = 1; //keeps a counter to keep track of which image goes to each post
+let postID = 1;
 const storage = new GridFsStorage({
     url: uri,
     file: (req, file) => {
@@ -154,10 +155,10 @@ app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 
 })
 
-app.post('/api/forum/submit', async function (req, res) {
+app.post('/api/forum/submit', multer().none(), async function (req, res) {
 
     console.log(req.body);
-    const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body) ;
+    const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body);
 
 
 })
@@ -178,6 +179,8 @@ app.route('/api/sensorData').get(async (req, res) => {
     res.send(results);
 })
 
+//makes unique Identification number by combining post Date and a unique counter ID number
+//allows for even simultaneous posts to be unique
 function getDate()
 {
     let date_ob = new Date();
@@ -203,6 +206,8 @@ function getDate()
 
 
 
-    console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
-    return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+    let output = (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds + "post=" + postID);
+    postID++;
+    //return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+    return output;
 }
