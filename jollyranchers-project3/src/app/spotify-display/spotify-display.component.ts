@@ -1,14 +1,28 @@
 import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
+<<<<<<< Updated upstream
 import {DomSanitizer, SafeResourceUrl , SafeUrl} from "@angular/platform-browser";
+=======
+import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
+
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-spotify-display',
   templateUrl: './spotify-display.component.html',
   styleUrls: ['./spotify-display.component.scss']
 })
+<<<<<<< Updated upstream
+=======
+export class SpotifyDisplayComponent implements OnInit
+{
+  static get parameters() {
+    return [DomSanitizer];
+  }
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
 export class SpotifyDisplayComponent implements OnInit
 {
   podcasts: any = [];
@@ -16,6 +30,13 @@ export class SpotifyDisplayComponent implements OnInit
   }
   getSanitizedURL(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+=======
+
+  constructor(private service: AppServiceService, private sanitizer: DomSanitizer)
+  {
+    this.sanitizer = sanitizer;
+
+>>>>>>> Stashed changes
   }
 
   ngOnInit(): void
@@ -46,11 +67,16 @@ export class SpotifyDisplayComponent implements OnInit
 
   }
 
+
   getSpotifyData()
   {
-
-    return this.podcasts;
-
+    let cleanLinks: any = [];
+    const length = this.podcasts.length
+    for(let i = 0; i < length; i++)
+    {
+      cleanLinks.push(this.sanitizer.bypassSecurityTrustResourceUrl(this.podcasts[i].url));
+    }
+    return cleanLinks;
   }
 
 }
