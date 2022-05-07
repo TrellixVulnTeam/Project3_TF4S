@@ -1,9 +1,18 @@
 const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const bodyParser = require('body-parser')
+const mongoose  = require('mongoose');
 
-
+const methodOverride = require("method-override");
 const cors = require('cors');
+const {GridFsStorage} = require("multer-gridfs-storage");
+const crypto = require("crypto");
+const path = require("path");
+const multer = require("multer");
+const Grid = require("gridfs-stream");
+
+
+
 var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -14,9 +23,16 @@ var corsOptions = {
 }
 
 let app = express();
-app.use(cors(corsOptions), bodyParser.json())
 
-//listens on port 800 for stuff
+
+app.use(cors(corsOptions), bodyParser.json(), methodOverride('_method'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+//listens on port 800
 app.listen(8000, () => {
     console.log('Server started!')
 })
@@ -26,6 +42,12 @@ app.listen(8000, () => {
 app.route('/api/cats').post((req, res) => {
     res.send(201, req.body)
 })*/
+//@route GET
+//@desc sends back basic hello message when starting up
+app.route('/').get( async (req, res) =>
+{
+    res.send("hello world");
+});
 
 app.route('/api/twitter').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'tweets');
@@ -67,29 +89,77 @@ app.route('/api/youtube/general').get(async (req, res) => {
 })
 
 //forum routing
-app.post('/api/forum/submit', urlencodedParser, function (req, res)
+const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+let gfs
+
+const conn = mongoose.createConnection(uri);
+conn.once('open', () =>
 {
-    console.log(req.body);
-    if(!req.body.text)
-    {console.log("text field is empty");}
-    else if (!req.body.location)
-    {
-        console.log("location field is missing");
+    //initialize stream
+    gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection('jollyranchers')
+
+    //create new storage engine
+
+    // all set!
+})
+
+const storage = new GridFsStorage({
+    url: uri,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads/'
+                };
+                resolve(fileInfo);
+            });
+        });
     }
-    else
-    {
-        if(req.body.file)
+});
+
+const upload = multer({storage: storage});
+
+
+
+
+//@post /upload
+//@desc uploads forum post to database
+//use upload.array for multiple file upload, single for a single image like here
+
+//maybe put this back in
+// upload.single("file"),
+app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
+{
+    //console.log(req.body);
+    //console.log(req.file);
+    //res.json({file : req.file});
+    const results = require('./mongoAccess.js').writeImgForumPost("jollyranchers",'forumPosts', req.body, req.file);
+       /* if(req.body.file)
         {
             //TODO: Need to process the image here somehow
-            const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req.body);
+            const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req);
         }
         else
         {
             const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req.body);
         }
 
-        res.send('Submitted from' + req.body.location)
-    }
+        res.send('Submitted from' + req.body.location)*/
+
+
+})
+
+app.post('/api/forum/submit', async function (req, res) {
+
+    console.log(req.body);
+    const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body) ;
+
 
 })
 

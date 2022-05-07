@@ -14,7 +14,7 @@ works smoothly.
         <p style="color: #a3475e">* indicates required fields.</p><br/>
 
         <!-- form to be able to check fields if they are empty and be able to enter information -->
-        <form id="postForm" method="POST" action="/api/forum/submit" onsubmit="return checkReqFields()">
+        <form id="postForm"   onsubmit="return checkReqFields()">
           <!-- input field for the text -->
           <strong>* Text: </strong><br/><br/>
           <textarea class="field" type="text" id="textArea" maxlength="300" minlength="1" rows="8" cols="50"
@@ -100,12 +100,12 @@ works smoothly.
           </datalist>
           <br/><br/>
           <p><label for="file" style="cursor: pointer;">Upload Image:</label></p>
-          <p><input type="file" accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
+          <p><input type="file"  accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
           <br/>
           <p><label style="cursor: pointer;">Add a tag:</label></p>
           <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/>
 
-          <p><input id="submit" type="submit" value="Submit"/></p> <!-- submit button for the information -->
+          <p><input id="submit" type="submit" form="postForm" value="Submit"/></p> <!-- submit button for the information -->
           <br/>
           <br/>
           <br/>
