@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home";
-import {ForumComponent} from "./forum";
+import {ForumComponent} from "./forum/forum.component";
 
 const routes: Routes = [
   {

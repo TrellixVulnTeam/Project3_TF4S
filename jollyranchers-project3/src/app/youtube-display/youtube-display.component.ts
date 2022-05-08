@@ -117,10 +117,6 @@ export class YoutubeDisplayComponent implements OnInit
 
     this.callYoutubeAPI(collection);
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   }
 
 

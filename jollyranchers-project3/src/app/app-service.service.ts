@@ -99,6 +99,13 @@ export class AppServiceService
     return result;
   }
 
+  async getForumPostImages()
+  {
+    let result;
+    result = await this.http.get('http://localhost:8000/api/forum/posts/images');
+    return result;
+  }
+
 
 
   async getSymptoms()
