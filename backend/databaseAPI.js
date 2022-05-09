@@ -54,6 +54,11 @@ app.route('/api/twitter').get(async (req, res) => {
     res.send(results);
 })
 
+app.route('/api/Graphs').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'Graphs');
+    res.send(results);
+})
+
 app.route('/api/symptoms').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'symptoms');
     res.send(results);

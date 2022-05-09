@@ -28,6 +28,11 @@ export class AppServiceService
       result = await this.http.get('http://localhost:8000/api/spotify');
       return result;
     }
+    else if(platform == "Graphs")
+    {
+      result = await this.http.get('http://localhost:8000/api/Graphs');
+      return result;
+    }
     else if(platform == "sensorData")
     {
       result = await this.http.get('http://localhost:8000/api/sensorData');
@@ -98,6 +103,7 @@ export class AppServiceService
     result = await this.http.get('http://localhost:8000/api/forum/posts');
     return result;
   }
+<<<<<<< Updated upstream
 
   async getForumPostImages()
   {
@@ -107,6 +113,14 @@ export class AppServiceService
   }
 
 
+=======
+  async getGraphs()
+  {
+    let result;
+    result = await this.http.get('http://localhost:8000/api/Graphs');
+    return result;
+  }
+>>>>>>> Stashed changes
 
   async getSymptoms()
   {

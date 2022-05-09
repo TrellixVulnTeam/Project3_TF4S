@@ -12,7 +12,11 @@ import { TwitterDisplayComponent } from './twitter-display/twitter-display.compo
 import { SpotifyDisplayComponent } from './spotify-display/spotify-display.component';
 import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.component';
 import { ForumDisplayComponent } from './forum-display/forum-display.component';
+<<<<<<< Updated upstream
 import { GraphDisplayComponent } from './graph-display/graph-display.component';
+=======
+import { GraphsComponent } from './graphs/graphs.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { GraphDisplayComponent } from './graph-display/graph-display.component';
     SpotifyDisplayComponent,
     SymptomsDisplayComponent,
     ForumDisplayComponent,
+<<<<<<< Updated upstream
     GraphDisplayComponent
+=======
+    GraphsComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

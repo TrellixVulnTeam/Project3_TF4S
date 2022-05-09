@@ -6,6 +6,7 @@ export class HomeComponent implements OnInit {
 
   private twitterData: any = [];
   private symptomsData: any = [];
+  private graphsData: any = [];
   private youtubeData: any = [];
   spotifyData: any = [];
   private sensorData: any = [];
@@ -37,6 +38,14 @@ export class HomeComponent implements OnInit {
           console.log("error is ", error);
         });
       }
+      else if (platform == "Graphs") {
+        result.subscribe((response) => {
+          console.log("response", response);
+          this.graphsData = response;
+        }, (error) => {
+          console.log("error is ", error);
+        });
+      }
        else if (platform == "spotify") {
         result.subscribe((response) => {
           console.log("spotify", response);
@@ -57,6 +66,10 @@ export class HomeComponent implements OnInit {
 
     }
 
+  }
+
+  getGraphsData(){
+    return this.graphsData;
   }
 
   getTwitterData() {
