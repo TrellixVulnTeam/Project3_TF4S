@@ -1,7 +1,9 @@
 <div style="overflow-y: scroll; max-height: 50vh;">
   <!-- spotify  -->
   <div *ngFor="let podcast of getSpotifyData()">
-    <iframe style="border-radius:12px" [src]="getSanitizedURL(podcast.Link)" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">{{podcast.Link}}</iframe>
+    <iframe style="border-radius:12px" [src]="getSanitizedURL(podcast.Link)" width="100%" height="152"
+            frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">{{podcast.Link}}</iframe>
   </div>
 </div>
 

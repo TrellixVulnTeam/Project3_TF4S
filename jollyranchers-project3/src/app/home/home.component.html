@@ -50,37 +50,42 @@ works smoothly.
         </p>
       </div>
 
-      <!-- youtube -->
-      <app-youtube-display></app-youtube-display>
-      <!-- youtube -->
-
       <br/>
-      <h3 style="font-size: x-large; text-align: left;">
-        <strong>Related Podcasts:</strong>
-      </h3> <br/>
-      <!-- spotify  -->
-      <app-spotify-display></app-spotify-display>
-      <!-- spotify -->
+      <div style="margin-bottom: 30px">
+        <!-- youtube -->
+        <app-youtube-display></app-youtube-display>
+        <!-- youtube -->
+      </div>
 
+      <h3 style="font-size: x-large; text-align: left; margin-top: 30px">
+        <strong>Related Podcasts:</strong>
+      </h3>
+      <div style="margin-bottom: 30px; margin-top: 30px">
+        <!-- spotify  -->
+        <app-spotify-display></app-spotify-display>
+        <!-- spotify -->
+      </div>
+      <br/>
     </div>
+
 
     <div class="column col2">
       <h3>RELATED TWEETS:</h3>
       <br/>
-      <div style="overflow-y: scroll; max-height: 70vh; border: 5px solid #657786; border-radius: 5%; box-shadow: 10px 10px 8px #888888;">
+      <div style="overflow-y: scroll; max-height: 120vh; border: 5px solid #657786; border-radius: 2%; box-shadow: 10px 10px 8px #888888;">
         <!-- tweets -->
-      <app-twitter-display></app-twitter-display>
+        <app-twitter-display></app-twitter-display>
         <!-- tweets -->
       </div>
       <br/>
 
       <div>
         <div class="placeholderItem" style="text-align: center;">
-          <br/>
+          <br/><br/>
           <h3 style="font-size: x-large; text-align: left;">
             <strong>Symptoms and Guidelines:</strong>
           </h3> <br/>
-          <div style="font-size: x-large; background-color: #f3eaea; color: black; height: 360px;">
+          <div style="color: black; height: 100%;">
             <app-symptoms-display></app-symptoms-display>
           </div>
         </div>
@@ -89,5 +94,4 @@ works smoothly.
   </div>
   <br/>
 </div>
-
 </html>
