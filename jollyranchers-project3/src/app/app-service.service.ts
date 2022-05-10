@@ -103,7 +103,6 @@ export class AppServiceService
     result = await this.http.get('http://localhost:8000/api/forum/posts');
     return result;
   }
-<<<<<<< Updated upstream
 
   async getForumPostImages()
   {
@@ -112,15 +111,12 @@ export class AppServiceService
     return result;
   }
 
-
-=======
   async getGraphs()
   {
     let result;
     result = await this.http.get('http://localhost:8000/api/Graphs');
     return result;
   }
->>>>>>> Stashed changes
 
   async getSymptoms()
   {

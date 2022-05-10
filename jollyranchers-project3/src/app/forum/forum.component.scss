@@ -11,10 +11,10 @@
 
 /* Style page content */
 .main {
-  margin-left: 300px; /* Same as the width of the sidebar */
+  //margin-left: 300px; /* Same as the width of the sidebar */
   padding: 0px 10px;
-  float: right;
   width: 50%;
+  float: right;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
@@ -68,20 +68,23 @@
 
 /* ------------ display posts -----------*/
 section{
-  height: 60vh;
+  height: fit-content;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
+  margin-right: 70px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .card{
   background-color: #ffffff;
   box-shadow: 0 0 0.9375em rgb(103, 4, 4);
   width: 100%;
-  height: 300px;
+  height: 350px;
   border-radius: 4px;
   display: flex;
-  padding-bottom: 5px;
+  padding: 3%;
 }
 
 .card_hero{
@@ -91,12 +94,13 @@ section{
 
 .card_content{
   flex: 1;
-  padding: 35px 35px 25px 35px;
+  padding: 4%;
 }
 
 .card_img{
   display: block;
-  width: 100%;
+  width: 250px;
+  height: 250px;
 }
 
 .card_middle{
