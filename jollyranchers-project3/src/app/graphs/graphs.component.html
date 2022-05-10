@@ -1,13 +1,13 @@
-
-
-<div style="background-color: #f3eaea;
+<div *ngFor="let graph of getGraphsData()">
+    <div style="background-color: #f3eaea;
                   color: black;
                   text-decoration: bold;
                   border: 2px solid #791313;
+                  box-shadow: 10px 10px 8px #888888;
                   font-size: large;
-                  padding: 1%;">
-  <div *ngFor="let graph of getGraphsData()">
-    <img [src]='getSanitizedURL(graph.graph_b64)'>
-  </div>
+                  padding: 1%;
+                  width: 100%;">
+      <img [src]='getSanitizedURL(graph.graph_b64)'>
+    </div>
 </div>
 
