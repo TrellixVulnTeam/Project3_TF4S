@@ -115,58 +115,28 @@ works smoothly.
       </div>
     </div>
 
-    <div class="main"><!-- non-sidebar -->
+    <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar -->
       <br/>
       <section>
         <figure class = "card">
           <div class = "card_hero">
-            <img class="card_img" id="outputIMG" src="assets/redtide1.jpeg">
+            <img class="card_img" id="outputIMG"  [src]='post.image'>
             <div class="card_middle">
-              <p class="card_middle-text">Sarasota County</p>
+              <p class="card_middle-text">LOCATION: {{post.location}}</p>
             </div>
           </div>
           <div class = "card-content">
             <div class="card_info">
-              <p class="card_details">Warmer temperatures tend to facilitate blooms of the microorganism that causes red tide,
-                and so cooler winter temperatures have somewhat tempered the blooms, but they have not dissipated entirely.
-                Although Gulf of Mexico water temperatures are in the mid to upper 60s Fahrenheit, red tide has not gone dormant.
-                In the second week of January, there were still high concentrations of the red tide microorganism being reported in
-                Manatee and Sarasota counties south of Tampa Bay. And red tide presence in those counties could be on the rise.
-                So, while the fish kills may have been cleaned up, the coast is not clear. And we need to remain vigilant about what
-                may be causing this red tide event to persist and its effects on communities and wildlife. </p>
+              <p class = "card_address">{{post.textArea}} </p>
+              <p class="card_details">Tags: {{post.tag}} </p>
             </div>
-            <br/><br/><br/>
             <div class="card_buttons">
               <a href="#" class ="card_btn"> LIKE</a>
+              <p></p>
             </div>
           </div>
         </figure>
       </section>
-
-      <br/>
-
-      <section>
-        <figure class = "card">
-          <div class = "card_hero">
-            <img class="card_img" id="outputIMG" src="assets/redtide2.jpeg">
-            <div class="card_middle">
-              <p class="card_middle-text">Palm Beach County</p>
-            </div>
-          </div>
-          <div class = "card-content">
-            <div class="card_info">
-              <p class="card_details">The 2018 red tide event was massive in scale and scope of destruction.
-                While things may have tapered off near Thanksgiving, the situation persists into 2019.
-                Here are some facts and figures to recap the 2018 event and to prepare you for what lies ahead this year. </p>
-            </div>
-            <br/><br/><br/>
-            <div class="card_buttons">
-              <a href="#" class ="card_btn"> LIKE</a>
-            </div>
-          </div>
-        </figure>
-      </section>
-
       <br/>
 
       <br/>

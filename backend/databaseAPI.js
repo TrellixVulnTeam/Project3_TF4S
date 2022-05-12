@@ -95,14 +95,17 @@ app.route('/api/youtube/general').get(async (req, res) => {
 
 //forum routing
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-let gfs
+let gfs, gridfsBucket;
 
 const conn = mongoose.createConnection(uri);
 conn.once('open', () =>
 {
+    gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+        bucketName: 'postImages/'
+    });
     //initialize stream
     gfs = Grid(conn.db, mongoose.mongo);
-    gfs.collection('jollyranchers')
+    gfs.collection('postImages/')
 
     //create new storage engine
 
@@ -159,7 +162,7 @@ app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 
 })
 
-app.post('/api/forum/submit', async function (req, res) {
+app.post('/api/forum/submit', upload.single('file'), async function (req, res) {
 
     console.log(req.body);
     const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body) ;
@@ -170,6 +173,27 @@ app.post('/api/forum/submit', async function (req, res) {
 app.route('/api/forum/posts').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'forumPosts');
     res.send(results);
+})
+
+app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
+{
+
+    gfs.files.findOne({filename: req.params.filename}, (err, file) =>{
+       if(!file || file.length === 0)
+       {
+           return res.status(404).json({err: "No file exists"});
+       }
+
+       if(file.contentType === 'image/jpeg' || file.contentType === 'img/png')
+       {
+           const readStream = gridfsBucket.openDownloadStream(file._id);
+           readStream.pipe(res);
+       }
+       else
+       {
+           return res.status(404).json({err: "Not an image file"});
+       }
+    });
 })
 
 //spotify routing
@@ -208,6 +232,6 @@ function getDate()
 
 
 
-    console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
-    return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+    console.log(year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds)
+    return (year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds);
 }

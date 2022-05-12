@@ -104,12 +104,13 @@ export class AppServiceService
     return result;
   }
 
-  async getForumPostImages()
+  async getForumPostImage(fileName : string)
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/forum/posts/images');
+    result = await this.http.get('http://localhost:8000/api/forum/posts/images/' + fileName);
     return result;
   }
+
 
   async getGraphs()
   {
@@ -117,6 +118,9 @@ export class AppServiceService
     result = await this.http.get('http://localhost:8000/api/Graphs');
     return result;
   }
+
+
+
 
   async getSymptoms()
   {
