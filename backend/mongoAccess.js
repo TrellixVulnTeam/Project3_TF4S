@@ -25,7 +25,7 @@ module.exports = {
                 result.forEach((r, i) => {
 
                     //  console.log();
-                   // console.log(`_id: ${r._id}`);
+                    // console.log(`_id: ${r._id}`);
                 });
 
                 return result;
@@ -67,9 +67,9 @@ module.exports = {
             const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
             console.log(`New Listing Created id: ${result.insertedId}`);
 
-           /* var imageAsBase64 = fs.readFileSync( image.path.toString(),'base64');
-            console.log(imageAsBase64);
-           */
+            /* var imageAsBase64 = fs.readFileSync( image.path.toString(),'base64');
+             console.log(imageAsBase64);
+            */
 
             /*const db = new mongo.Db('jollyranchers', new mongo.Server("127.0.0.1", 27017));
             gfs = Grid(db, mongo);
@@ -79,13 +79,6 @@ module.exports = {
                 filename: result.insertedId
             });
             fs.createReadStream('forumImages').pipe(writestream);*/
-
-
-
-
-
-
-
         } catch (e) {
             console.error(e);
         } finally {

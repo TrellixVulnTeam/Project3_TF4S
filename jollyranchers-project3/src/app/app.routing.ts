@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home';
-import { ForumComponent } from './forum/forum.component';
+import { ForumComponent } from './forum';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

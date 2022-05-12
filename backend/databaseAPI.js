@@ -59,6 +59,7 @@ app.route('/api/Graphs').get(async (req, res) => {
     res.send(results);
 })
 
+
 app.route('/api/symptoms').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'symptoms');
     res.send(results);
@@ -66,7 +67,7 @@ app.route('/api/symptoms').get(async (req, res) => {
 
 
 
-//youtube API
+///youtube API
 app.route('/api/youtube/fox13').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'fox13');
     console.log("working");

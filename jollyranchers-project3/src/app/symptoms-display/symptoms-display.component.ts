@@ -27,7 +27,6 @@ export class SymptomsDisplayComponent implements OnInit
 
         console.log("symptoms", response);
         this.symptoms = response;
-        console.log(this.symptoms);
         return this.symptoms;
 
 
