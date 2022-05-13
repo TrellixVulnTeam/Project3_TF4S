@@ -12,7 +12,7 @@ const multer = require("multer");
 const Grid = require("gridfs-stream");
 
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }).connect();
 
 
 
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({
 
 //listens on port 800
 app.listen(8000, () => {
-    await client.connect();
+
     console.log('Server running!')
 })
 
