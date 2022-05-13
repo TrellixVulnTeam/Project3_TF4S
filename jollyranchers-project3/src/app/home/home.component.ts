@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getDataFromAPI("spotify")
+
   }
 
   async getDataFromAPI(platform: string) {
