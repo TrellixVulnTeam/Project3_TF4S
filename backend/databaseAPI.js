@@ -13,10 +13,7 @@ const Grid = require("gridfs-stream");
 
 const uri2 = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }).connect();
-
-
-
-const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect();
 
 
 
@@ -55,7 +52,6 @@ app.route('/api/cats').post((req, res) => {
 //@desc sends back basic hello message when starting up
 app.route('/').get( async (req, res) =>
 {
-    await client.connect();
     res.header("Access-Control-Allow-Private-Network","*").send("hello world");
 });
 

@@ -25,11 +25,8 @@ export class ForumComponent
       e.preventDefault();
       single.submitForm();});
 
-
     this.CallForumPostApi();
   }
-
-
 
   async CallForumPostApi()
   {
