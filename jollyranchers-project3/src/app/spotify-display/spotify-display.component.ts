@@ -40,7 +40,14 @@ export class SpotifyDisplayComponent implements OnInit
 
   async callSpotifyApi()
   {
-    const result = await this.service.getPodcasts()!;
+    var result = null;
+
+    while(result == null)
+    {
+        result = await this.service.getPodcasts()!;
+    }
+
+
     if (result != null)
     {
       //checks which database you chose and stores the data accordingly
@@ -56,6 +63,7 @@ export class SpotifyDisplayComponent implements OnInit
       }, (error) => {
         console.log("error is ", error);
       });
+
     }
     return;
 

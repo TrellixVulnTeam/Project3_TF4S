@@ -55,10 +55,7 @@ app.route('/').get( async (req, res) =>
 
 app.route('/api/twitter').get(async (req, res) => {
     await client.connect();
-    do {
-        const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'tweets');
-    }while(results == null)
-
+    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'tweets');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
