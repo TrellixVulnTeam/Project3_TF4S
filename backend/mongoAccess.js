@@ -41,6 +41,100 @@ module.exports = {
             //await client.close();
         }
     },
+    getDatabaseInfo2: async function (client, databaseName, collectionName)
+    {
+
+        try {
+
+            // await client.connect();
+            const cursor = await client.db(databaseName).collection(collectionName).find({});
+
+            const result = await cursor.toArray();
+            console.log(result);
+            if (result)
+            {
+                result.forEach((r, i) => {
+
+                    //  console.log();
+                    // console.log(`_id: ${r._id}`);
+                });
+
+                return result;
+            }
+            else {
+                console.log("not found")
+                //console.log(`No listings found with name '${nameOfListing}'`);
+            }
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            //await client.close();
+        }
+    },
+    getDatabaseInfo3: async function (client, databaseName, collectionName)
+    {
+
+        try {
+
+            // await client.connect();
+            const cursor = await client.db(databaseName).collection(collectionName).find({});
+
+            const result = await cursor.toArray();
+            console.log(result);
+            if (result)
+            {
+                result.forEach((r, i) => {
+
+                    //  console.log();
+                    // console.log(`_id: ${r._id}`);
+                });
+
+                return result;
+            }
+            else {
+                console.log("not found")
+                //console.log(`No listings found with name '${nameOfListing}'`);
+            }
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            //await client.close();
+        }
+    },
+    getDatabaseInfo4: async function (client, databaseName, collectionName)
+    {
+
+        try {
+
+            // await client.connect();
+            const cursor = await client.db(databaseName).collection(collectionName).find({});
+
+            const result = await cursor.toArray();
+            console.log(result);
+            if (result)
+            {
+                result.forEach((r, i) => {
+
+                    //  console.log();
+                    // console.log(`_id: ${r._id}`);
+                });
+
+                return result;
+            }
+            else {
+                console.log("not found")
+                //console.log(`No listings found with name '${nameOfListing}'`);
+            }
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            //await client.close();
+        }
+    },
+
 
     writeTextForumPost: async function (databaseName, collectionName, entry)
     {

@@ -62,7 +62,7 @@ app.route('/api/twitter').get(async (req, res) => {
 
 app.route('/api/Graphs').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'Graphs');
+    const results = await require('./mongoAccess.js').getDatabaseInfo2(client, "jollyranchers",'Graphs');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
@@ -70,7 +70,7 @@ app.route('/api/Graphs').get(async (req, res) => {
 
 app.route('/api/symptoms').get(async (req, res) => {
     client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'symptoms');
+    const results = await require('./mongoAccess.js').getDatabaseInfo3(client, "jollyranchers",'symptoms');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
@@ -80,7 +80,7 @@ app.route('/api/symptoms').get(async (req, res) => {
 ///youtube API
 app.route('/api/youtube/fox13').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'fox13');
+    const results = await require('./mongoAccess.js').getDatabaseInfo4(client, "youtubeData",'fox13');
     console.log("working");
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
@@ -95,21 +95,21 @@ app.route('/api/youtube/tampa10').get(async (req, res) => {
 
 app.route('/api/youtube/abcAction').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'abcAction');
+    const results = await require('./mongoAccess.js').getDatabaseInfo2(client, "youtubeData",'abcAction');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/wfla8').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'wfla8');
+    const results = await require('./mongoAccess.js').getDatabaseInfo3(client, "youtubeData",'wfla8');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/general').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'general');
+    const results = await require('./mongoAccess.js').getDatabaseInfo4(client, "youtubeData",'general');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
@@ -222,14 +222,14 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 //spotify routing
 app.route('/api/spotify').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'podcasts');
+    const results = await require('./mongoAccess.js').getDatabaseInfo2(client, "jollyranchers",'podcasts');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/sensorData').get(async (req, res) => {
     await client.connect();
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers", 'sensorData');
+    const results = await require('./mongoAccess.js').getDatabaseInfo3(client, "jollyranchers", 'sensorData');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
