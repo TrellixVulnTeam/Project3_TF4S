@@ -130,8 +130,7 @@ export class ForumComponent
 
   getForumPosts()
   {
-    let reverse = this.forumPosts.reverse();
-    return reverse;
+    return this.forumPosts;
   }
 
   getImage(post : any)

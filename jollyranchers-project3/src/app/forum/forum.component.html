@@ -26,8 +26,11 @@ works smoothly.
           <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
           <br/>
           <!-- input field for the location -->
+          <p><label style="cursor: pointer;">Add a tag:</label></p>
+          <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/>
+
           <strong>* Choose your location: </strong><br/><br/>
-          <input class="field" list="locations" name="location" id="location" style="width: 100%"><br/>
+          <input class="field" list="locations" name="location" id="location" style="width: 100%" placeholder="Choose your county here"><br/>
           <span id="reqLocation" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
           <datalist id="locations">
             <option value="Miami-Dade County">
@@ -102,8 +105,6 @@ works smoothly.
           <p><label for="file" style="cursor: pointer;">Upload Image:</label></p>
           <p><input type="file"  accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
 
-          <p><label style="cursor: pointer;">Add a tag:</label></p>
-          <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/>
 
           <p><input id="submit" type="submit" form="postForm" value="Submit"/></p> <!-- submit button for the information -->
           <br/>
