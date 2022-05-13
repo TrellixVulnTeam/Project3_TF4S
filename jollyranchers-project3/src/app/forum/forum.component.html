@@ -26,12 +26,9 @@ works smoothly.
           <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
           <br/>
           <!-- input field for the location -->
-          <p><label style="cursor: pointer;">Add a tag:</label></p>
-          <div>
-            <span>#</span>
-            <input class="tag" name="tag" id="tag" placeholder="Please use # for your tag"
-                   style="width: 100%; box-shadow: 3px 3px 10px #654f7a; height: 30px">
-          </div><br/><br/>
+          <p><label style="cursor: pointer;"><strong>Add a tag:</strong></label></p>
+          <input class="tag" name="tag" id="tag" placeholder="Please use # for your tag"
+                 style="width: 100%; box-shadow: 3px 3px 10px #654f7a; height: 30px"><br/><br/>
 
 
           <strong>* Choose your location: </strong><br/><br/>
@@ -108,7 +105,9 @@ works smoothly.
           </datalist>
           <br/>
           <p><label for="file" style="cursor: pointer;">Upload Image:</label></p>
-          <p><input type="file"  accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
+          <p><input type="file"  accept="image/jpeg, image/png"
+                    style="box-shadow: 3px 3px 10px #654f7a;"
+                    name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
 
 
           <p><input id="submit" type="submit" form="postForm" value="Submit"/></p> <!-- submit button for the information -->
