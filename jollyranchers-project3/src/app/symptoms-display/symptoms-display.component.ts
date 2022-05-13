@@ -20,7 +20,7 @@ export class SymptomsDisplayComponent implements OnInit
   async callSymptomApi()
   {
     const result = await this.service.getSymptoms()!;
-    if (result != null)
+    if (result !== null)
     {
       //checks which database you chose and stores the data accordingly
       await result.subscribe(async (response) => {

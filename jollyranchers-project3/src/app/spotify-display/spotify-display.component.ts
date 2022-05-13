@@ -45,7 +45,7 @@ export class SpotifyDisplayComponent implements OnInit
 
 
 
-    if (result != null)
+    if (result !== null)
     {
       //checks which database you chose and stores the data accordingly
       await result.subscribe(async (response) => {

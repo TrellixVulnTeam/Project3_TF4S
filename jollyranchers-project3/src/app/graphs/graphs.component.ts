@@ -26,7 +26,7 @@ export class GraphsComponent implements OnInit {
   async callGraphApi()
   {
     const result = await this.service.getGraphs()!;
-    if (result != null)
+    if (result !== null)
     {
       //checks which database you chose and stores the data accordingly
       await result.subscribe(async (response) => {
