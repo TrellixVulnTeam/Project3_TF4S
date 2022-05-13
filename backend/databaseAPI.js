@@ -12,7 +12,7 @@ const multer = require("multer");
 const Grid = require("gridfs-stream");
 
 const uri2 = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-MongoClientOptions options = new MongoClientOptions.Builder().socketKeepAlive(true).build();
+
 const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 
