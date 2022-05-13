@@ -22,23 +22,6 @@
   .sidenav {padding-top: 15px;}
 }
 
-/*
-.form-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.form-bar > :first-child {
-  flex-grow: 1;
-
-}
-
-.form-bar > :last-child {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 40%;
-} */
-
 #textArea {
   resize: none;
   box-sizing: border-box;
@@ -75,6 +58,7 @@ section{
   margin-right: 70px;
   margin-top: 15px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .card{
