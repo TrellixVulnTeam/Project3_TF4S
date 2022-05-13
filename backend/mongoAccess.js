@@ -1,21 +1,21 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const {mongo} = require("mongoose");
-const Grid = require("gridfs-stream");
-var fs = require('fs');
+
+
 
 
 
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-let gfs; //init gridfs-stream
+
 
 module.exports = {
-    getDatabaseInfo: async function (databaseName, collectionName)
+    getDatabaseInfo: async function (client, databaseName, collectionName)
     {
 
         try {
 
-            await client.connect();
+           // await client.connect();
             const cursor = await client.db(databaseName).collection(collectionName).find({});
 
             const result = await cursor.toArray();
@@ -38,7 +38,7 @@ module.exports = {
         } catch (e) {
             console.error(e);
         } finally {
-            await client.close();
+            //await client.close();
         }
     },
 
