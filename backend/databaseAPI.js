@@ -46,23 +46,23 @@ app.route('/api/cats').post((req, res) => {
 //@desc sends back basic hello message when starting up
 app.route('/').get( async (req, res) =>
 {
-    res.send("hello world");
+    res.header("Access-Control-Allow-Origin","*").send("hello world");
 });
 
 app.route('/api/twitter').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'tweets');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/Graphs').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'Graphs');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 
 app.route('/api/symptoms').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'symptoms');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 
@@ -71,27 +71,27 @@ app.route('/api/symptoms').get(async (req, res) => {
 app.route('/api/youtube/fox13').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'fox13');
     console.log("working");
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/youtube/tampa10').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'tampa10');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/youtube/abcAction').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'abcAction');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/youtube/wfla8').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'wfla8');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/youtube/general').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'general');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 //forum routing
@@ -173,7 +173,7 @@ app.post('/api/forum/submit', upload.single('file'), async function (req, res) {
 
 app.route('/api/forum/posts').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'forumPosts');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
@@ -182,7 +182,7 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
     gfs.files.findOne({filename: req.params.filename}, (err, file) =>{
        if(!file || file.length === 0)
        {
-           return res.status(404).json({err: "No file exists"});
+           return res.header("Access-Control-Allow-Origin","*").status(404).json({err: "No file exists"});
        }
 
        if(file.contentType === 'image/jpeg' || file.contentType === 'img/png')
@@ -192,7 +192,7 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
        }
        else
        {
-           return res.status(404).json({err: "Not an image file"});
+           return res.header("Access-Control-Allow-Origin","*").status(404).json({err: "Not an image file"});
        }
     });
 })
@@ -200,12 +200,12 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 //spotify routing
 app.route('/api/spotify').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 app.route('/api/sensorData').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers", 'sensorData');
-    res.send(results);
+    res.header("Access-Control-Allow-Origin","*").send(results);
 })
 
 function getDate()
