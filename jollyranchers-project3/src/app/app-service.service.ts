@@ -10,6 +10,11 @@ export class AppServiceService
 
   constructor(private http : HttpClient) { }
 
+  async connect()
+  {
+    let result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/');
+  }
+
   async getData(platform:string)
   {
     let result;

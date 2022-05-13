@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+import {AppServiceService} from "./app-service.service";
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,17 @@ export class AppComponent  implements  OnInit{
   title = 'jollyranchers-project3';
   path = '';
 
+
   ngOnInit(): void
   {
-
+    this.startup();
   }
 
-  constructor(private pathChange: Router)
+  async startup()
+  {
+    const result = await this.service.connect()!;
+  }
+  constructor(private pathChange: Router, private service: AppServiceService)
   {
     pathChange.events.subscribe((event)=>{
       if (event instanceof NavigationEnd){
