@@ -175,7 +175,7 @@ app.post('/api/forum/submit', upload.single('file'), async function (req, res) {
 })
 
 app.route('/api/forum/posts').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'forumPosts');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'forumPosts');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
