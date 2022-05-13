@@ -51,7 +51,7 @@ export class SpotifyDisplayComponent implements OnInit
       await result.subscribe(async (response) => {
 
         console.log("podcasts", response);
-        this.podcasts = response;
+        this.podcasts = await Promise.resolve(response);
         console.log(this.podcasts);
         return this.podcasts;
 

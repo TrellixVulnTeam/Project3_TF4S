@@ -32,7 +32,7 @@ export class GraphsComponent implements OnInit {
       await result.subscribe(async (response) => {
 
         console.log("Graphs", response);
-        this.graphs = response;
+        this.graphs =await Promise.resolve(response);
         console.log(this.graphs);
         return this.graphs;
 
