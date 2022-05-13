@@ -11,9 +11,6 @@ const path = require("path");
 const multer = require("multer");
 const Grid = require("gridfs-stream");
 
-const uri2 = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }).connect();
-client.connect();
 
 
 
@@ -56,18 +53,18 @@ app.route('/').get( async (req, res) =>
 });
 
 app.route('/api/twitter').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'tweets');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'tweets');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/Graphs').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'Graphs');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'Graphs');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 
 app.route('/api/symptoms').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'symptoms');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'symptoms');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
@@ -75,28 +72,28 @@ app.route('/api/symptoms').get(async (req, res) => {
 
 ///youtube API
 app.route('/api/youtube/fox13').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'fox13');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'fox13');
     console.log("working");
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/tampa10').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'tampa10');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'tampa10');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/abcAction').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'abcAction');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'abcAction');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/wfla8').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'wfla8');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'wfla8');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/general').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'general');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'general');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
@@ -205,12 +202,12 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 
 //spotify routing
 app.route('/api/spotify').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'podcasts');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/sensorData').get(async (req, res) => {
-    const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers", 'sensorData');
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers", 'sensorData');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
