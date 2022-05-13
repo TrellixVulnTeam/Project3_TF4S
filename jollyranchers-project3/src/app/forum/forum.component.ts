@@ -130,6 +130,7 @@ export class ForumComponent
 
   getForumPosts()
   {
+    this.forumPosts.reverse();
     return this.forumPosts;
   }
 

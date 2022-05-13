@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652453325734</updated>
-      <workItem from="1652453327293" duration="4544000" />
+      <workItem from="1652453327293" duration="4897000" />
     </task>
     <servers />
   </component>
