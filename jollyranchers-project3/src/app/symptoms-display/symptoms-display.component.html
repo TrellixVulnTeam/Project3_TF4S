@@ -1,12 +1,7 @@
 <div *ngIf="getSymptomData()">
   <div *ngFor="let symptom of getSymptomData()">
-    <div class="placeholderItem" style="height: fit-content; text-align: left;">
-      <br/>
-      <strong> <p style="font-size: medium; padding: 15px; background-color: #f3eaea;" > Symptoms </p> </strong>
-      <p style="margin: 15px"> {{symptom.sympt}}</p>
-  <!--    <strong> <p style="font-size: medium; margin: 15px" > Symptoms </p> </strong>-->
-      <p style="margin: 15px"> {{symptom.data}}</p>
-      <br/>
-    </div>
+    <p style="margin: 15px"> {{symptom.sympt}}</p>
+    <!--    <strong> <p style="font-size: medium; margin: 15px" > Symptoms </p> </strong>-->
+    <p style="margin: 15px"> {{symptom.data}}</p>
   </div>
 </div>
