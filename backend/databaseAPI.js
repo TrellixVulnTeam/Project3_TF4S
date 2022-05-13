@@ -12,6 +12,7 @@ const multer = require("multer");
 const Grid = require("gridfs-stream");
 
 const uri2 = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+MongoClientOptions options = new MongoClientOptions.Builder().socketKeepAlive(true).build();
 const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 
@@ -69,7 +70,7 @@ app.route('/api/Graphs').get(async (req, res) => {
 
 
 app.route('/api/symptoms').get(async (req, res) => {
-    client.connect();
+    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo3(client, "jollyranchers",'symptoms');
     await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
