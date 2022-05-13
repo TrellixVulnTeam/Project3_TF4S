@@ -1,23 +1,25 @@
-<div *ngFor="let tweet of getTwitterData()"
-     class="placeholderItem"
-     style="height: fit-content;
-            text-align: left;
-            background-color: #F5F8FA;
-            font-family: 'Helvetica Neue';">
-  <div style="display: flex">
-    <div style="width: 10%;">
-      <img style=" width: 50px; height: 50px; border-radius: 50%;" src="{{tweet.profile_image_url}}" alt="profile picture">
+<div *ngIf="getTwitterData()">
+  <div *ngFor="let tweet of getTwitterData()"
+       class="placeholderItem"
+       style="height: fit-content;
+              text-align: left;
+              background-color: #F5F8FA;
+              font-family: 'Helvetica Neue';">
+    <div style="display: flex">
+      <div style="width: 10%;">
+        <img style=" width: 50px; height: 50px; border-radius: 50%;" src="{{tweet.profile_image_url}}" alt="profile picture">
+      </div>
+      <div style="width: 80%;">
+        <br/>
+        <strong> <p style="font-size: medium; width: 100%"> {{tweet.username}}: </p> </strong>
+      </div>
     </div>
-    <div style="width: 80%;">
-      <br/>
-      <strong> <p style="font-size: medium; width: 100%"> {{tweet.username}}: </p> </strong>
+    <br/>
+      <div style="width: 100%">
+        <p> {{tweet.text}}</p>
+      </div>
+    <div>
+      <i><p> {{tweet.created_at}} </p></i>
     </div>
-  </div>
-  <br/>
-    <div style="width: 100%">
-      <p> {{tweet.text}}</p>
-    </div>
-  <div>
-    <i><p> {{tweet.created_at}} </p></i>
   </div>
 </div>

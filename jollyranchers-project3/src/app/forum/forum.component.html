@@ -114,7 +114,7 @@ works smoothly.
         </form>
       </div>
     </div>
-
+  <div *ngIf="getForumPosts()">
     <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar -->
       <br/>
       <section>
@@ -143,6 +143,7 @@ works smoothly.
 
 
     </div>
+  </div>
   </div>
 </div>
 

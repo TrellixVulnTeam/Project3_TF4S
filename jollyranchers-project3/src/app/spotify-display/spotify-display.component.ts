@@ -35,7 +35,7 @@ export class SpotifyDisplayComponent implements OnInit
   }
   ngOnInit(): void
   {
-   // this.callSpotifyApi();
+    this.callSpotifyApi();
   }
 
   async callSpotifyApi()
