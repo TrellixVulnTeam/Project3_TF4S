@@ -12,8 +12,8 @@ const multer = require("multer");
 const Grid = require("gridfs-stream");
 
 const uri2 = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-
+const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }).connect();
+client.connect();
 
 
 var jsonParser = bodyParser.json();
@@ -54,24 +54,18 @@ app.route('/').get( async (req, res) =>
 });
 
 app.route('/api/twitter').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'tweets');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/Graphs').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'Graphs');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 
 app.route('/api/symptoms').get(async (req, res) => {
-    client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'symptoms');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
@@ -79,38 +73,28 @@ app.route('/api/symptoms').get(async (req, res) => {
 
 ///youtube API
 app.route('/api/youtube/fox13').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'fox13');
     console.log("working");
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/tampa10').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'tampa10');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/abcAction').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'abcAction');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/wfla8').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'wfla8');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/youtube/general').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'general');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
@@ -192,9 +176,7 @@ app.post('/api/forum/submit', upload.single('file'), async function (req, res) {
 })
 
 app.route('/api/forum/posts').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'forumPosts');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
@@ -221,16 +203,12 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 
 //spotify routing
 app.route('/api/spotify').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'podcasts');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
 app.route('/api/sensorData').get(async (req, res) => {
-    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers", 'sensorData');
-    await client.close();
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
