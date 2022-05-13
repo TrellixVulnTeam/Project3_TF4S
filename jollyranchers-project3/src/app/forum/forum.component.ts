@@ -92,6 +92,7 @@ export class ForumComponent
       const formData = new FormData();
       formData.append("textArea", textArea.value);
       formData.append("location", location.value);
+      formData.append("likeCount", '0');
 
 
 
