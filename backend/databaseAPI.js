@@ -50,29 +50,29 @@ app.route('/api/cats').post((req, res) => {
 //@desc sends back basic hello message when starting up
 app.route('/').get( async (req, res) =>
 {
-    res.header("Access-Control-Allow-Private-Network","*").send("hello world");
+    res.send("hello world");
 });
 
 app.route('/api/twitter').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'tweets');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/Graphs').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'Graphs');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 
 app.route('/api/symptoms').get(async (req, res) => {
-    client.connect();
+    await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'symptoms');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 
@@ -83,35 +83,35 @@ app.route('/api/youtube/fox13').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'fox13');
     console.log("working");
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/youtube/tampa10').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'tampa10');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/youtube/abcAction').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'abcAction');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/youtube/wfla8').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'wfla8');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/youtube/general').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "youtubeData",'general');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 //forum routing
@@ -195,7 +195,7 @@ app.route('/api/forum/posts').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'forumPosts');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
@@ -204,7 +204,7 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
     gfs.files.findOne({filename: req.params.filename}, (err, file) =>{
        if(!file || file.length === 0)
        {
-           return res.header("Access-Control-Allow-Private-Network","*").status(404).json({err: "No file exists"});
+           return res.status(404).json({err: "No file exists"});
        }
 
        if(file.contentType === 'image/jpeg' || file.contentType === 'img/png')
@@ -214,7 +214,7 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
        }
        else
        {
-           return res.header("Access-Control-Allow-Private-Network","*").status(404).json({err: "Not an image file"});
+           return res.status(404).json({err: "Not an image file"});
        }
     });
 })
@@ -224,14 +224,14 @@ app.route('/api/spotify').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers",'podcasts');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 app.route('/api/sensorData').get(async (req, res) => {
     await client.connect();
     const results = await require('./mongoAccess.js').getDatabaseInfo(client, "jollyranchers", 'sensorData');
     await client.close();
-    res.header("Access-Control-Allow-Private-Network","*").send(results);
+    res.send(results);
 })
 
 function getDate()

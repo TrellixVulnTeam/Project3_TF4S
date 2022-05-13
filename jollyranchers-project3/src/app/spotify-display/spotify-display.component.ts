@@ -40,12 +40,9 @@ export class SpotifyDisplayComponent implements OnInit
 
   async callSpotifyApi()
   {
-    var result = null;
 
-    while(result == null)
-    {
-        result = await this.service.getPodcasts()!;
-    }
+    const result = await this.service.getPodcasts()!;
+
 
 
     if (result != null)
