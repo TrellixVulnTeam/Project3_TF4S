@@ -15,7 +15,7 @@ export class GraphsComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.callGraphApi();
+    //this.callGraphApi();
   }
 
   getSanitizedURL(url: string) {
