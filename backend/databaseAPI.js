@@ -12,8 +12,14 @@ const multer = require("multer");
 const Grid = require("gridfs-stream");
 
 const uri2 = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+<<<<<<< HEAD
 const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }).connect();
 client.connect();
+=======
+MongoClientOptions options = new MongoClientOptions.Builder().socketKeepAlive(true).build();
+const client = new MongoClient(uri2, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+>>>>>>> parent of 224a4e7 (Update databaseAPI.js)
 
 
 var jsonParser = bodyParser.json();
