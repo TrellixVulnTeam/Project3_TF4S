@@ -27,7 +27,12 @@ works smoothly.
           <br/>
           <!-- input field for the location -->
           <p><label style="cursor: pointer;">Add a tag:</label></p>
-          <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/>
+          <div>
+            <span>#</span>
+            <input class="tag" name="tag" id="tag" placeholder="Please use # for your tag"
+                   style="width: 100%; box-shadow: 3px 3px 10px #654f7a; height: 30px">
+          </div><br/><br/>
+
 
           <strong>* Choose your location: </strong><br/><br/>
           <input class="field" list="locations" name="location" id="location" style="width: 100%" placeholder="Choose your county here"><br/>
