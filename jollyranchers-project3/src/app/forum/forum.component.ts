@@ -50,7 +50,7 @@ export class ForumComponent
 
           if(this.forumPosts[i].hasOwnProperty('postNumber'))
           {
-            const url =  "http://localhost:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
+            const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
             this.forumPosts[i]['image'] =  url;
           }
           else
@@ -104,7 +104,7 @@ export class ForumComponent
       {
 
         formData.append("file", image);
-        fetch("http://localhost:8000/api/forum/submitImg", {
+        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
           method: 'POST',
           body: formData
 
@@ -114,7 +114,7 @@ export class ForumComponent
       }
       else
       {
-        fetch("http://localhost:8000/api/forum/submit", {
+        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com/:8000/api/forum/submit", {
           method: 'POST',
           body: formData
 
