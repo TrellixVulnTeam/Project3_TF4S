@@ -1,7 +1,9 @@
 <div *ngIf="getSymptomData()">
   <div *ngFor="let symptom of getSymptomData()">
-    <p style="margin: 15px"> {{symptom.sympt}}</p>
-    <!--    <strong> <p style="font-size: medium; margin: 15px" > Symptoms </p> </strong>-->
-    <p style="margin: 15px"> {{symptom.data}}</p>
+    <li> <p style="margin: 15px"> {{symptom.sympt}}</p>
+      <!--    <strong> <p style="font-size: medium; margin: 15px" > Symptoms </p> </strong>-->
+      <p style="margin: 15px"> {{symptom.data}}</p>
+    </li>
+
   </div>
 </div>
