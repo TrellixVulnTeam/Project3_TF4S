@@ -15,27 +15,27 @@ export class AppServiceService
     let result;
     if(platform == "twitter")
     {
-       result = await this.http.get('http://localhost:8000/api/twitter');
+       result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
       return result;
     }
     else if(platform == "symptoms")
     {
-       result = await this.http.get('http://localhost:8000/api/symptoms');
+       result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/symptoms');
       return result;
     }
     else if(platform == "spotify")
     {
-      result = await this.http.get('http://localhost:8000/api/spotify');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/spotify');
       return result;
     }
     else if(platform == "Graphs")
     {
-      result = await this.http.get('http://localhost:8000/api/Graphs');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphs');
       return result;
     }
     else if(platform == "sensorData")
     {
-      result = await this.http.get('http://localhost:8000/api/sensorData');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/sensorData');
       return result;
     }
 
@@ -53,27 +53,27 @@ export class AppServiceService
       let result;
       if(category == "fox13")
       {
-        result = await this.http.get('http://localhost:8000/api/youtube/fox13');
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/fox13');
         return result;
       }
     if(category == "tampa10")
     {
-      result = await this.http.get('http://localhost:8000/api/youtube/tampa10');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/tampa10');
       return result;
     }
     if(category == "abcAction")
     {
-      result = await this.http.get('http://localhost:8000/api/youtube/abcAction');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/abcAction');
       return result;
     }
     if(category == "wfla8")
     {
-      result = await this.http.get('http://localhost:8000/api/youtube/wfla8');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/wfla8');
       return result;
     }
     if(category == "general")
     {
-      result = await this.http.get('http://localhost:8000/api/youtube/general');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/general');
       return result;
     }
       else
@@ -86,28 +86,28 @@ export class AppServiceService
   async getTweets()
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/twitter');
+    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
     return result;
   }
 
   async getPodcasts()
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/spotify');
+    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/spotify');
     return result;
   }
 
   async getForumPosts()
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/forum/posts');
+    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts');
     return result;
   }
 
   async getForumPostImage(fileName : string)
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/forum/posts/images/' + fileName);
+    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/' + fileName);
     return result;
   }
 
@@ -115,7 +115,7 @@ export class AppServiceService
   async getGraphs()
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/Graphs');
+    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphs');
     return result;
   }
 
@@ -125,7 +125,7 @@ export class AppServiceService
   async getSymptoms()
   {
     let result;
-    result = await this.http.get('http://localhost:8000/api/symptoms');
+    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/symptoms');
     return result;
   }
 

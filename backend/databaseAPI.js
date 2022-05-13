@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({
 
 //listens on port 800
 app.listen(8000, () => {
-    console.log('Server started!')
+    console.log('Server running!')
 })
 
 //example post method
