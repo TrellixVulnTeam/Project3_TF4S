@@ -22,12 +22,12 @@ works smoothly.
           ></textarea>
           <br/>
           <span id='charLimit'>Remaining characters: {{300-textArea.length}}</span>
-          <br/><br/>
+          <br/>
           <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
-          <br/><br/>
+          <br/>
           <!-- input field for the location -->
           <strong>* Choose your location: </strong><br/><br/>
-          <input class="field" list="locations" name="location" id="location" style="width: 100%"><br/><br/>
+          <input class="field" list="locations" name="location" id="location" style="width: 100%"><br/>
           <span id="reqLocation" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
           <datalist id="locations">
             <option value="Miami-Dade County">
@@ -98,18 +98,18 @@ works smoothly.
             <option value="Lafayette County">
             <option value="Liberty County">
           </datalist>
-          <br/><br/>
+          <br/>
           <p><label for="file" style="cursor: pointer;">Upload Image:</label></p>
           <p><input type="file"  accept="image/jpeg, image/png" name="image" id="file" onchange="loadFile(event)"/></p><br/><br/> <!-- input field for pictures -->
-          <br/>
+
           <p><label style="cursor: pointer;">Add a tag:</label></p>
-          <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/><br/>
+          <input class="tag" name="tag" id="tag" style="width: 100%"><br/><br/>
 
           <p><input id="submit" type="submit" form="postForm" value="Submit"/></p> <!-- submit button for the information -->
           <br/>
           <br/>
           <br/>
-          <br/>
+          
 
         </form>
       </div>
