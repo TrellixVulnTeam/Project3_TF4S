@@ -124,7 +124,7 @@ export class ForumComponent
           .then((res) => console.log(res))
           .catch((err) => ("Error occurred"));
         console.log("no image uploaded");
-       // window.setTimeout(window.location.reload, 500)
+        window.setTimeout(window.location.reload, 500)
       }
     }
 
