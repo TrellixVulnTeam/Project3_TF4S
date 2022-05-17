@@ -20,7 +20,7 @@ export class ForumComponent
   ngOnInit(): void
   {
     const single = this;
-    const form : HTMLFormElement = document.getElementById("submit")! as HTMLFormElement;
+    const form : HTMLFormElement = document.getElementById("postForm")! as HTMLFormElement;
     form.addEventListener("submit", function(e){
       e.preventDefault();
       single.submitForm();});
