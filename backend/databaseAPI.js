@@ -175,7 +175,7 @@ app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 
 //@post Stores forum posts without Image submission (i.e. text only submissions)
 //@desc Stores text only posts to MongoDB "forumPosts" database.
-app.post('/api/forum/submit', upload.single('file'), async function (req, res) {
+app.post('/api/forum/submit', upload.none(), async function (req, res) {
 
     console.log(req.body);
     const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body) ;
