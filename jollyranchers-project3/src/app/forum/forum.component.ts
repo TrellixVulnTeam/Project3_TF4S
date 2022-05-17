@@ -114,11 +114,12 @@ export class ForumComponent
         })
           .then((res) => console.log(res))
           .catch((err) => ("Error occurred"));
+
       }
       else
       {
         console.log("text only post");
-        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com/:8000/api/forum/submitImg", {
+        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
           method: 'POST',
           body: formData
 
@@ -126,7 +127,7 @@ export class ForumComponent
           .then((res) => console.log(res))
           .catch((err) => ("Error occurred"));
         console.log("no image uploaded");
-        window.setTimeout(window.location.reload, 500)
+        //window.setTimeout(window.location.reload, 500);
       }
     }
 
