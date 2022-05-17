@@ -116,6 +116,7 @@ export class ForumComponent
       }
       else
       {
+        console.log("working");
         fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com/:8000/api/forum/submit", {
           method: 'POST',
           body: formData
