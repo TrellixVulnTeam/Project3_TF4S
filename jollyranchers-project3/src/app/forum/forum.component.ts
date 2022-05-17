@@ -156,7 +156,7 @@ export class ForumComponent
   //returns image to front end
   getImage(post : any)
   {
-    if(post.hasOwnProperty('postNumber'))
+    if(post.postNumber != undefined)
     {
       console.log(post);
       return post.image;
