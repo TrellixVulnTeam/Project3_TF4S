@@ -152,7 +152,7 @@ const storage = new GridFsStorage({
                 postNumber = getDate();
                 const filename = buf.toString('hex') + path.extname(file.originalname);
                 const fileInfo = {
-                    filename: 'placeholder',
+                    filename: postNumber,
                     bucketName: 'postImages/'
                 };
                 resolve(fileInfo);
