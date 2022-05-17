@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 
-
+//Calls website API to retrieve Youtube data from MongoDB to display it on the front end
+//API calls are made to App-service.service.ts
+//Author: Robert Kleszczysnki
 
 
 @Component({
@@ -11,12 +13,16 @@ import {AppServiceService} from "../app-service.service";
 })
 export class YoutubeDisplayComponent implements OnInit
 {
+  //Variablbes for storing content for each channel
+  //wfla8 and tampa10 are not displayed currently as these channels don't have enough Red Tide
+  // // content to justify using them at this time
   private fox13: any = [];
   private tampa10: any = [];
   private abcAction: any = [];
   private wfla8: any = [];
   private general: any = [];
 
+  //variables for storing prebuilt playlists for each channel
   private foxPlaylist : any = [];
   private tampaPlaylist: any = [];
   private abcPlaylist : any = [];
@@ -27,6 +33,7 @@ export class YoutubeDisplayComponent implements OnInit
 
   constructor(private service: AppServiceService) { }
 
+  //Runs on startup - adds a listener to check for changes in value in the drop down mennu
   ngOnInit(): void
   {
 
@@ -44,15 +51,22 @@ export class YoutubeDisplayComponent implements OnInit
 
   }
 
+  //Calls website API to retrieve Youtube data from MongoDB based on which channel is provided
+  //Param:
+  // channel: which Youtube channel source in the database you want data from
   async callYoutubeAPI(channel: string)
   {
 
 
+      //returns a collection of youtube videos based on which channel you provide
       const result = await this.service.getYoutubeVideos(channel)!;
 
+    //checks which channel you chose and stores the data into the correct container,
+    //  Builds a playlist URL from that data,
+    //Updates the iframe on the front end with the correct playlist URL
       if (result != null)
       {
-        //checks which database you chose and stores the data accordingly
+
         await result.subscribe(async (response) => {
           if(channel == "fox13")
           {
@@ -110,6 +124,7 @@ export class YoutubeDisplayComponent implements OnInit
   }
 
 
+  //Checks the drop down menu for the selected value and relays it to the website API call to return the desired data
   async getYoutubeData() {
     const select: HTMLSelectElement = document.getElementById("select") as HTMLSelectElement;
     var collection = select.value;
@@ -120,6 +135,10 @@ export class YoutubeDisplayComponent implements OnInit
   }
 
 
+  //Uses an array of Youtube video data to build a Youtube playlist from the video id codes
+  //Returns a URL that works as a playlist in for an iFrame
+  //Param:
+  // collection: the array of Youtube videos that you wish to create a playlist with
   async buildPlaylist( collection : any )
   {
     let playlist = "";

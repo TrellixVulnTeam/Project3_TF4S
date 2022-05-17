@@ -1,3 +1,7 @@
+<!-- Uses a template to display every element from Twitter Data array
+    Authors:
+              Nisanur Genc - template
+              Robert Kleszczynski - loop for twitter data and insertion of data into the correct places-->
 <div *ngIf="getTwitterData()">
   <div *ngFor="let tweet of getTwitterData()"
        class="placeholderItem"

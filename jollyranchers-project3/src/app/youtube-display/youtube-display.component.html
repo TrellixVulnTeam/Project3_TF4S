@@ -1,12 +1,14 @@
+<!--Uses a Drop Down Menu to select which playlist to display. Listener is added to drop down menu in Typescript to update displayed playlist.
+    Author: Robert Kleszczynski -->
 <div style="text-align: center; height: 100%; ">
   <h3 style="font-size: x-large; text-align: left;">
     <label for="select">Choose a Video Source: </label>
 
     <select id="select" name="Choose a Video Source:"   >
       <option value="general">Red Tide General</option>
-      <!-- <option value="wfla8">WFLA News Channel 8</option> -->
+      <!-- <option value="wfla8">WFLA News Channel 8</option> --> <!--Not enough videos to use at this time -->
       <option value="fox13">Fox 13 Tampa Bay</option>
-      <!-- Can Add Back in Tampa10 if we can figure out why it's returning a blank database -->
+      <!-- Can Add Back in Tampa10 if there are enough videos-->
       <option value="abcAction">ABC Action News</option>
 
     </select>
@@ -14,6 +16,7 @@
   </h3> <br/>
   <br/>
   <div style="box-shadow: 10px 10px 8px #888888;">
+    <!--src url is a playlist built using Youtube's implementation of video codes -->
     <iframe id="vidPlayer" width="100%" height="430px"
             src="https://www.youtube.com/embed/q-oLKiHRmBc?playlist=q-oLKiHRmBc,BxP-ZSJKc6Q,8Xz_8VyfUPk,wyVpm7RSJ7g,OZ50-Ru1_zA,R7t7qrH_dsc,s9WdqTv7vUw,-WJ0hi_Pi44,KfoTZllvF6M"  allowfullscreen>
     </iframe>

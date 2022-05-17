@@ -13,6 +13,9 @@ const Grid = require("gridfs-stream");
 
 /////Database API manages all the routing for the backend as well as backend method calls to mongo
 //In order to post forum posts to the Database, it uses a gridfs-stream as well as file submission through the use of multer
+//All requests are called from App-service.service.ts
+//All requests are relayed to mongoAccess.js for database operations
+
 //Author: Robert Kleszczynski unless labelled otherwise
 
 

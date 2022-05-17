@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
+//Contains all website API for front end that routes to the correct call to the backend
+//All requests are made from their respective component typescript files (i.e. twitter-display.component.ts)
+//All backend calls are made to databaseAPI.js in the backend folder
+//Authors: Robert Kleszczynski, Fehmi Neffati where labelled
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +15,19 @@ export class AppServiceService
 
   constructor(private http : HttpClient) { }
 
+  //connects to the backend
   async connect()
   {
     let result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/');
   }
 
+  //Relays data from MongoDB on the backend to the front end based on which media platform is desired
+  //Param:
+  // platform: the data source you wish to retrieve data for
   async getData(platform:string)
   {
     let result;
+    //based on chosen platform, calls the relevant back end request
     if(platform == "twitter")
     {
        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
@@ -51,6 +61,10 @@ export class AppServiceService
     }
   }
 
+  //Returns Youtube videos based on specified channel source
+  //Param:
+  // category: the name of the youtube channel you wish to retrieve video data from.
+  // (i.e. 'fox13' for fox news videos on red tide)
   async getYoutubeVideos(category : string)
   {
 
@@ -88,6 +102,7 @@ export class AppServiceService
       }
   }
 
+  //Returns Twitter tweet data from MongoDb
   async getTweets()
   {
     let result;
@@ -95,6 +110,7 @@ export class AppServiceService
     return result;
   }
 
+  //Returns Podcast data from MongoDb
   async getPodcasts()
   {
     let result;
@@ -102,6 +118,7 @@ export class AppServiceService
     return result;
   }
 
+  //Returns forum posts from MongoDb
   async getForumPosts()
   {
     let result;
@@ -109,6 +126,7 @@ export class AppServiceService
     return result;
   }
 
+  //Returns forum post images from MongoDB
   async getForumPostImage(fileName : string)
   {
     let result;
@@ -116,7 +134,8 @@ export class AppServiceService
     return result;
   }
 
-
+  //Returns graphs from MongoDB
+  //Author: Fehmi Neffati
   async getGraphs()
   {
     let result;
@@ -126,7 +145,7 @@ export class AppServiceService
 
 
 
-
+  //Returns symptom data from MongoDB
   async getSymptoms()
   {
     let result;

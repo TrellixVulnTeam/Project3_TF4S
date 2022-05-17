@@ -3,6 +3,7 @@ const {mongo} = require("mongoose");
 
 //These methods are called from the API to access and make requests of the database, including:
 // finding collections and writing forum posts
+//All calls are made from databaseAPI.js
 //Author: Robert Kleszczynski
 
 

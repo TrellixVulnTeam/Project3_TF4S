@@ -4,6 +4,7 @@ import {AppServiceService} from "../app-service.service";
 @Component({ templateUrl: 'home.component.html' })
 
 //Responsible for retrieve requests to API for each media platform that data is gathered on
+//API calls are made to App-service.service.ts
 //Authors: Robert Kleszczynski (unless labelled otherwise)
 
 
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit {
           console.log("error is ", error);
         });
       }
-      //Author: Fehmi Neffati
+      //Case Added by: Fehmi Neffati
       else if (platform == "Graphs") {
         result.subscribe((response) => {
           console.log("response", response);

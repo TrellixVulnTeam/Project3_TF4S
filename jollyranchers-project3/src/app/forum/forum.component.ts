@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 
 //Responsible for managing Posting to the Forum and Retrieving Posts from the Forum
+//API calls are made to App-service.service.ts
 //Author: Robert Kleszczynski
 
 @Component({

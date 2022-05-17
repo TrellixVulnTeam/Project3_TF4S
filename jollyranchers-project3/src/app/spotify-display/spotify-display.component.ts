@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
 
-
+//Retrieves Spotify Data from MongoDB for display on the Front End
+//API calls are made to App-service.service.ts
+//Authors: Robert Kleszczynski, Fehmi Neffati where labelled
 
 @Component({
   selector: 'app-spotify-display',
@@ -30,14 +32,19 @@ export class SpotifyDisplayComponent implements OnInit
   constructor(private service: AppServiceService, private sanitizer: DomSanitizer) {
   }
 
+  //Sanitizes the URL so that it properly works in the iFrame on the front end
+  //Author: Fehmi Neffati
   getSanitizedURL(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  //Called on Start Up
   ngOnInit(): void
   {
     this.callSpotifyApi();
   }
 
+  //Gets all Spotify Podcasts from MongoDB and puts them into an array
   async callSpotifyApi()
   {
 
@@ -47,7 +54,7 @@ export class SpotifyDisplayComponent implements OnInit
 
     if (result !== null)
     {
-      //checks which database you chose and stores the data accordingly
+      //gets data fromm API call and stores into podcasts variable
       await result.subscribe(async (response) => {
 
         console.log("podcasts", response);
@@ -66,7 +73,7 @@ export class SpotifyDisplayComponent implements OnInit
 
   }
 
-
+  //Returns Spotify Data to front end
   getSpotifyData()
   {
     return this.podcasts;
