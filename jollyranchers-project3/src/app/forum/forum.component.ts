@@ -158,11 +158,12 @@ export class ForumComponent
   {
     if(post.postNumber != undefined)
     {
-      console.log(post);
+      console.log("has image");
       return post.image;
     }
     else
     {
+      console.log("has no image");
       const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
       return url;
     }
