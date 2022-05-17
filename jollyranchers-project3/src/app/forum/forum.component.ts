@@ -156,11 +156,16 @@ export class ForumComponent
   //returns image to front end
   getImage(post : any)
   {
-    if(post.postNumber != undefined)
+    if(post.hasOwnProperty('postNumber'))
     {
       console.log(post);
       return post.image;
     }
+   /* else
+    {
+      const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/placeholder";
+      return url;
+    }*/
   }
 
   //Checks if user has provided text content and a location in order to post
