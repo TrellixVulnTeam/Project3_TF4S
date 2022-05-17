@@ -119,7 +119,7 @@ export class ForumComponent
       else
       {
         console.log("text only post");
-        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
+        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
           method: 'POST',
           body: formData
 
