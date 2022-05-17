@@ -11,7 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { TwitterDisplayComponent } from './twitter-display/twitter-display.component';
 import { SpotifyDisplayComponent } from './spotify-display/spotify-display.component';
 import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.component';
-import { ForumDisplayComponent } from './forum-display/forum-display.component';
+import { ForumDisplayComponent } from './forum-displayUNUSED/forum-display.component';
 import { GraphsComponent } from './graphs/graphs.component';
 
 @NgModule({

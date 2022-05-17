@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 
+//Responsible for managing Posting to the Forum and Retrieving Posts from the Forum
+//Author: Robert Kleszczynski
 
 @Component({
   templateUrl: 'forum.component.html', styleUrls:["forum.component.scss"]})
@@ -17,6 +19,7 @@ export class ForumComponent
 
   constructor(private service: AppServiceService) { }
 
+  //On initialization, adds an even listener to the submit button so form submission is possible
   ngOnInit(): void
   {
     const single = this;
@@ -28,6 +31,7 @@ export class ForumComponent
     this.CallForumPostApi();
   }
 
+  //Retrieves Forum Posts from MongoDB
   async CallForumPostApi()
   {
 
@@ -48,6 +52,7 @@ export class ForumComponent
         for(let i = 0; i < length; i++)
         {
 
+          //checks if each post has an image attached to it and retrieves the image if it has one
           if(this.forumPosts[i].hasOwnProperty('postNumber'))
           {
             const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
@@ -73,9 +78,12 @@ export class ForumComponent
 
   }
 
+  //Sends form Data to be uploaded to the forumPosts database
+  //Called when submit button is clicked.
   submitForm()
   {
-    //TODO: test to make sure submit button works once fixed
+    //Checks to see if the text content and a location have been provided
+    //if true, posts the content to DB
     if(this.checkReqFields())
     {
 
@@ -86,6 +94,7 @@ export class ForumComponent
       const tag : HTMLInputElement = document.getElementById("tag")! as HTMLInputElement;
 
 
+      //gets an image if there is one, otherwise just null
       // @ts-ignore
       const image = file.files[0];
 
@@ -97,12 +106,15 @@ export class ForumComponent
 
 
 
+      //checks if tags exist before adding
       if(tag.value != '')
         formData.append("tag", tag.value);
       else
         console.log("no tags uploaded");
 
-      console.log("working");
+      //checks if image is attached before making API call to appropriate post methods
+      //Will either post image with the form data
+      //or post a text only entry of the form data to the database
       if(image !=null || image != undefined)
       {
         console.log("image post");
@@ -133,11 +145,13 @@ export class ForumComponent
 
   }
 
+  //Returns forum posts to front end
   getForumPosts()
   {
     return this.forumPosts;
   }
 
+  //returns image to front end
   getImage(post : any)
   {
     if(post.postNumber != undefined)
@@ -147,10 +161,11 @@ export class ForumComponent
     }
   }
 
+  //Checks if user has provided text content and a location in order to post
+  //Otherwise displays red text to signify which text fields are required before submission
+  //if false, stops the call to post to forum database
   checkReqFields()
   {
-
-
     var returnValue;
     // @ts-ignore
     var text = document.getElementById("textArea").value;
@@ -172,6 +187,35 @@ export class ForumComponent
     }
     console.log(returnValue);
     return returnValue;
+  }
+
+  getDate()
+  {
+    let date_ob = new Date();
+
+  // current date
+  // adjust 0 before single digit date
+    let date = ("0" + date_ob.getDate()).slice(-2);
+
+  // current month
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+  // current year
+    let year = date_ob.getFullYear();
+
+  // current hours
+    let hours = date_ob.getHours();
+
+  // current minutes
+    let minutes = date_ob.getMinutes();
+
+  // current seconds
+    let seconds = date_ob.getSeconds();
+
+
+
+    console.log(year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds)
+    return (year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds);
   }
 }
 

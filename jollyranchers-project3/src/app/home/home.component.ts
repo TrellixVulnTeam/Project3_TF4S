@@ -2,6 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 
 @Component({ templateUrl: 'home.component.html' })
+
+//Responsible for retrieve requests to API for each media platform that data is gathered on
+//Authors: Robert Kleszczynski (unless labelled otherwise)
+
+
 export class HomeComponent implements OnInit {
 
   private twitterData: any = [];
@@ -18,11 +23,14 @@ export class HomeComponent implements OnInit {
 
   }
 
+  //Retrieves relevant data from the database with a specified media platform
+  //Param:
+  //platform: which source we wish to retrieve data from (i.e. Spotify, Youtube, Twitter)
   async getDataFromAPI(platform: string) {
     const result = await this.service.getData(platform);
 
     if (result != null) {
-      //checks which database you chose and stores the data accordingly
+      //checks which database you chose and retrieves the data accordingly
       if (platform == "twitter") {
         result.subscribe((response) => {
           console.log("response", response);
@@ -38,6 +46,7 @@ export class HomeComponent implements OnInit {
           console.log("error is ", error);
         });
       }
+      //Author: Fehmi Neffati
       else if (platform == "Graphs") {
         result.subscribe((response) => {
           console.log("response", response);
@@ -68,14 +77,18 @@ export class HomeComponent implements OnInit {
 
   }
 
+  //Returns graph data from database
+  //Author: Fehmi Neffati
   getGraphsData(){
     return this.graphsData;
   }
 
+  //Returns Twitter data from database
   getTwitterData() {
     return this.twitterData;
   }
 
+  //Returns Spotify data from database
   getSpotifyData(){
     return this.spotifyData;
   }

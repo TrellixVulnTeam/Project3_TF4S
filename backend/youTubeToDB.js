@@ -3,10 +3,12 @@ require('dotenv').config();
 //make sure the .env file is in the same directory when running this
 const{google}= require('googleapis');
 
-// Calls Youtube API to search for the top 50 results.
-//Cleans results and sorts them by channel to 4 news channels in Florida and a General Red Tide Channel for red Tide explanations
-//sorts results further by putting the most recent results first
-//clears database collections and updates with latest results
+// Calls Youtube API to search for the top 50 results in regards to Red Tide
+//Cleans results and sorts them by channel to 4 news channels in Florida and a General Red Tide Channel for Red Tide explanations
+//Sorts results further by putting the most recent results first
+//Clears database collections and updates with the  latest results
+//Author: Robert Kleszczynski
+
 async function main()
 {
     var fox13 = [];
@@ -15,6 +17,7 @@ async function main()
     var wfla8 = [];
     var general = [];
 
+    //MongoDB connection info
     const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
@@ -22,7 +25,7 @@ async function main()
     let nestedSort;
     try {
 
-
+        //Call Youtube API and search for "Red Tide" with 50 results
         google.youtube('v3').search.list({
             key: process.env.YOUTUBE_TOKEN,
             part: "snippet",
@@ -35,6 +38,7 @@ async function main()
 
                 var added = false;
                 //clean results and sort videos into separate arrays
+                //Separates results based on News Youtube Channel here
                 if (item.snippet.channelTitle === "FOX 13 Tampa Bay") {
                     //console.log("Fox 13 Added");
                     fox13.push(item);
@@ -52,12 +56,17 @@ async function main()
                     wfla8.push(item);
                     added = true;
 
-                } else {
+                }
+                else
+                {
+                    //if not part of trusted News sources, clean the data based on title and description
                     let title = item.snippet.title;
                     title = title.toLowerCase();
                     let description = item.snippet.description;
                     description = description.toLowerCase();
 
+                    //checks for irrelevant keywords that are common in Youtube red tide search results
+                    //if all clear, adds to general youtube playlist
                     if (!title.includes("music") && !title.includes("official") && !title.includes("lyrics")
                         && !title.includes("earth 8") && !title.includes("movie") && !title.includes("cape")
                         && !title.includes("russian") && !title.includes("remastered") && !title.includes("ahs")
@@ -109,6 +118,7 @@ async function main()
         //check publish time order
         //console.log(fox13);
 
+        //builds out different youtube playlist contents
         await createListings(client, "fox13", fox13);
         await createListings(client, "tampa10", tampa10);
         await createListings(client, "abcAction", abcAction);
@@ -135,7 +145,11 @@ main();
 
 
 
-//this will take the sample Airbnb database and make a new document in it
+//Creates a new listings in provided collection using an array of lisings to be added
+//Param:
+//client: the MongoDB connection we wish to use
+//collection: the nam eof the collection in the MongoDB connection we wish to insert new entries into
+//newListings: an array o fnew listings that we wish to add
 async function createListings(client, collection, newListings)
 {
     //accesses the sample_airbnb database on mongoDB
@@ -148,11 +162,19 @@ async function createListings(client, collection, newListings)
     console.log(result.insertedIds)
 }
 
+//Deletes all entries in a selected collection
+//Param:
+// client: the mongoDB connection we wish to use to make this request
+// collection: the collection in the MongoDB that we wish to clear of entries
 async function clearListings(client, collection)
 {
     await client.db("youtubeData").collection(collection).deleteMany({});
 }
 
+//Lists all Databases in a specified connection.
+//Used for debugging
+//Param:
+//client : the mongoB connection we wish to check the contents of
 async function listDatabases(client)
 {
     const databasesList = await client.db().admin().listDatabases();

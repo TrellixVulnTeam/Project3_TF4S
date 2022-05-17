@@ -1,5 +1,9 @@
 let {PythonShell} = require('python-shell')
 const path = require("path");
+
+//Used to call API of all collected data sources that were coded in Python.
+//Author: Robert Kleszczynski, Fehmi Neffati
+
 /*
 IMPORTANT:
 All print statements with string values MUST be encoded to utf-8 to successfully be run in Node.js

@@ -109,7 +109,8 @@ works smoothly.
                     style="box-shadow: 3px 3px 10px #654f7a;"
                     name="image" id="file" onchange="loadFile(event)"/><br/><br/> <!-- input field for pictures -->
 
-
+          <!--Uses form value to obtain the contents of the form on submit event
+           Has an onClick event added in Forum.component.typescript to call the submit event-->
           <input id="submit" type="submit" form="postForm" value="Submit" style=" cursor: pointer;"/><!-- submit button for the information -->
           <br/>
           <br/>
@@ -119,21 +120,22 @@ works smoothly.
         </form>
       </div>
     </div>
+    <!--Uses one Forum Post template to use when iterating over every available forum post from the database -->
   <div *ngIf="getForumPosts()">
-    <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar -->
+    <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar    Calls getForumPosts() from forum.component.ts -->
       <br/>
       <section>
         <figure class = "card">
           <div class = "card_hero">
-            <img class="card_img" id="outputIMG"  [src]='post.image'>
+            <img class="card_img" id="outputIMG"  [src]='post.image'> <!--gets post image if there is one -->
             <div class="card_middle">
-              <p class="card_middle-text">LOCATION: {{post.location}}</p>
+              <p class="card_middle-text">LOCATION: {{post.location}}</p> <!--returns location  of post -->
             </div>
           </div>
           <div class = "card_content">
             <div class="card_info">
-              <p class = "card_address">{{post.textArea}} </p>
-              <p class="card_details"><strong>Tags:</strong> {{post.tag}} </p>
+              <p class = "card_address">{{post.textArea}} </p> <!--returns typed out content from post -->
+              <p class="card_details"><strong>Tags:</strong> {{post.tag}} </p> <!-- returns post's tags -->
             </div>
             <div class="card_buttons">
               <a href="" class ="card_btn"> LIKE</a>

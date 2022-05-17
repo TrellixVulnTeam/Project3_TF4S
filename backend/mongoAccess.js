@@ -50,7 +50,12 @@ module.exports = {
     },
 
 
-    //Used
+    //Creates a text-only forum post in the "forumPosts" collection of the database.
+    //Called when user clicks to submit a Forum Post. THis is called when an image is not submitted.
+    //Param:
+    // databaseName: name of database to create a new listing
+    // collectionName: name of collection in the selected database to create a new listing
+    // entry : the content we will use to create a new element in the collection
     writeTextForumPost: async function (databaseName, collectionName, entry)
     {
         try {
@@ -67,6 +72,13 @@ module.exports = {
         }
     },
 
+    //Creates a forum post with image in the "forumPosts" collection of the database.
+    //Called when user clicks to submit a Forum Post. THis is called when an image is submitted.
+    //Param:
+    // databaseName: name of database to create a new listing
+    // collectionName: name of collection in the selected database to create a new listing
+    // entry : the content we will use to create a new element in the collection
+    // postNumber: used as a unique identifier to ID which images belong to which posts
     writeImgForumPost: async function (databaseName, collectionName, entry, postNumber)
     {
         try {

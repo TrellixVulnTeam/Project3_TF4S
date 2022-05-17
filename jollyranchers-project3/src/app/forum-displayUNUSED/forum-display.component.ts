@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-forum-display',
+  selector: 'app-forum-displayUNUSED',
   templateUrl: './forum-display.component.html',
   styleUrls: ['./forum-display.component.scss']
 })
