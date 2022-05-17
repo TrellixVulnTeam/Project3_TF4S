@@ -104,6 +104,7 @@ export class ForumComponent
       formData.append("textArea", textArea.value);
       formData.append("location", location.value);
       formData.append("likeCount", '0');
+      formData.append("datePosted", this.getDate());
 
 
 
@@ -215,8 +216,8 @@ export class ForumComponent
 
 
 
-    console.log(year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds)
-    return (year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds);
+    console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
+    return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
   }
 }
 

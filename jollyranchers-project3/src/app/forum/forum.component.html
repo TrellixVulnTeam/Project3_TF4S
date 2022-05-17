@@ -120,8 +120,10 @@ works smoothly.
         </form>
       </div>
     </div>
-    <!--Uses one Forum Post template to use when iterating over every available forum post from the database -->
-  <div *ngIf="getForumPosts()">
+    <!--Uses one Forum Post template to use when iterating over every available forum post from the database
+    Autohrs: Robert Kleszczynski: getting data from ngfor loop and plugging in the correct values where needed
+     Nisanur Genc layoout, css, and overall design-->
+  <div *ngIf="getForumPosts()"> <!--makes sure the function does not return null -->
     <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar    Calls getForumPosts() from forum.component.ts -->
       <br/>
       <section>
@@ -136,6 +138,7 @@ works smoothly.
             <div class="card_info">
               <p class = "card_address">{{post.textArea}} </p> <!--returns typed out content from post -->
               <p class="card_details"><strong>Tags:</strong> {{post.tag}} </p> <!-- returns post's tags -->
+              <p class="card_details"><strong>Date Posted:</strong> {{post.datePosted}} </p> <!-- returns date of Post -->
             </div>
             <div class="card_buttons">
               <a href="" class ="card_btn"> LIKE</a>
