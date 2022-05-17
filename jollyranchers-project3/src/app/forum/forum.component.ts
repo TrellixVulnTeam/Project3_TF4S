@@ -102,7 +102,8 @@ export class ForumComponent
       else
         console.log("no tags uploaded");
 
-      if(image !=null)
+
+      if(image !=null || image == undefined)
       {
         console.log("working");
         formData.append("file", image);
