@@ -102,7 +102,7 @@ export class ForumComponent
       else
         console.log("no tags uploaded");
 
-
+      console.log("working");
       if(image !=null || image != undefined)
       {
         console.log("image post");
