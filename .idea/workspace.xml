@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/symptoms-display/symptoms-display.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/symptoms-display/symptoms-display.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/twitter-display/twitter-display.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/twitter-display/twitter-display.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/backEnd.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Unused_Test_Code/backEnd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/databaseAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/databaseAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dbAccessTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Unused_Test_Code/dbAccessTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mongoAccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mongoAccess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Unused_Test_Code/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +44,11 @@
     <property name="ts.external.directory.path" value="C:\Users\User\Documents\aSpring_2022\Software_Engineering\Project3\jollyranchers-project3\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\aSpring_2022\Software_Engineering\Project3\backend\Unused_Test_Code" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,11 +57,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652453325734</updated>
-      <workItem from="1652453327293" duration="10082000" />
+      <workItem from="1652453327293" duration="10929000" />
+      <workItem from="1652741635405" duration="5285000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

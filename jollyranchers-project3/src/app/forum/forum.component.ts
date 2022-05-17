@@ -20,7 +20,7 @@ export class ForumComponent
   ngOnInit(): void
   {
     const single = this;
-    const form : HTMLFormElement = document.getElementById("postForm")! as HTMLFormElement;
+    const form : HTMLFormElement = document.getElementById("submit")! as HTMLFormElement;
     form.addEventListener("submit", function(e){
       e.preventDefault();
       single.submitForm();});
@@ -78,6 +78,7 @@ export class ForumComponent
     //TODO: test to make sure submit button works once fixed
     if(this.checkReqFields())
     {
+
       //gets all info fields
       const textArea : HTMLTextAreaElement = document.getElementById("textArea")! as HTMLTextAreaElement;
       const location : HTMLInputElement = document.getElementById("location")! as HTMLInputElement;
@@ -123,7 +124,7 @@ export class ForumComponent
           .then((res) => console.log(res))
           .catch((err) => ("Error occurred"));
         console.log("no image uploaded");
-        window.setTimeout(window.location.reload, 500)
+       // window.setTimeout(window.location.reload, 500)
       }
     }
 
@@ -145,6 +146,8 @@ export class ForumComponent
 
   checkReqFields()
   {
+
+
     var returnValue;
     // @ts-ignore
     var text = document.getElementById("textArea").value;

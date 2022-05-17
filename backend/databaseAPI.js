@@ -11,10 +11,13 @@ const path = require("path");
 const multer = require("multer");
 const Grid = require("gridfs-stream");
 
+/////Database API manages all the routing for the backend as well as backend method calls to mongo
+//In order to post forum posts to the Database, it uses a gridfs-stream as well as file submission through the use of multer
+//Author: Robert Kleszczynski unless labelled otherwise
 
 
 
-
+//uses bodyParser for form submission and Cors options set to allow site access from other scripts
 var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -34,35 +37,38 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-//listens on port 800
+//listens on port 8000 for all backend calls
 app.listen(8000, () => {
 
     console.log('Server running!')
 })
 
-//example post method
-/*
-app.route('/api/cats').post((req, res) => {
-    res.send(201, req.body)
-})*/
+
 //@route GET
-//@desc sends back basic hello message when starting up
+//@desc sends back basic hello message on main page for testing connection
 app.route('/').get( async (req, res) =>
 {
     res.header("Access-Control-Allow-Private-Network","*").send("hello world");
 });
 
+//@route GET
+//@desc Retrieves Twitter tweet data from MongoDB
 app.route('/api/twitter').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'tweets');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+
+//@route GET
+//@desc Retrieves Graph data from MongoDB
+//Author: Fehmi Neffati
 app.route('/api/Graphs').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'Graphs');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
-
+//@route GET
+//@desc Retrieves Symptom data from MongoDB. I.e. health guidelines, symptoms, etc.
 app.route('/api/symptoms').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'symptoms');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
@@ -70,34 +76,48 @@ app.route('/api/symptoms').get(async (req, res) => {
 
 
 
-///youtube API
+//@route GET
+//@desc Retrieves Youtube video data from MongoDB, including URL link
 app.route('/api/youtube/fox13').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'fox13');
     console.log("working");
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//@route GET
+//@desc Retrieves Youtube data from channel Tampa10  from MongoDB
 app.route('/api/youtube/tampa10').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'tampa10');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//@route GET
+//@desc Retrieves Youtube data from channel abcAction from MongoDB
 app.route('/api/youtube/abcAction').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'abcAction');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//@route GET
+//@desc Retrieves Youtube data from wfla8 from MongoDB
+//might be unused, there wasn't much on Youtube from this channel
 app.route('/api/youtube/wfla8').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'wfla8');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//@route GET
+//@desc Retrieves Youtube data from more generic source (i.e "What is Red Tide?" kinds of videos as well as videos
+// from misc users from MongoDB
 app.route('/api/youtube/general').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'general');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
-//forum routing
+/////////////////////////////////Forum routing
+
+//This block of code sets up a Mongoose connection for Gridfs, which allows us to make image file submissions through Gridfs
+//to store onto the database
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 let gfs, gridfsBucket;
 
@@ -115,7 +135,9 @@ conn.once('open', () =>
 
     // all set!
 })
-let postNumber = 1; //keeps a counter to keep track of which image goes to each post
+
+//This block of code dictates a storage destination for multer to use as well as what to name files
+let postNumber = 1; //keeps a counter to keep track of which image goes to each post, will use Date timestamps for this
 const storage = new GridFsStorage({
     url: uri,
     file: (req, file) => {
@@ -141,44 +163,34 @@ const upload = multer({storage: storage});
 
 
 
-//@post /upload
-//@desc uploads forum post to database
+
 //use upload.array for multiple file upload, single for a single image like here
 
-//maybe put this back in
-// upload.single("file"),
+//@post Stores forum Posts with Image submission
+//@desc uploads forum post to database and uses Multer to store the image separately
 app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 {
     const results = require('./mongoAccess.js').writeImgForumPost("jollyranchers",'forumPosts', req.body,  postNumber);
-
-       /* if(req.body.file)
-        {
-            //TODO: Need to process the image here somehow
-            const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req);
-        }
-        else
-        {
-            const results = require('./mongoAccess.js').writeSingleDataEntry("jollyranchers",'forumPosts', req.body);
-        }
-
-        res.send('Submitted from' + req.body.location)*/
-
-
 })
 
+//@post Stores forum posts without Image submission (i.e. text only submissions)
+//@desc Stores text only posts to MongoDB "forumPosts" database.
 app.post('/api/forum/submit', upload.single('file'), async function (req, res) {
 
     console.log(req.body);
     const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body) ;
-
-
 })
 
+//@route GET
+//@desc Retrieves all Forum posts from MongoDB
 app.route('/api/forum/posts').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'forumPosts');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//@route GET
+//@desc Retrieves Forum images from MongoDB. This is called separately from retrieving forum posts
+//as not all forum posts have associated images
 app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 {
 
@@ -200,17 +212,28 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
     });
 })
 
-//spotify routing
+//@route GET
+//@desc Retrieves Spotify data from MongoDB
 app.route('/api/spotify').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'podcasts');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//UNUSED
+//@route GET
+//@desc Retrieves Sensor data from MongoDB
 app.route('/api/sensorData').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers", 'sensorData');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+
+
+//WARNING: This has potential flaws for high traffic usage if multiple posts are submitted per second, although this was
+//not considered to be a problem as the server bandwidth would likely not be able to keep up with that volume of traffic.
+
+//Returns a URL friendly timestamp with which we name image files and store a reference in the forum posts
+//Is used as a unique identifier for each image posted based on the date and time it was posted
 function getDate()
 {
     let date_ob = new Date();
@@ -239,3 +262,4 @@ function getDate()
     console.log(year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds)
     return (year + "-" + month + "-" + date + "-" + hours + ":" + minutes + ":" + seconds);
 }
+

@@ -1,32 +1,39 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const {mongo} = require("mongoose");
 
+//These methods are called from the API to access and make requests of the database, including:
+// finding collections and writing forum posts
+//Author: Robert Kleszczynski
 
 
-
-
+//Connects to our Mongo Database
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect();
 
 module.exports = {
+    //Called anytime we wish to get collection data from MongoDB
+    //Params:
+    // databaseName: the name of the database you wish to access
+    // collectionName: the name of the collection in the database you wish to access
     getDatabaseInfo: async function ( databaseName, collectionName)
     {
 
         try {
 
-           // await client.connect();
+           //Gets our collection data
             const cursor = await client.db(databaseName).collection(collectionName).find({});
 
             const result = await cursor.toArray();
             console.log(result);
             if (result)
             {
-                result.forEach((r, i) => {
+                //prints elements in the database in case we need to test for something
+                /*result.forEach((r, i) => {
 
-                    //  console.log();
-                    // console.log(`_id: ${r._id}`);
-                });
+                      console.log();
+                     console.log(`_id: ${r._id}`);
+                });*/
 
                 return result;
             }
@@ -38,17 +45,17 @@ module.exports = {
         } catch (e) {
             console.error(e);
         } finally {
-            //await client.close();
+
         }
     },
 
 
-
+    //Used
     writeTextForumPost: async function (databaseName, collectionName, entry)
     {
         try {
 
-            await client.connect();
+            //await client.connect();
             const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
 
             console.log(`New Listing Created id: ${result.insertedId}`);
@@ -56,7 +63,7 @@ module.exports = {
         } catch (e) {
             console.error(e);
         } finally {
-            await client.close();
+           // await client.close();
         }
     },
 
@@ -64,7 +71,7 @@ module.exports = {
     {
         try {
 
-            await client.connect();
+            //await client.connect();
             entry[ 'postNumber' ] = postNumber;
             const result = await client.db(databaseName).collection(collectionName).insertOne(entry);
             console.log(`New Listing Created id: ${result.insertedId}`);
@@ -84,7 +91,7 @@ module.exports = {
         } catch (e) {
             console.error(e);
         } finally {
-            await client.close();
+           // await client.close();
         }
     }
 }
