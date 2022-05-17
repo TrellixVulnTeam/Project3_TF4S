@@ -161,11 +161,11 @@ export class ForumComponent
       console.log(post);
       return post.image;
     }
-   /* else
+    else
     {
-      const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/placeholder";
+      const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
       return url;
-    }*/
+    }
   }
 
   //Checks if user has provided text content and a location in order to post
