@@ -16,6 +16,9 @@ export class AppComponent  implements  OnInit{
 
   }
 
+  // Author: Nisanur Genc
+  // It changes the router of the page and helps with going back and forth between
+  // Forum and Home pages
   constructor(private pathChange: Router)
   {
     pathChange.events.subscribe((event)=>{

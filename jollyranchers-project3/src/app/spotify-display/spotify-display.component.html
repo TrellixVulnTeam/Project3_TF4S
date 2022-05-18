@@ -4,6 +4,7 @@
   <!-- spotify  -->
   <div *ngIf="getSpotifyData()"></div>
     <div *ngFor="let podcast of getSpotifyData()">
+      <!-- returns the link of one specific podcast to run in a loop -->
       <!--URL MUST BE SANITIZED TO DISPLAY -->
       <iframe style="border-radius:12px" [src]="getSanitizedURL(podcast.Link)" width="100%" height="152"
               frameBorder="0" allowfullscreen=""

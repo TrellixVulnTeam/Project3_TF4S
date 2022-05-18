@@ -10,13 +10,9 @@ import { checkIfTestingLocally } from '../home/home.component' //used for changi
   templateUrl: 'forum.component.html', styleUrls:["forum.component.scss"]})
 export class ForumComponent
 {
-
+  // textArea variable is to check the characters typed to the post text area
   textArea = '';
   private forumPosts : any = [];
-
-
-
-
 
 
   constructor(private service: AppServiceService) { }
@@ -38,7 +34,6 @@ export class ForumComponent
   //Retrieves Forum Posts from MongoDB
   async CallForumPostApi()
   {
-
 
     const result = await this.service.getForumPosts()!;
 
