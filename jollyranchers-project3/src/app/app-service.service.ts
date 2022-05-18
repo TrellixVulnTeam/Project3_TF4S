@@ -6,6 +6,10 @@ import {HttpClient} from '@angular/common/http';
 //All backend calls are made to databaseAPI.js in the backend folder
 //Authors: Robert Kleszczynski, Fehmi Neffati where labelled
 
+//How to create request routes:
+//https://malcoded.com/posts/angular-backend-express/
+
+
 
 @Injectable({
   providedIn: 'root'

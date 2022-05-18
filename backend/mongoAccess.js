@@ -8,6 +8,7 @@ const {mongo} = require("mongoose");
 
 
 //Connects to our Mongo Database
+//http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect();

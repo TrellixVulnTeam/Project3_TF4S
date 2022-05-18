@@ -102,6 +102,7 @@ async function main()
         await clearListings(client, "general");
 
         //sorts by nested object if only prop1 is defined. if prop1 and prop2 are defined sorts nested objects
+        //https://stackoverflow.com/questions/5073799/how-to-sort-a-javascript-array-of-objects-by-nested-object-property
         nestedSort = (prop1, prop2 = null, direction = 'desc') => (e1, e2) => {
             const a = prop2 ? e1[prop1][prop2] : e1[prop1],
                 b = prop2 ? e2[prop1][prop2] : e2[prop1],

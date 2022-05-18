@@ -118,15 +118,21 @@ app.route('/api/youtube/general').get(async (req, res) => {
 })
 
 /////////////////////////////////Forum routing
+//How gridfs and multer work for file uploads
+//https://www.youtube.com/watch?v=3f5Q9wDePzY
 
 //This block of code sets up a Mongoose connection for Gridfs, which allows us to make image file submissions through Gridfs
 //to store onto the database
 const uri = "mongodb+srv://jollyranchers2022:project3@jollyranchers.yp9ee.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 let gfs, gridfsBucket;
 
+//connect to database with mongoose
+//https://stackoverflow.com/questions/45272404/retrieve-mongodb-driver-db-from-mongoose
 const conn = mongoose.createConnection(uri);
 conn.once('open', () =>
 {
+    //initialize gridfs bucket
+    ///https://stackoverflow.com/questions/69055292/error-grid-mongo-gridstore-is-not-a-consstructor-using-mongoose-grid-fs-strea
     gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
         bucketName: 'postImages/'
     });
@@ -193,6 +199,7 @@ app.route('/api/forum/posts').get(async (req, res) => {
 //@route GET
 //@desc Retrieves Forum images from MongoDB. This is called separately from retrieving forum posts
 //as not all forum posts have associated images
+//https://stackoverflow.com/questions/34921171/display-images-from-gridfs-mongodb
 app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 {
 
@@ -202,8 +209,10 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
            return res.header("Access-Control-Allow-Private-Network","*").status(404).json({err: "No file exists"});
        }
 
+       //opens up a gridfs stream if the file is a jped or png
        if(file.contentType === 'image/jpeg' || file.contentType === 'img/png')
        {
+           //https://github.com/aheckmann/gridfs-stream
            const readStream = gridfsBucket.openDownloadStream(file._id);
            readStream.pipe(res);
        }

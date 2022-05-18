@@ -25,6 +25,8 @@ export class ForumComponent
   {
     const single = this;
     const form : HTMLFormElement = document.getElementById("postForm")! as HTMLFormElement;
+
+    //https://stackoverflow.com/questions/63455218/how-to-pass-arguments-to-addeventlistener-listener-function-with-typescript
     form.addEventListener("submit", function(e){
       e.preventDefault();
       single.submitForm();});
@@ -97,10 +99,12 @@ export class ForumComponent
 
 
       //gets an image if there is one, otherwise just null
+      //https://stackoverflow.com/questions/17543064/putting-input-file-into-formdata-jquery-to-submit-to-php
       // @ts-ignore
       const image = file.files[0];
 
       //make formData
+
       const formData = new FormData();
       formData.append("textArea", textArea.value);
       formData.append("location", location.value);
@@ -118,6 +122,8 @@ export class ForumComponent
       //checks if image is attached before making API call to appropriate post methods
       //Will either post image with the form data
       //or post a text only entry of the form data to the database
+
+
       if(image !=null || image != undefined)
       {
         console.log("image post");

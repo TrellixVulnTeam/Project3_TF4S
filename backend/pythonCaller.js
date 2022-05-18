@@ -20,6 +20,8 @@ let options = {
     args: []
 };
 
+//calls python script
+//https://stackoverflow.com/questions/23450534/how-to-call-a-python-function-from-node-js
 PythonShell.run('twitter_requests.py', null, function (err, results) {
     if (err) throw err;
     // results is an array consisting of messages collected during execution

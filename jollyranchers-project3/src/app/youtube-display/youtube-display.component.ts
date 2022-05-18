@@ -139,6 +139,7 @@ export class YoutubeDisplayComponent implements OnInit
   //Returns a URL that works as a playlist in for an iFrame
   //Param:
   // collection: the array of Youtube videos that you wish to create a playlist with
+  //https://www.w3schools.com/html/html_youtube.asp
   async buildPlaylist( collection : any )
   {
     let playlist = "";
