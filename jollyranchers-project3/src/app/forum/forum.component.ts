@@ -150,8 +150,8 @@ export class ForumComponent
   //Returns forum posts to front end
   getForumPosts()
   {
-    
-    let posts = this.forumPosts.sort((a: { datePosted: string; }, b: { datePosted: string; }) => (a.datePosted > b.datePosted) ? 1 : -1)
+
+    let posts = this.forumPosts.sort((a: { datePosted: string; }, b: { datePosted: string; }) => (a.datePosted > b.datePosted) ? -1 : 1)
     return posts;
   }
 
@@ -160,12 +160,12 @@ export class ForumComponent
   {
     if(post.postNumber != undefined)
     {
-      console.log("has image");
+      //console.log("has image");
       return post.image;
     }
     else
     {
-      console.log("has no image");
+      //console.log("has no image");
       const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
       return url;
     }
