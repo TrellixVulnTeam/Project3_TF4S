@@ -54,6 +54,7 @@ export class ForumComponent
         {
 
           //checks if each post has an image attached to it and retrieves the image if it has one
+          //https://dmitripavlutin.com/check-if-object-has-property-javascript/
           if(this.forumPosts[i].hasOwnProperty('postNumber'))
           {
             const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
