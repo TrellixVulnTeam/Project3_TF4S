@@ -150,7 +150,9 @@ export class ForumComponent
   //Returns forum posts to front end
   getForumPosts()
   {
-    return this.forumPosts;
+    
+    let posts = this.forumPosts.sort((a: { datePosted: string; }, b: { datePosted: string; }) => (a.datePosted > b.datePosted) ? 1 : -1)
+    return posts;
   }
 
   //returns image to front end
@@ -213,17 +215,33 @@ export class ForumComponent
 
   // current hours
     let hours = date_ob.getHours();
+    hours = Number.parseInt(this.checkDigits(hours.toString()));
 
   // current minutes
     let minutes = date_ob.getMinutes();
+    minutes = Number.parseInt(this.checkDigits(minutes.toString()));
+
 
   // current seconds
     let seconds = date_ob.getSeconds();
-
+    seconds = Number.parseInt(this.checkDigits(seconds.toString()));
 
 
     console.log(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
     return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+  }
+
+  //Checks to make sure numbers are displayed correctly on time posted (i.e not 9:30, but 09:30)
+  checkDigits(number : string)
+  {
+    if(number.length < 2)
+    {
+      let output = "0";
+      output = output + number;
+      return output;
+    }
+    else
+      return number;
   }
 }
 
