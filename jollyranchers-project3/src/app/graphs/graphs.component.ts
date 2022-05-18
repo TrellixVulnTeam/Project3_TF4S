@@ -19,7 +19,8 @@ export class GraphsComponent implements OnInit {
   }
 
   getSanitizedURL(url: string) {
-    console.log(+url.toString());
+   //console.log(+url.toString());
+    console.log(url);
     return this.sanitizer.bypassSecurityTrustResourceUrl(('data:image/png;base64,'+url));
   }
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from "../app-service.service";
+import { checkIfTestingLocally } from '../home/home.component' //used for changing from localHost to AWS use
 
 //Responsible for managing Posting to the Forum and Retrieving Posts from the Forum
 //API calls are made to App-service.service.ts
@@ -59,7 +60,19 @@ export class ForumComponent
           //https://dmitripavlutin.com/check-if-object-has-property-javascript/
           if(this.forumPosts[i].hasOwnProperty('postNumber'))
           {
-            const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
+
+            let url;
+            //checks if we are hosting on AWS server or local host
+            if(checkIfTestingLocally())
+            {
+              url =  "http://localhost:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
+            }
+            else
+            {
+              url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
+            }
+
+
             this.forumPosts[i]['image'] =  url;
           }
           else
@@ -128,27 +141,60 @@ export class ForumComponent
       {
         console.log("image post");
         formData.append("file", image);
-        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
-          method: 'POST',
-          body: formData
 
-        })
-          .then((res) => console.log(res))
-          .catch((err) => ("Error occurred"));
+        //checks if we are hosting on AWS server or local host
+        if(checkIfTestingLocally())
+        {
+          fetch("http://localhost:8000/api/forum/submitImg", {
+            method: 'POST',
+            body: formData
+
+          })
+            .then((res) => console.log(res))
+            .catch((err) => ("Error occurred"));
+        }
+        else
+        {
+            fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
+              method: 'POST',
+              body: formData
+
+            })
+              .then((res) => console.log(res))
+              .catch((err) => ("Error occurred"));
+        }
+
 
       }
       else
       {
         console.log("text only post");
-        fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
-          method: 'POST',
-          body: formData
 
-        })
-          .then((res) => console.log(res))
-          .catch((err) => ("Error occurred"));
-        console.log("no image uploaded");
-        //window.setTimeout(window.location.reload, 500);
+        //checks if we are hosting on AWS server or local host
+        if(checkIfTestingLocally())
+        {
+          fetch("http://localhost:8000/api/forum/submit", {
+            method: 'POST',
+            body: formData
+
+          })
+            .then((res) => console.log(res))
+            .catch((err) => ("Error occurred"));
+          console.log("no image uploaded");
+        }
+        else
+        {
+          fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
+            method: 'POST',
+            body: formData
+
+          })
+            .then((res) => console.log(res))
+            .catch((err) => ("Error occurred"));
+          console.log("no image uploaded");
+        }
+
+        window.setTimeout(window.location.reload, 500);
       }
     }
 
@@ -173,7 +219,17 @@ export class ForumComponent
     else
     {
       //console.log("has no image");
-      const url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
+      //checks if we are hosting on AWS server or local host
+      let url;
+      if(checkIfTestingLocally())
+      {
+        url =  "http://localhost:8000/api/forum/posts/images/2022-05-17-23:2:57";
+      }
+      else
+      {
+        url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
+      }
+
       return url;
     }
   }

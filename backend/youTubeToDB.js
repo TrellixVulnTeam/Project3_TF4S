@@ -7,9 +7,10 @@ const{google}= require('googleapis');
 //Cleans results and sorts them by channel to 4 news channels in Florida and a General Red Tide Channel for Red Tide explanations
 //Sorts results further by putting the most recent results first
 //Clears database collections and updates with the  latest results
+//called in scheduler.js to run daily
 //Author: Robert Kleszczynski
 
-async function main()
+export async function updateYoutubeDB()
 {
     var fox13 = [];
     var tampa10 = [];
@@ -141,7 +142,7 @@ async function main()
 
 }
 
-main();
+
 
 
 

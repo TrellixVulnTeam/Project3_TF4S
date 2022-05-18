@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { checkIfTestingLocally } from '../app/home/home.component' //used for changing from localHost to AWS use
 
 //Contains all website API for front end that routes to the correct call to the backend
 //All requests are made from their respective component typescript files (i.e. twitter-display.component.ts)
@@ -22,7 +23,17 @@ export class AppServiceService
   //connects to the backend
   async connect()
   {
-    let result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/');
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      let result = await this.http.get('http://localhost:8000/');
+    }
+    else
+    {
+      let result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/');
+    }
+
+
   }
 
   //Relays data from MongoDB on the backend to the front end based on which media platform is desired
@@ -34,27 +45,78 @@ export class AppServiceService
     //based on chosen platform, calls the relevant back end request
     if(platform == "twitter")
     {
-       result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/twitter');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
+      }
+
+
       return result;
     }
     else if(platform == "symptoms")
     {
-       result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/symptoms');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/symptoms');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/symptoms');
+      }
+
+
       return result;
     }
     else if(platform == "spotify")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/spotify');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/spotify');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/spotify');
+      }
+
+
       return result;
     }
+    //Case by Fehmi Neffati
     else if(platform == "Graphs")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphs');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/Graphs');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphs');
+      }
+
+
       return result;
     }
     else if(platform == "sensorData")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/sensorData');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/sensorData');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/sensorData');
+      }
+
+
       return result;
     }
 
@@ -76,27 +138,77 @@ export class AppServiceService
       let result;
       if(category == "fox13")
       {
-        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/fox13');
+        //checks if we are hosting on AWS server or local host
+        if(checkIfTestingLocally())
+        {
+          result = await this.http.get('http://localhost:8000/api/youtube/fox13');
+        }
+        else
+        {
+          result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/fox13');
+        }
+
+
         return result;
       }
     if(category == "tampa10")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/tampa10');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/youtube/tampa10');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/tampa10');
+      }
+
+
       return result;
     }
     if(category == "abcAction")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/abcAction');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/youtube/abcAction');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/abcAction');
+      }
+
+
       return result;
     }
     if(category == "wfla8")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/wfla8');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/youtube/wfla8');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/wfla8');
+      }
+
+
       return result;
     }
     if(category == "general")
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/general');
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/youtube/general');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/youtube/general');
+      }
+
+
       return result;
     }
       else
@@ -110,7 +222,17 @@ export class AppServiceService
   async getTweets()
   {
     let result;
-    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      result = await this.http.get('http://localhost:8000/api/twitter');
+    }
+    else
+    {
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/twitter');
+    }
+
+
     return result;
   }
 
@@ -118,7 +240,17 @@ export class AppServiceService
   async getPodcasts()
   {
     let result;
-    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/spotify');
+    ///checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      result = await this.http.get('http://localhost:8000/api/spotify');
+    }
+    else
+    {
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/spotify');
+    }
+
+
     return result;
   }
 
@@ -126,7 +258,17 @@ export class AppServiceService
   async getForumPosts()
   {
     let result;
-    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts');
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      result = await this.http.get('http://localhost:8000/api/forum/posts');
+    }
+    else
+    {
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts');
+    }
+
+
     return result;
   }
 
@@ -134,7 +276,17 @@ export class AppServiceService
   async getForumPostImage(fileName : string)
   {
     let result;
-    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/' + fileName);
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      result = await this.http.get('http://localhost:8000/api/forum/posts/images/' + fileName);
+    }
+    else
+    {
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/' + fileName);
+    }
+
+
     return result;
   }
 
@@ -143,7 +295,17 @@ export class AppServiceService
   async getGraphs()
   {
     let result;
-    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphs');
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      result = await this.http.get('http://localhost:8000/api/Graphs');
+    }
+    else
+    {
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphss');
+    }
+
+
     return result;
   }
 
@@ -153,7 +315,17 @@ export class AppServiceService
   async getSymptoms()
   {
     let result;
-    result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/symptoms');
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      result = await this.http.get('http://localhost:8000/api/symptoms');
+    }
+    else
+    {
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/symptoms');
+    }
+
+
     return result;
   }
 

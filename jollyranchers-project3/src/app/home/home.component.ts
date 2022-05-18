@@ -95,3 +95,15 @@ export class HomeComponent implements OnInit {
   }
 
 }
+
+//CHANGE THIS WHEN CHANGING ROUTING CONFIGURATION
+//Returns a boolean responsible for checking if the build is testing on localHost or on AWS server
+//returns true if using localHost and testing locally
+//returns false if testing on AWS
+//called in forum.component.ts and app-service.service.ts for correct routing based on choice
+
+export function checkIfTestingLocally()
+{
+  let isTestingLocally = true;
+  return isTestingLocally
+}
