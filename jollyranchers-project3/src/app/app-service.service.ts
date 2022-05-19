@@ -303,7 +303,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphss');
+      result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/Graphs');
     }
 
 
