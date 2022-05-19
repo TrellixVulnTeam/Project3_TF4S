@@ -5,6 +5,7 @@ import { checkIfTestingLocally } from '../app/home/home.component' //used for ch
 //Contains all website API for front end that routes to the correct call to the backend
 //All requests are made from their respective component typescript files (i.e. twitter-display.component.ts)
 //All backend calls are made to databaseAPI.js in the backend folder
+//Uses checkIfTestingLocally() from home.component.ts as stated above in imports
 //Authors: Robert Kleszczynski, Fehmi Neffati where labelled
 
 //How to create request routes:

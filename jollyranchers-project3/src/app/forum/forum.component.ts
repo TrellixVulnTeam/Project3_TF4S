@@ -4,6 +4,7 @@ import { checkIfTestingLocally } from '../home/home.component' //used for changi
 
 //Responsible for managing Posting to the Forum and Retrieving Posts from the Forum
 //API calls are made to App-service.service.ts
+//Uses checkIfTestingLocally() from home.component.ts as stated above in imports
 //Author: Robert Kleszczynski
 
 @Component({
