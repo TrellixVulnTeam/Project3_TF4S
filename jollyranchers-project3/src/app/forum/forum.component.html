@@ -21,6 +21,7 @@ works smoothly.
                     placeholder="Start typing here..." [(ngModel)]="textArea" [ngModelOptions]="{standalone: true}"
           ></textarea>
           <br/>
+          <!-- checks how many characters remaining for the text area in the from -->
           <span id='charLimit'>Remaining characters: {{300-textArea.length}}</span>
           <br/>
           <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
@@ -34,6 +35,7 @@ works smoothly.
           <strong>* Choose your location: </strong><br/><br/>
           <input class="field" list="locations" name="location" id="location" style="width: 100%" placeholder="Choose your county here"><br/>
           <span id="reqLocation" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
+          <!-- counties dropdown list-->
           <datalist id="locations">
             <option value="Miami-Dade County">
             <option value="Broward County">
@@ -105,6 +107,7 @@ works smoothly.
           </datalist>
           <br/>
           <label for="file" style="cursor: pointer;">Upload Image:</label>
+          <!-- gets only jpeg and png type of files for input -->
           <input type="file"  accept="image/jpeg, image/png"
                     style="box-shadow: 3px 3px 10px #654f7a;"
                     name="image" id="file" onchange="loadFile(event)"/><br/><br/> <!-- input field for pictures -->
@@ -126,6 +129,7 @@ works smoothly.
   <div *ngIf="getForumPosts()"> <!--makes sure the function does not return null -->
     <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar    Calls getForumPosts() from forum.component.ts -->
       <br/>
+      <!-- Each section represents one forum post-->
       <section>
         <figure class = "card">
           <div class = "card_hero">
@@ -141,7 +145,7 @@ works smoothly.
               <p class="card_details"><strong>Date Posted:</strong> {{post.datePosted}} </p> <!-- returns date of Post -->
             </div>
             <div class="card_buttons">
-              <a href="" class ="card_btn"> LIKE</a>
+              <img src="assets/likebutton.png" class ="card_btn">
               <p></p>
             </div>
           </div>

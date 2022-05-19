@@ -3,15 +3,18 @@
   <div class="nav">
     <div class="rtr-title" id="title">
       <div class="logo" id="logo">
+        <!-- page logo -->
         <img src="https://i.imgur.com/7a5nN29.png?1" alt="RTR Logo" height="70px"/>
       </div>
       <div class="menu-title" id="menuTitle">
         <p style="font-size: x-large;">
+          <!-- when clicked, it sends the user to the home page -->
           <a href="index.html" style="text-decoration: none; color: #791313;"> Red Tide Radar </a>
         </p>
       </div>
       <div class="options" id="options">
         <ul>
+          <!-- navigation bar items -->
           <li><a class="nav-item nav-link" routerLink="/"
                  [style.display]="path == '' ? 'none' : 'inherit'">Home</a></li>
           <li><a class="nav-item nav-link" routerLink="/forum"
