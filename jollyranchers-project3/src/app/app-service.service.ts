@@ -273,6 +273,26 @@ export class AppServiceService
     return result;
   }
 
+  async updatePostLikeCount(postID :string, likeCount : string)
+  {
+
+    let result;
+    let url;
+    //checks if we are hosting on AWS server or local host
+    if(checkIfTestingLocally())
+    {
+      url = 'http://localhost:8000/api/forum/posts/likes/' + postID + '/' + likeCount;
+
+    }
+    else
+    {
+      url = 'http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/likes/'  + postID + '/' + likeCount;
+    }
+    console.log(url)
+    result = await this.http.get(url);
+    return result;
+  }
+
   //Returns forum post images from MongoDB
   async getForumPostImage(fileName : string)
   {

@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectID} = require('mongodb');
 const {mongo} = require("mongoose");
 
 //These methods are called from the API to access and make requests of the database, including:
@@ -106,6 +106,37 @@ module.exports = {
             console.error(e);
         } finally {
            // await client.close();
+        }
+    },
+
+    async updateLikeCount(postID, likeCount) {
+        try {
+
+            //Gets our collection data
+            const result = await client.db("jollyRanchers").collection("forumPosts").updateOne({"_id": ObjectID(postID)},
+                {
+                    $inc: { 'likeCount': 1 }});
+
+
+            console.log(result);
+            if (result) {
+                //prints elements in the database in case we need to test for something
+                /*result.forEach((r, i) => {
+
+                      console.log();
+                     console.log(`_id: ${r._id}`);
+                });*/
+
+                return result;
+            } else {
+                console.log("not found")
+                //console.log(`No listings found with name '${nameOfListing}'`);
+            }
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+
         }
     }
 }

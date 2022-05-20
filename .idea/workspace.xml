@@ -4,9 +4,10 @@
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/databaseAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/databaseAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mongoAccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mongoAccess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/app-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/app-service.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,8 @@
       <workItem from="1652805854898" duration="14339000" />
       <workItem from="1652891244167" duration="5397000" />
       <workItem from="1652897439296" duration="13000" />
-      <workItem from="1652981798910" duration="10091000" />
+      <workItem from="1652981798910" duration="10092000" />
+      <workItem from="1653069513357" duration="5754000" />
     </task>
     <servers />
   </component>

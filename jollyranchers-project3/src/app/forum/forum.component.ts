@@ -304,10 +304,38 @@ export class ForumComponent
       return number;
   }
 
-  incrementLike($event: MouseEvent)
+  async incrementLike( post : any)
   {
-    ($event.target as HTMLButtonElement).disabled = true;
-    console.log("like");
+    //($event.target as HTMLButtonElement).disabled = true;
+    //console.log("like");
+
+    const likeButton : HTMLButtonElement = document.getElementById(this.getLikeButtonID(post))! as HTMLButtonElement
+    likeButton.disabled = true;
+
+    let likeCount = parseInt(post.likeCount.toString()) + 1;
+    const likeText : HTMLParagraphElement = document.getElementById(this.getCounterID(post))! as HTMLParagraphElement;
+    likeText.innerHTML = likeCount.toString();
+
+    const result = await this.service.updatePostLikeCount(post._id.toString(), likeCount.toString())!;
+    console.log("like updated");
+
+
+  }
+
+  //Names likeCounter Paragraph element in HTML a unique identifier
+  getCounterID(post : any)
+  {
+    let name = "like";
+    name = name + post.datePosted.toString();
+    return name;
+  }
+
+  getLikeButtonID(post : any)
+  {
+    let name = "likeButton";
+    name = name + post.datePosted.toString();
+    return name;
+
   }
 }
 

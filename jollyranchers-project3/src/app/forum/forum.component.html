@@ -148,8 +148,8 @@ works smoothly.
               <!-- <img  src="assets/likebutton.png" height ="80" width="100" />
                   put this in between the 2 button tags to embed the thumbs up image....it breaks the click event listener though.....
                   id doesn't work either since we make copies of this for each post-->
-              <button type="button" id="likeButton" class ="card_btn" (click)="incrementLike($event)" >Like</button>
-              <p></p>
+              <button type="button" [id]="getLikeButtonID(post)" class ="card_btn" (click)="incrementLike(post)" ><img  src="assets/likebutton.png" height ="80" width="100" /></button><br><br>
+            <p class="card_Details" [id]="getCounterID(post)" >{{post.likeCount}}</p>
             </div>
           </div>
         </figure>
