@@ -27,7 +27,8 @@ export class ForumComponent
     //https://stackoverflow.com/questions/63455218/how-to-pass-arguments-to-addeventlistener-listener-function-with-typescript
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      single.submitForm();});
+      single.submitForm();
+    });
 
     this.CallForumPostApi();
   }
@@ -301,6 +302,12 @@ export class ForumComponent
     }
     else
       return number;
+  }
+
+  incrementLike($event: MouseEvent)
+  {
+    ($event.target as HTMLButtonElement).disabled = true;
+    console.log("like");
   }
 }
 

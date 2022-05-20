@@ -145,7 +145,10 @@ works smoothly.
               <p class="card_details"><strong>Date Posted:</strong> {{post.datePosted}} </p> <!-- returns date of Post -->
             </div>
             <div class="card_buttons">
-              <img src="assets/likebutton.png" class ="card_btn">
+              <!-- <img  src="assets/likebutton.png" height ="80" width="100" />
+                  put this in between the 2 button tags to embed the thumbs up image....it breaks the click event listener though.....
+                  id doesn't work either since we make copies of this for each post-->
+              <button type="button" id="likeButton" class ="card_btn" (click)="incrementLike($event)" >Like</button>
               <p></p>
             </div>
           </div>

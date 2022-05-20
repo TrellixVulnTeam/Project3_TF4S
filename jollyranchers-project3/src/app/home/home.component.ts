@@ -5,6 +5,10 @@ import {AppServiceService} from "../app-service.service";
 
 //Responsible for retrieve requests to API for each media platform that data is gathered on
 //API calls are made to App-service.service.ts
+
+//IMPORTANT: At the bottom of this file there is a method called checkIfTestingLocally()
+//Make sure this returns true if running on localHOst
+//Make sure this returns false if running on AWS
 //Authors: Robert Kleszczynski (unless labelled otherwise)
 
 
@@ -104,6 +108,6 @@ export class HomeComponent implements OnInit {
 
 export function checkIfTestingLocally()
 {
-  let isTestingLocally = false;
+  let isTestingLocally = true;
   return isTestingLocally
 }
