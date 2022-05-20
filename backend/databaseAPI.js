@@ -33,12 +33,18 @@ var corsOptions = {
 let app = express();
 
 
+//Change the string to 'localBuild' for LocalHosting
+//Change the string to 'serverBuild' for AWS hosting
+app.use(express.static('serverBuild'));
+//app.use(express.static('localBuild'));
+
 app.use(cors(corsOptions), bodyParser.json(), methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
 
 //listens on port 8000 for all backend calls
 app.listen(8000, () => {
