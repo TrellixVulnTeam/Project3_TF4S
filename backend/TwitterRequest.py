@@ -30,7 +30,7 @@ class TwitterRequest:
     def __init__(self):
         print("Pulling the tweets.")
 
-    def pull_tweets(self, tweets, full_query):
+    def pull_tweets(self, full_query):
         # making the request here
         r = requests.get(full_query, headers={"Authorization":
         "Bearer AAAAAAAAAAAAAAAAAAAAAGWEbAEAAAAA96jYwiBriFBlZ1AZEdGDUPasxu0%3DZ1ov10t2oDLiJ0kQ3UugxgmSBviT5hTVBJbmpu7PtrUfiZOsjn"})
@@ -43,10 +43,10 @@ class TwitterRequest:
             # takes the tweet id
             tweet_id = result['id']
             # checks the tweet id and retweeted tweets to avoid duplication
-            if tweet_id not in tweets and result['text'][0:2] != "RT":
+            if tweet_id not in self.tweets and result['text'][0:2] != "RT":
                 # adds tweets with the elements of when it was created, username and text
-                tweets[tweet_id] = {"created_at": result['created_at'], "username": result['user']['name'], "text": result['text'], "profile_image_url": result['user']['profile_image_url']}
-   
+                self.tweets[tweet_id] = {"created_at": result['created_at'], "username": result['user']['name'], "text": result['text'], "profile_image_url": result['user']['profile_image_url']}
+
 
     def MakeTwitterData(self):
         # key word for searching tweets
@@ -60,11 +60,11 @@ class TwitterRequest:
         search_terms = "&result_type=recent&count=100"
 
         # list for tweets from wanted accounts with the wanted hashtags
-        self.tweets = pull_tweets(self.tweets,url_base+urllib.parse.quote(" OR ".join(hashtags)+" "+" OR ".join(accounts))+search_terms)
+        pull_tweets(url_base+urllib.parse.quote(" OR ".join(hashtags)+" "+" OR ".join(accounts))+search_terms)
         # list for tweets from wanted accounts with the wanted keyword
-        self.tweets = pull_tweets(self.tweets,url_base+urllib.parse.quote(" OR ".join(query)+" "+" OR ".join(accounts))+search_terms)
+        pull_tweets(url_base+urllib.parse.quote(" OR ".join(query)+" "+" OR ".join(accounts))+search_terms)
         # list for tweets with the wanted hashtags
-        self.tweets = pull_tweets(self.tweets,url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
+        pull_tweets(url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
 
         return self.tweets
 
