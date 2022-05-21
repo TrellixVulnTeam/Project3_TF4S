@@ -16,22 +16,20 @@ let options = {
     args: []
 };
 
-/***
- * PythonShell.run('Butler.py', null, function (err, results) {
- *     if (err) throw err;
- *     // results is an array consisting of messages collected during execution
- *     checker++;
- *     console.log('results: %j', results);
- *     console.log("Checked through: ", checker);
- * });
- *
- *
- */
 
+ PythonShell.run('Butler.py', null, function (err, results) {
+      if (err) throw err;
+      // results is an array consisting of messages collected during execution
+     checker++;
+    console.log('results: %j', results);
+    console.log("Checked through: ", checker);
+  });
+
+ /**
 PythonShell.run('twitter_requests.py', null, function (err, results) {
     if (err) throw err;
     // results is an array consisting of messages collected during execution
     checker++;
     console.log('results: %j', results);
     console.log("Checked through: ", checker);
-});
+});*/
