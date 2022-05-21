@@ -15,11 +15,42 @@ import { updateYoutubeDB } from './youTubeToDB' //used for changing from localHo
 let counter = 0;
 
 //This code runs daily at 10:31 AM (for now)
-cron.schedule('0 0 * * * *', function(){
+cron.schedule('37 0 * * * *', function(){
     counter = counter + 1;
-    // I want to get the time when it updates and put it on the database
-    PythonShell.run('Butler.py', null, function (err, results) {
+
+
+    /*PythonShell.run('Butler.py', null, function (err, results) {
         if (err) throw err;
+    });*/
+
+    PythonShell.run('twitter_requests.py', null, function (err, results) {
+        if (err) throw err;
+        // results is an array consisting of messages collected during execution
+        checker++;
+        console.log('results: %j', results);
+        console.log("Checked through: ", checker);
+    });
+
+    PythonShell.run('GraphingHistoricalData.py', null, function (err, results) {
+        if (err) throw err;
+        // results is an array consisting of messages collected during execution
+        checker++;
+        console.log('results: %j', results);
+        console.log("Checked through: ", checker);
+    });
+    PythonShell.run('PodcastExtractor.py', null, function (err, results) {
+        if (err) throw err;
+        // results is an array consisting of messages collected during execution
+        checker++;
+        console.log('results: %j', results);
+        console.log("Checked through: ", checker);
+    });
+    PythonShell.run('SymptomsAndGuidelines.py', null, function (err, results) {
+        if (err) throw err;
+        // results is an array consisting of messages collected during execution
+        checker++;
+        console.log('results: %j', results);
+        console.log("Checked through: ", checker);
     });
 
     console.log("scheduled task running: " + counter + " times");

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/databaseAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/databaseAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pythonCaller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pythonCaller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/scheduler.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/scheduler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
