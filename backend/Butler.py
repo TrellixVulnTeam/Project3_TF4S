@@ -12,6 +12,7 @@ from pymongo import MongoClient
 from PodcastExtractor import PodcastExtractor
 from SymptomsAndGuidelines import SymptomsAndGuidelines
 from GraphingHistoricalData import GraphingHistoricalData
+from TwitterRequest import TwitterRequest
 
 
 class Butler:
@@ -98,7 +99,11 @@ class Butler:
                 collection.insert_one({'guideline': item})
 
     def updateTwitter(self):
-        print("Potato salad")
+        a = TwitterRequest()
+        twt = a.giveMeTweets()
+        tweet_list = twt.values()
+        collection = self.pump_and_dump("tweets")
+        collection_name.insert_many(tweet_list)
 
 
-trialClass = Butler().updateTwitter()
+trialClass = Butler()
