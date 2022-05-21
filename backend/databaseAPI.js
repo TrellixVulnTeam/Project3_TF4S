@@ -75,6 +75,11 @@ app.route('/api/Graphs').get(async (req, res) => {
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+app.route('/api/lastUpdate').get(async (req, res) => {
+    const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'lastUpdate');
+    res.header("Access-Control-Allow-Private-Network","*").send(results);
+})
+
 //@route GET
 //@desc Retrieves Symptom data from MongoDB. I.e. health guidelines, symptoms, etc.
 app.route('/api/symptoms').get(async (req, res) => {
