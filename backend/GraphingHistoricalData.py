@@ -31,7 +31,6 @@ class GraphingHistoricalData:
     def __init__(self, dataSet_path):
         print("Initiating Graph creation operation.")
         self.dataSet_path = dataSet_path
-        self.b64_string = self.make64()
 
     def getFloridaCities(self):
         # Getting all of the HTML
@@ -172,5 +171,7 @@ class GraphingHistoricalData:
         return encoded_string
 
     def get64(self):
+        self.b64_string = self.make64()
         print(self.b64_string)
         return self.b64_string
+
