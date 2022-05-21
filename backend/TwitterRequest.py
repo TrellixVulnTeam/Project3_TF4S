@@ -50,7 +50,7 @@ class TwitterRequest:
 
     def MakeTwitterData(self):
         # key word for searching tweets
-        query = ['redtide']
+        query = ['redtide', 'red tide']
         hashtags = ["#redtide","#RedTideFlorida","#FloridaRedTide","#redtidesucks"]
         accounts = ["from:MoteMarineLab","from:noaacoastalsci","from:NOAAResearch"]
 
