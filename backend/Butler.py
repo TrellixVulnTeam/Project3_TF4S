@@ -97,14 +97,14 @@ class Butler:
                 collection.insert_one({'Symptom': item})
         for item in list2:
             if item != "":
-                collection.insert_one({'guideline': item})
+                collection.insert_one({'Symptom': item})
 
     def updateTwitter(self):
         a = TwitterRequest()
         twt = a.giveMeTweets()
         tweet_list = twt.values()
         collection = self.pump_and_dump("tweets")
-        collection_name.insert_many(tweet_list)
+        collection.insert_many(tweet_list)
 
 
 trialClass = Butler()

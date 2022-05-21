@@ -6,7 +6,6 @@ Special thanks to Dr. Tania Roy for recommending the data set from Prof. Skripni
 The graph here will be a representation of how many times was a red tide mentioned in any of florida's 400+ cities
 We do that by extracting a list of cities and comparing them to the locations of the tweets provided in the data set
 
-Author: Fehmi Neffati
 
 """
 
@@ -148,7 +147,6 @@ class GraphingHistoricalData:
         plt.tight_layout()
 
         fig1 = plt.gcf()
-        plt.show()
         plt.draw()
         fig1.savefig('foo.png', dpi=100)
 
