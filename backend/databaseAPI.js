@@ -32,10 +32,9 @@ var corsOptions = {
 
 let app = express();
 
-
 //Change the string to 'localBuild' for LocalHosting
 //Change the string to 'serverBuild' for AWS hosting
-//app.use(express.static('serverBuild'));
+app.use(express.static('serverBuild'));
 //app.use(express.static('localBuild'));
 
 app.use(cors(corsOptions), bodyParser.json(), methodOverride('_method'));
@@ -229,6 +228,8 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
     });
 })
 
+//@route GET
+//updates likeCount of respective forum Post(found by  _id property) with new amount
 app.route('/api/forum/posts/likes/:postId/:likeCount').get(async (req,res) =>{
 
     const result = await require('./mongoAccess.js').updateLikeCount(req.params.postId, req.params.likeCount);

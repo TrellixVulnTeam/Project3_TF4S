@@ -259,6 +259,7 @@ export class ForumComponent
     return returnValue;
   }
 
+  //returns a time stamp for the time of posting the new forum post
   getDate()
   {
     let date_ob = new Date();
@@ -291,7 +292,7 @@ export class ForumComponent
     return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
   }
 
-  //Checks to make sure numbers are displayed correctly on time posted (i.e not 9:30, but 09:30)
+  //Checks to make sure numbers are displayed correctly on time posted (i.e not 9:3, but 09:03)
   checkDigits(number : string)
   {
     if(number.length < 2)
@@ -304,18 +305,23 @@ export class ForumComponent
       return number;
   }
 
+
+  //called when a forum post's like button is clicked in HTML
+  //increments the likeCount that is displayed and then updates the likeCount of the post
   async incrementLike( post : any)
   {
-    //($event.target as HTMLButtonElement).disabled = true;
-    //console.log("like");
 
+
+    //gets the front end button for the forum post and disables it on mouse click so you can't like multiple times.
     const likeButton : HTMLButtonElement = document.getElementById(this.getLikeButtonID(post))! as HTMLButtonElement
     likeButton.disabled = true;
 
+    //increments the like count and displays the new amount on the front end
     let likeCount = parseInt(post.likeCount.toString()) + 1;
     const likeText : HTMLParagraphElement = document.getElementById(this.getCounterID(post))! as HTMLParagraphElement;
     likeText.innerHTML = likeCount.toString();
 
+    //updates the likeCount on MongoDB
     const result = await this.service.updatePostLikeCount(post._id.toString(), likeCount.toString())!;
     if (result != null)
     {
@@ -340,6 +346,9 @@ export class ForumComponent
   }
 
   //Names likeCounter Paragraph element in HTML a unique identifier
+  //allows us to change each like element independently when a like button is clicked
+  //Param:
+  // post : the forum post's datePosted property is used as part of the unique identifier of the likeCounter text element
   getCounterID(post : any)
   {
     let name = "like";
@@ -347,6 +356,10 @@ export class ForumComponent
     return name;
   }
 
+  //Names likeCButton button element in HTML a unique identifier
+  //allows us to change each like button's enabled state  independently when a like button is clicked
+  //Param:
+  // post : the forum post's datePosted property is used as part of the unique identifier of the likeButton button element
   getLikeButtonID(post : any)
   {
     let name = "likeButton";

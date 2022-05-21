@@ -108,6 +108,6 @@ export class HomeComponent implements OnInit {
 
 export function checkIfTestingLocally()
 {
-  let isTestingLocally = true;
-  return isTestingLocally
+  let isTestingLocally = false;
+  return isTestingLocally;
 }
