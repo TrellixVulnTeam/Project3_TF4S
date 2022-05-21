@@ -25,8 +25,9 @@ export class HomeComponent implements OnInit {
   constructor(private service: AppServiceService) {
   }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void
+  {
+    this.getDataFromAPI('lastUpdate');
   }
 
   //Retrieves relevant data from the database with a specified media platform
@@ -106,8 +107,9 @@ export class HomeComponent implements OnInit {
   getSpotifyData(){
     return this.spotifyData;
   }
-  getLastUpdated(){
-    this.getDataFromAPI('lastUpdate')
+
+  getLastUpdated()
+  {
     return this.lastUpdated;
   }
 
@@ -121,6 +123,6 @@ export class HomeComponent implements OnInit {
 
 export function checkIfTestingLocally()
 {
-  let isTestingLocally = false;
+  let isTestingLocally = true;
   return isTestingLocally;
 }
