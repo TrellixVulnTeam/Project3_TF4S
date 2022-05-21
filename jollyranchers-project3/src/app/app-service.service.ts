@@ -89,6 +89,19 @@ export class AppServiceService
 
       return result;
     }
+    else if(platform == "lastUpdate")
+    {
+      //checks if we are hosting on AWS server or local host
+      if(checkIfTestingLocally())
+      {
+        result = await this.http.get('http://localhost:8000/api/lastUpdate');
+      }
+      else
+      {
+        result = await this.http.get('http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/lastUpdate');
+      }
+      return result;
+    }
     //Case by Fehmi Neffati
     else if(platform == "Graphs")
     {
