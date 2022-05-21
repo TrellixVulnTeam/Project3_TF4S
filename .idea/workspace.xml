@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/databaseAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/databaseAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mongoAccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mongoAccess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/app-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/app-service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/twitter_requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/TwitterRequest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +37,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p3Version2" />
-    <property name="ts.external.directory.path" value="C:\Users\User\Documents\aSpring_2022\Software_Engineering\Project3\jollyranchers-project3\node_modules\typescript\lib" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/nisanurgenc/Documents/GitHub/Project3",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\aSpring_2022\Software_Engineering\Project3\backend\Unused_Test_Code" />
@@ -69,6 +65,7 @@
       <workItem from="1652897439296" duration="13000" />
       <workItem from="1652981798910" duration="10092000" />
       <workItem from="1653069513357" duration="5754000" />
+      <workItem from="1653097177405" duration="901000" />
     </task>
     <servers />
   </component>
