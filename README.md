@@ -83,10 +83,45 @@ Author: Robert Kleszczynski
 ### ngOnInit()
 On initialization, adds an even listener to the submit button so form submission is possible
   
+### CallForumPostApi()
+Retrieves Forum Posts from MongoDB
 
+### submitForm()
+Sends form Data to be uploaded to the forumPosts database
+Called when submit button is clicked.
 
+### getForumPosts()
+Returns forum posts to front end
 
+### getImage(post : any)
+Returns image to front end
 
+### checkReqFields()
+Checks if user has provided text content and a location in order to post
+Otherwise displays red text to signify which text fields are required before submission
+if false, stops the call to post to forum database
+
+### getDate()
+returns a time stamp for the time of posting the new forum post
+ 
+### checkDigits(number : string)
+Checks to make sure numbers are displayed correctly on time posted (i.e not 9:3, but 09:03)
+
+### incrementLike( post : any)
+called when a forum post's like button is clicked in HTML
+increments the likeCount that is displayed and then updates the likeCount of the post
+
+### getCounterID(post : any)
+Names likeCounter Paragraph element in HTML a unique identifier
+allows us to change each like element independently when a like button is clicked
+Param:
+post : the forum post's datePosted property is used as part of the unique identifier of the likeCounter text element
+
+### getLikeButtonID(post : any)
+Names likeCButton button element in HTML a unique identifier
+allows us to change each like button's enabled state  independently when a like button is clicked
+Param:
+post : the forum post's datePosted property is used as part of the unique identifier of the likeButton button element
 
 
  
