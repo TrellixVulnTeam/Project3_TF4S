@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/localBuild/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/localBuild/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/localBuild/main.294c8ad6843538a9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
