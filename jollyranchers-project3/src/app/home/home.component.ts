@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   private youtubeData: any = [];
   spotifyData: any = [];
   private sensorData: any = [];
+  private lastUpdated: any = [];
 
   constructor(private service: AppServiceService) {
   }
@@ -60,6 +61,14 @@ export class HomeComponent implements OnInit {
           console.log("error is ", error);
         });
       }
+      else if (platform == "lastUpdate") {
+        result.subscribe((response) => {
+          console.log("response", response);
+          this.lastUpdated = response;
+        }, (error) => {
+          console.log("error is ", error);
+        });
+      }
        else if (platform == "spotify") {
         result.subscribe((response) => {
           console.log("spotify", response);
@@ -96,6 +105,10 @@ export class HomeComponent implements OnInit {
   //Returns Spotify data from database
   getSpotifyData(){
     return this.spotifyData;
+  }
+  getLastUpdated(){
+    this.getDataFromAPI('lastUpdate')
+    return this.lastUpdated;
   }
 
 }
