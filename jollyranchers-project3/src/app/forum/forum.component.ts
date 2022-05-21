@@ -317,6 +317,23 @@ export class ForumComponent
     likeText.innerHTML = likeCount.toString();
 
     const result = await this.service.updatePostLikeCount(post._id.toString(), likeCount.toString())!;
+    if (result != null)
+    {
+      //checks which database you chose and stores the data accordingly
+      await result.subscribe(async (response) =>
+      {
+
+      }, (error) => {
+        console.log("error is ", error);
+      });
+    }
+    else
+    {
+      console.log("Forum Posts not found")
+      return;
+    }
+
+
     console.log("like updated");
 
 
