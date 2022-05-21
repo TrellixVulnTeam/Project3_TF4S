@@ -70,9 +70,16 @@ May 16, 2022
 	Responsible for calling backend API and returning data to front end. Every data source component calls this to retrieve or post data to the backend.
 
 -------------------------------------------------------------------
+
 # 2: Red Tide Dashboard Home Component
 
 The home component is responsible for the display of all the information form various sources on the front end. It is visible from the url: http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/
+
+
+# 3: Red Tide Dashboard Forum Component
+
+The home component is responsible for the display of all the forum posts on the front end. It is visible from the url: [http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/forum]
+
 
 ## Forum.component.ts:
 Responsible for managing Posting to the Forum and Retrieving Posts from the Forum
@@ -124,7 +131,7 @@ Param:
 post : the forum post's datePosted property is used as part of the unique identifier of the likeButton button element
 
 
- 
+
 
 
 
