@@ -10,4 +10,4 @@ TO RUN BOTH FRONT END AND BACK END:
 4: Type this in the terminal:
 	node databaseAPI.js
 
-You can now navigate to the localhost:4200 or whatever and see that the site just has a bunch of tweets being displayed on the page
+You can now navigate to the localhost:4200 see the site
