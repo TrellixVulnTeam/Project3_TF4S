@@ -162,9 +162,92 @@ allows us to change each like button's enabled state  independently when a like 
 Param:
 post : the forum post's datePosted property is used as part of the unique identifier of the likeButton button element
 
-# 4: Red Tide Dashboard Spotify Component:
+# 4: Red Tide Dashboard Data Platform Components:
+
+# Spotify-display Component
 
 ## Spotify-display.component.ts:
+
+Retrieves Spotify Data from MongoDB for display on the Front End
+API calls are made to App-service.service.ts
+
+### getSanitizedURL(url: string)
+Sanitizes the URL so that it properly works in the iFrame on the front end
+
+### ngOnInit()
+Called on Start Up
+
+### callSpotifyApi()
+Gets all Spotify Podcasts from MongoDB and puts them into an array
+
+### getSpotifyData()
+Returns Spotify Data to front end
+
+# Twitter-display Component
+
+## Twitter-display.component.ts:
+Calls website API to retrieve Twitter data from MongoDB to display it on the front end
+API calls are made to App-service.service.ts
+
+### ngOnInit()
+Runs on startup to get Twitter data
+
+### callTwitterApi()
+Calls website API to retrieve Twitter Data from MongoDB and stores it in an array
+
+### getTwitterData()
+Returns Twitter data to front end
+
+# Graphs.component
+
+## Graphs.component.ts
+
+### ngOnInit()
+Runs graph data to front end
+
+### getSanitizedURL(url: string)
+
+### callGraphApi()
+
+### getGraphsData()
+
+# Youtube-diplay.component
+
+## Youtube-diplay.component.ts
+
+Calls website API to retrieve Youtube data from MongoDB to display it on the front end
+API calls are made to App-service.service.ts
+
+### ngOnInit()
+Runs on startup - adds a listener to check for changes in value in the drop down menu
+
+### callYoutubeAPI(channel: string)
+Calls website API to retrieve Youtube data from MongoDB based on which channel is provided
+Param:
+Channel: which Youtube channel source in the database you want data from
+
+### getYoutubeData()
+Checks the drop down menu for the selected value and relays it to the website API call to return the desired data
+
+### buildPlaylist( collection : any )
+Uses an array of Youtube video data to build a Youtube playlist from the video id codes
+Returns a URL that works as a playlist in for an iFrame
+Param:
+collection: the array of Youtube videos that you wish to create a playlist with
+https://www.w3schools.com/html/html_youtube.asp
+
+# Symptoms-display Component
+
+## Symptoms-display.component.ts
+
+### ngOnInit()
+Runs on startup to get symptoms data
+
+### callSymptomApi()
+Calls website API to retrieve Symptoms Data from MongoDB and stores it in an array
+
+### getSymptomData()
+Returns symptoms data to front end
 
 
 
