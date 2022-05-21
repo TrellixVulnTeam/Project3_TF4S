@@ -230,7 +230,7 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 })
 
 app.route('/api/forum/posts/likes/:postId/:likeCount').get(async (req,res) =>{
-    console.log("call worked");
+
     const result = await require('./mongoAccess.js').updateLikeCount(req.params.postId, req.params.likeCount);
     res.header("Access-Control-Allow-Private-Network","*").send("working");
 })

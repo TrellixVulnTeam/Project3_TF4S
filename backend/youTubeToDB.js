@@ -27,11 +27,12 @@ export async function updateYoutubeDB()
     try {
 
         //Call Youtube API and search for "Red Tide" with 50 results
+
         google.youtube('v3').search.list({
             key: process.env.YOUTUBE_TOKEN,
-            part: "snippet",
-            q: "Red Tide",
-            maxResults: 50
+            part: "snippet",  //gives you back the youtube video, description, upload date, etc
+            q: "Red Tide",  //this is the search queary, this is the string that is being searched
+            maxResults: 50  //this is the maximum number of results you want back from the search
         }).then(async (response) => {
             const {data} = response; //get just the search results part, no headers or request data
             //items holds all the video search data

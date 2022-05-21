@@ -143,13 +143,14 @@ works smoothly.
               <p class = "card_address">{{post.textArea}} </p> <!--returns typed out content from post -->
               <p class="card_details"><strong>Tags:</strong> {{post.tag}} </p> <br/><!-- returns post's tags -->
               <p class="card_details"><strong>Date Posted:</strong> {{post.datePosted}} </p> <!-- returns date of Post -->
+
             </div>
             <div class="card_buttons">
               <!-- <img  src="assets/likebutton.png" height ="80" width="100" />
                   put this in between the 2 button tags to embed the thumbs up image....it breaks the click event listener though.....
                   id doesn't work either since we make copies of this for each post-->
-              <button type="button" [id]="getLikeButtonID(post)" class ="card_btn" (click)="incrementLike(post)" ><img  src="assets/likebutton.png" height ="80" width="100" /></button><br><br>
-            <p class="card_Details" [id]="getCounterID(post)" >{{post.likeCount}}</p>
+              <p class="card_Details" [id]="getCounterID(post)" >{{post.likeCount}}</p>
+              <button type="button" [id]="getLikeButtonID(post)" class ="card_btn" (click)="incrementLike(post)"><img  src="assets/likebutton.png" height ="40" width="50" /></button>
             </div>
           </div>
         </figure>
