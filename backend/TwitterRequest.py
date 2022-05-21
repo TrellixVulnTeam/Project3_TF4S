@@ -46,24 +46,25 @@ class TwitterRequest:
             if tweet_id not in tweets and result['text'][0:2] != "RT":
                 # adds tweets with the elements of when it was created, username and text
                 tweets[tweet_id] = {"created_at": result['created_at'], "username": result['user']['name'], "text": result['text'], "profile_image_url": result['user']['profile_image_url']}
-        return tweets
+   
 
-    # key word for searching tweets
-    query = ['redtide']
-    hashtags = ["#redtide","#RedTideFlorida","#FloridaRedTide","#redtidesucks"]
-    accounts = ["from:MoteMarineLab","from:noaacoastalsci","from:NOAAResearch"]
+    def MakeTwitterData(self):
+        # key word for searching tweets
+        query = ['redtide']
+        hashtags = ["#redtide","#RedTideFlorida","#FloridaRedTide","#redtidesucks"]
+        accounts = ["from:MoteMarineLab","from:noaacoastalsci","from:NOAAResearch"]
 
-    # the URL base for the API call
-    url_base = "https://api.twitter.com/1.1/search/tweets.json?q="
-    # search coniditions: takes the recent 100 tweets
-    search_terms = "&result_type=recent&count=100"
+        # the URL base for the API call
+        url_base = "https://api.twitter.com/1.1/search/tweets.json?q="
+        # search coniditions: takes the recent 100 tweets
+        search_terms = "&result_type=recent&count=100"
 
-    # list for tweets from wanted accounts with the wanted hashtags
-    tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags)+" "+" OR ".join(accounts))+search_terms)
-    # list for tweets from wanted accounts with the wanted keyword
-    tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(query)+" "+" OR ".join(accounts))+search_terms)
-    # list for tweets with the wanted hashtags
-    tweets = pull_tweets(tweets,url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
+        # list for tweets from wanted accounts with the wanted hashtags
+        self.tweets = pull_tweets(self.tweets,url_base+urllib.parse.quote(" OR ".join(hashtags)+" "+" OR ".join(accounts))+search_terms)
+        # list for tweets from wanted accounts with the wanted keyword
+        self.tweets = pull_tweets(self.tweets,url_base+urllib.parse.quote(" OR ".join(query)+" "+" OR ".join(accounts))+search_terms)
+        # list for tweets with the wanted hashtags
+        self.tweets = pull_tweets(self.tweets,url_base+urllib.parse.quote(" OR ".join(hashtags))+search_terms)
 
-    def getTweets(self, tweets):
         return self.tweets
+
