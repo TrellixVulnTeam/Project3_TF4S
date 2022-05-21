@@ -75,10 +75,42 @@ May 16, 2022
 
 The home component is responsible for the display of all the information form various sources on the front end. It is visible from the url: http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/
 
+## Home.component.ts:
+
+Responsible for retrieve requests to API for each media platform that data is gathered on
+API calls are made to App-service.service.ts
+
+### ngOnInIt
+On initialization, adds an even listener to the submit button so form submission is possible
+
+### getDataFromAPI(platform: string) 
+Retrieves relevant data from the database with a specified media platform
+Param:
+platform: which source we wish to retrieve data from (i.e. Spotify, Youtube, Twitter)
+
+### getGraphsData()
+Returns graph data from database
+
+### getTwitterData()
+Returns Twitter data from database
+
+### getSpotifyData()
+Returns Spotify data from database
+
+### getLastUpdated()
+Gets the last updated data
+
+### checkIfTestingLocally()
+CHANGE THIS WHEN CHANGING ROUTING CONFIGURATION
+Returns a boolean responsible for checking if the build is testing on localHost or on AWS server
+returns true if using localHost and testing locally
+returns false if testing on AWS
+called in forum.component.ts and app-service.service.ts for correct routing based on choice
+
 
 # 3: Red Tide Dashboard Forum Component
 
-The home component is responsible for the display of all the forum posts on the front end. It is visible from the url: [http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/forum]
+The home component is responsible for the display of all the forum posts on the front end.
 
 
 ## Forum.component.ts:
@@ -129,6 +161,11 @@ Names likeCButton button element in HTML a unique identifier
 allows us to change each like button's enabled state  independently when a like button is clicked
 Param:
 post : the forum post's datePosted property is used as part of the unique identifier of the likeButton button element
+
+# 4: Red Tide Dashboard Spotify Component:
+
+## Spotify-display.component.ts:
+
 
 
 
