@@ -56,3 +56,4 @@ class SymptomsAndGuidelines:
                 item = item.strip("Top of Page")
                 self.guidelines.append(str(item))
         return self.guidelines
+

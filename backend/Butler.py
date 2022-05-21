@@ -12,26 +12,30 @@ from pymongo import MongoClient
 from PodcastExtractor import PodcastExtractor
 from SymptomsAndGuidelines import SymptomsAndGuidelines
 from GraphingHistoricalData import GraphingHistoricalData
-
-
+from TwitterRequest import TwitterRequest
 
 
 class Butler:
-
     """
     Here we'll call all of the updating methods upon running the class.
-    We'll give the data base time to rest between every new update
+    We'll give the database time to rest between every new update
     """
+
     def __init__(self):
         print("Butler is serving.")
+        self.lastUpdatedOn()
+        time.sleep(10)
+        print("potato1")
         self.updateGraph()
-        # sleep
         time.sleep(10)
-        self.updateSpotify()
-        time.sleep(10)
+        print("potato2")
         self.updateSymptomsAndGuidelines()
         time.sleep(10)
+        print("potato3")
         self.updateTwitter()
+        time.sleep(10)
+        print("potato4")
+        self.updateSpotify()
 
     def get_database(self):
         # Provide the mongodb atlas url to connect python to mongodb using pymongo
@@ -41,18 +45,17 @@ class Butler:
         client = MongoClient(CONNECTION_STRING, tlsCAFile=certifi.where())
         return client['jollyranchers']
 
-    db = get_database()
-
     def lastUpdatedOn(self):
         today = date.today()
         print("Today's date:", today)
         collection = self.pump_and_dump("lastUpdate")
-        collection.insert_one({'date': today})
+        collection.insert_one({'date': str(today)})
 
     def pump_and_dump(self, targetCollection):
-        collection = self.db.get_collection(targetCollection)
+        db = self.get_database()
+        collection = db.get_collection(str(targetCollection))
         collection.drop()
-        collection = self.db.create_collection(targetCollection)
+        collection = db.create_collection(str(targetCollection))
         return collection
 
     """                           GRAPHS                                     """
@@ -66,7 +69,6 @@ class Butler:
 
     def updateSpotify(self):
         # instruction
-
         keyWords = ['florida', 'red tide', 'fish', 'ocean', 'sea', 'algal', 'bloom', 'coast', 'karenia', 'brevis',
                     'karenia brevis', 'manatee']
         topic = "Red tide"
@@ -95,5 +97,13 @@ class Butler:
         for item in list2:
             if item != "":
                 collection.insert_one({'guideline': item})
-    def updateTwttier(self):
-        print("Potato salad")
+
+    def updateTwitter(self):
+        a = TwitterRequest()
+        twt = a.giveMeTweets()
+        tweet_list = twt.values()
+        collection = self.pump_and_dump("tweets")
+        collection_name.insert_many(tweet_list)
+
+
+trialClass = Butler()
