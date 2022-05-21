@@ -7,6 +7,7 @@ subsequently updating all of our information in the website.
 """
 import time
 import certifi
+from datetime import date
 from pymongo import MongoClient
 from PodcastExtractor import PodcastExtractor
 from SymptomsAndGuidelines import SymptomsAndGuidelines
@@ -41,6 +42,12 @@ class Butler:
         return client['jollyranchers']
 
     db = get_database()
+
+    def lastUpdatedOn(self):
+        today = date.today()
+        print("Today's date:", today)
+        collection = self.pump_and_dump("lastUpdate")
+        collection.insert_one({'date': today})
 
     def pump_and_dump(self, targetCollection):
         collection = self.db.get_collection(targetCollection)
