@@ -16,7 +16,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 
 """
-Resource:
+Resource: 
 https://stackoverflow.com/questions/16180428/can-selenium-webdriver-open-browser-windows-silently-in-the-background
 """
 
@@ -99,12 +99,12 @@ class PodcastExtractor:
 
     """
     2 Ways you can do this:
-        - Either connect here and display directly on Angular
+        - Either connect here and display directly on Angular  
         - Have the iframe template put on Angular with the link as a variable and pull from the data base to fill up that variable
-
+        
     We chose to only leave the unique identifier of each episode and then concatenate it with a predefined iframe in Angular
     Here, after I have filtered all of my episodes, we get that unique identified and add it to a list.
-
+    
     """
 
     def iframeMaker(self):
@@ -124,3 +124,4 @@ class PodcastExtractor:
             if link not in cleanList:
                 cleanList.append(link)
         return cleanList
+
