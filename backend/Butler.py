@@ -1,21 +1,36 @@
-import certifi
-from pymongo import MongoClient
+"""
+The butler is the class that would serve as the middle man between all of the individual scripts and the data base.
+The butler will call every script we have and then serve all of the data it gathers to their respective collections in the data base
+subsequently updating all of our information in the website.
 
-from GraphingHistoricalData import GraphingHistoricalData
+
+"""
+import time
+import certifi
+from datetime import date
+from pymongo import MongoClient
 from PodcastExtractor import PodcastExtractor
 from SymptomsAndGuidelines import SymptomsAndGuidelines
+from GraphingHistoricalData import GraphingHistoricalData
+
+
 
 
 class Butler:
 
+    """
+    Here we'll call all of the updating methods upon running the class.
+    We'll give the data base time to rest between every new update
+    """
     def __init__(self):
         print("Butler is serving.")
         self.updateGraph()
         # sleep
+        time.sleep(10)
         self.updateSpotify()
-        # sleep
+        time.sleep(10)
         self.updateSymptomsAndGuidelines()
-        # sleep
+        time.sleep(10)
         self.updateTwitter()
 
     def get_database(self):
@@ -27,6 +42,12 @@ class Butler:
         return client['jollyranchers']
 
     db = get_database()
+
+    def lastUpdatedOn(self):
+        today = date.today()
+        print("Today's date:", today)
+        collection = self.pump_and_dump("lastUpdate")
+        collection.insert_one({'date': today})
 
     def pump_and_dump(self, targetCollection):
         collection = self.db.get_collection(targetCollection)
@@ -75,4 +96,4 @@ class Butler:
             if item != "":
                 collection.insert_one({'guideline': item})
     def updateTwttier(self):
-        #wait for nisa
+        print("Potato salad")
