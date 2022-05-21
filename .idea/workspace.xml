@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Angular Startup.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontand Back End README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/scheduler.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/scheduler.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

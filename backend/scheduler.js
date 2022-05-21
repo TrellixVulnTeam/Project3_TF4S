@@ -15,7 +15,7 @@ import { updateYoutubeDB } from './youTubeToDB' //used for changing from localHo
 let counter = 0;
 
 //This code runs daily at 10:31 AM (for now)
-cron.schedule('34 22 * * * *', function(){
+cron.schedule('0 0 * * * *', function(){
     counter = counter + 1;
     // I want to get the time when it updates and put it on the database
     PythonShell.run('Butler.py', null, function (err, results) {
