@@ -2,9 +2,11 @@
 ## Presented by Team JollyRancher
 
 ##Red Tide Radar Demo 
+
+
 [![Programming By Demonstration](https://img.youtube.com/vi/OZ3x0EFq3Ws/0.jpg)](https://youtu.be/OZ3x0EFq3Ws)
 
-Robert Kleszczysnki, Nisanur Genc, Fehmi Neffati
+Robert Kleszczysnki, Nisanur Genc, Fehi Neffati
 
 May 16, 2022
 
