@@ -34,6 +34,8 @@ export class SpotifyDisplayComponent implements OnInit
 
   //Sanitizes the URL so that it properly works in the iFrame on the front end
   //Author: Fehmi Neffati
+  //Param:
+  // url : the url link that you want sanitized for display on the front end
   getSanitizedURL(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }

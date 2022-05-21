@@ -1,6 +1,8 @@
 let {PythonShell} = require('python-shell')
 const path = require("path");
 /*
+UNUSED: TESTING OF RUNNING PYTHON SCRIPTS IN JAVASCRIPT
+
 IMPORTANT:
 All print statements with string values MUST be encoded to utf-8 to successfully be run in Node.js
 
@@ -17,18 +19,18 @@ let options = {
 };
 
 
- /*PythonShell.run('Butler.py', null, function (err, results) {
+ PythonShell.run('Butler.py', null, function (err, results) {
       if (err) throw err;
       // results is an array consisting of messages collected during execution
      checker++;
     console.log('results: %j', results);
     console.log("Checked through: ", checker);
-  });*/
+  });
 
-PythonShell.run('TwitterRequest.py', null, function (err, results) {
+/*PythonShell.run('TwitterRequest.py', null, function (err, results) {
     if (err) throw err;
     // results is an array consisting of messages collected during execution
     checker++;
     console.log('results: %j', results);
     console.log("Checked through: ", checker);
-});
+});*/

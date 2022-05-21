@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AppServiceService} from "../app-service.service";
 import {DomSanitizer, SafeResourceUrl , SafeUrl} from "@angular/platform-browser";
-
+//Retrieves historical twitter data graphs from the backend for display on the front end.
+//Author: Fehmi Neffati
 
 @Component({
   selector: 'app-graphs',

@@ -10,6 +10,7 @@ const{google}= require('googleapis');
 //called in scheduler.js to run daily
 //Author: Robert Kleszczynski
 
+
 export async function updateYoutubeDB()
 {
     var fox13 = [];

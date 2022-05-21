@@ -109,6 +109,10 @@ module.exports = {
         }
     },
 
+    //Updates target post's likeCount property with new value of likeCount
+    //Param: p
+    // postId: the unique identifier of our target post that we use to identify it in the database
+    // likeCount: the new amount that we wish to set the likeCount property with
     async updateLikeCount(postID, likeCount) {
         try {
            // console.log(postID);

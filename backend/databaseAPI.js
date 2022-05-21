@@ -75,6 +75,9 @@ app.route('/api/Graphs').get(async (req, res) => {
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
 
+//@route GET
+//@desc: Retrieves the date that the database was last updated
+//Author: Fehmi Neffati
 app.route('/api/lastUpdate').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'lastUpdate');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
@@ -90,7 +93,7 @@ app.route('/api/symptoms').get(async (req, res) => {
 
 
 //@route GET
-//@desc Retrieves Youtube video data from MongoDB, including URL link
+//@desc Retrieves Youtube video data of the fox13 Youtube channel from MongoDB, including URL links
 app.route('/api/youtube/fox13').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("youtubeData",'fox13');
     console.log("working");
@@ -187,6 +190,8 @@ const upload = multer({storage: storage});
 
 //@post Stores forum Posts with Image submission
 //@desc uploads forum post to database and uses Multer to store the image separately
+//Param:
+// upload.single('file') : takes the fule submitted through front end and uploads to database
 app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 {
     const results = require('./mongoAccess.js').writeImgForumPost("jollyranchers",'forumPosts', req.body,  postNumber);
@@ -194,6 +199,8 @@ app.post('/api/forum/submitImg', upload.single('file'), function (req, res)
 
 //@post Stores forum posts without Image submission (i.e. text only submissions)
 //@desc Stores text only posts to MongoDB "forumPosts" database.
+//Param:
+// upload.none() : means we are only updating the text-based form data from the front end and are not adding any pictures
 app.post('/api/forum/submit', upload.none(), async function (req, res) {
     console.log(req.body);
     const results = await require('./mongoAccess.js').writeTextForumPost("jollyranchers", 'forumPosts', req.body) ;
@@ -210,6 +217,8 @@ app.route('/api/forum/posts').get(async (req, res) => {
 //@desc Retrieves Forum images from MongoDB. This is called separately from retrieving forum posts
 //as not all forum posts have associated images
 //https://stackoverflow.com/questions/34921171/display-images-from-gridfs-mongodb
+//Param:
+// filename : the unique identifier stored in the forum post that will identify which picture is tied to that target forum post
 app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 {
 
@@ -235,6 +244,9 @@ app.route('/api/forum/posts/images/:filename').get(async (req, res) =>
 
 //@route GET
 //updates likeCount of respective forum Post(found by  _id property) with new amount
+//Param:
+//postId: the unqiue _id property of the post to be used as the ientifier of the post
+//likeCount: the new value of the like count that we wish toe update the database with
 app.route('/api/forum/posts/likes/:postId/:likeCount').get(async (req,res) =>{
 
     const result = await require('./mongoAccess.js').updateLikeCount(req.params.postId, req.params.likeCount);

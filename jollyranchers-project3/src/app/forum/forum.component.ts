@@ -205,7 +205,9 @@ export class ForumComponent
     return posts;
   }
 
-  //returns image to front end
+  //returns image to front end if there is any connected to the post
+  //Param:
+  // post: the forum post that you wish to obtain an image for
   getImage(post : any)
   {
     if(post.postNumber != undefined)
@@ -293,6 +295,8 @@ export class ForumComponent
   }
 
   //Checks to make sure numbers are displayed correctly on time posted (i.e not 9:3, but 09:03)
+  //Param:
+  // number the substring from date that we wish to check the formatting of (i.e. hours could be "9" and we fix it to "09")
   checkDigits(number : string)
   {
     if(number.length < 2)
@@ -308,6 +312,8 @@ export class ForumComponent
 
   //called when a forum post's like button is clicked in HTML
   //increments the likeCount that is displayed and then updates the likeCount of the post
+  //Param:
+  //post : the target post that we wish to update the likeCount on
   async incrementLike( post : any)
   {
 
@@ -356,7 +362,7 @@ export class ForumComponent
     return name;
   }
 
-  //Names likeCButton button element in HTML a unique identifier
+  //Names likeButton button element in HTML a unique identifier
   //allows us to change each like button's enabled state  independently when a like button is clicked
   //Param:
   // post : the forum post's datePosted property is used as part of the unique identifier of the likeButton button element

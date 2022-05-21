@@ -286,6 +286,10 @@ export class AppServiceService
     return result;
   }
 
+  //updates a target forum post's like count after the like button is clicked
+  //Param:
+  //postID: the _id property of the post that is a unique identifier
+  //likeCount: the new update value we wish to update the post's likeCount with, (should just be one more than previous value)
   async updatePostLikeCount(postID :string, likeCount : string)
   {
 

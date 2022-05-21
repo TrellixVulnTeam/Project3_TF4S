@@ -3,6 +3,7 @@ The butler is the class that would serve as the middle man between all of the in
 The butler will call every script we have and then serve all of the data it gathers to their respective collections in the data base
 subsequently updating all of our information in the website.
 
+Author: Fehmi Neffati
 
 """
 import time
