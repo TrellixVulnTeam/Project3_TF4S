@@ -10,6 +10,8 @@ import time
 import certifi
 from datetime import date
 from pymongo import MongoClient
+
+from ForumDataGenerator import ForumDataGenerator
 from PodcastExtractor import PodcastExtractor
 from SymptomsAndGuidelines import SymptomsAndGuidelines
 from GraphingHistoricalData import GraphingHistoricalData
@@ -27,7 +29,7 @@ class Butler:
         self.lastUpdatedOn()
         time.sleep(10)
         print("potato1")
-        self.updateGraph()
+        self.updateCharts()
         time.sleep(10)
         print("potato2")
         self.updateSymptomsAndGuidelines()
@@ -60,11 +62,24 @@ class Butler:
         return collection
 
     """                           GRAPHS                                     """
-
+    """
     def updateGraph(self):
         b64 = GraphingHistoricalData('Secure_Tweets_Data.txt').get64()
         collection = self.pump_and_dump("Graphs")
         collection.insert_one({'graph_b64': b64})
+    """
+
+    def updateCharts(self):
+        db = self.get_database()
+        posts = db.get_collection("forumPosts")
+        finalDict = ForumDataGenerator.getData(posts)
+        collection = self.pump_and_dump("Graphs")
+
+        counter = 0
+        for key in finalDict:
+            if counter < 10 and finalDict[key] > 0:
+                collection.insert_one({"county": str(key), "mentions": int(finalDict[key])})
+            counter = counter + 1
 
     """                            SPOTIFY                                   """
 

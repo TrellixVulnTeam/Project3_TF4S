@@ -1,96 +1,43 @@
-<html>
+<h2 class = "date" *ngFor="let date of getLastUpdated()"> Last Updated on: {{date.date}}  At 12:00 AM.</h2>
+<section class = "container-1">
+  <hr class = "break">
+  <div class= "twitter-container">
+    <div class="twitter-title">
+      <h2 class="twitteritle"> Live <span class="twitter-span">Tweets</span></h2>
+      <p> Find out what people are saying about red tide on Twitter.</p>
+    </div>
+    <app-twitter-display></app-twitter-display>
+  </div>
+  <div class = "image-1">
+    <app-youtube-display></app-youtube-display>
+  </div>
+</section>
 
-<!--s
-'Body' refers to anything between the footer and the header.
-It has it's own special styling rules defined in the globals.css file to make sure everything
-works smoothly.
+<section class = "container-2">
+  <h2 class = "title"> Graphical Representations of Data</h2>
+  <p>We use all of the data <i>you</i> provide us when you make a post to show you where is Red Tide taking place.</p>
+  <app-graphs></app-graphs>
+</section>
 
-/* Author: Nisanur Genc*/
--->
-<div class="body">
+<section class = "container-3">
+  <hr class = "break">
+  <div class = "podcastArea">
+    <div>
+      <h2 class = "podcastsTitle"> Listen to <span class="Spotify-span">Spotify</span> podcasts related to Red tide Right here: </h2>
+      <p class="disclaimer"> Disclaimer: some podcasts that are not related to the ocean (false positives) might slip through our filters,
+        we're working on getting rid of those!</p>
+    </div>
+    <app-spotify-display></app-spotify-display>
+  </div>
+  <div class = "symptomsGuidelines">
+    <div class="symptomsGuidelinesHead">
+      <h2 class = "symptomsGuidelinesTitle">Symptoms and Guidelines about Red Tide listed here:</h2>
+      <p>[s] refers to source.</p>
 
-  <div style="background-color: #f3eaea; color: black; text-decoration: bold;  border-bottom: 2px solid #791313; font-size: large; padding: 1%; font-style: bald;">
-    <!--displays a warning to stay away in case of red tide -->
-    <p>
-      <b>Onshore winds bring red tide near the shore, please stay away from the shore.</b>
-      <!--Website last updated on {{getLastUpdated()}} -->
-    </p>
+      <p> These are the most common symptoms that multiple agencies have recognized, if you have any of these, please follow the guidelines presented under them:  </p>
+
+    </div>
+    <app-symptoms-display></app-symptoms-display>
   </div>
 
-  <div class="columnContainer">
-
-    <div class="column col1">
-
-      <div style="margin: 10px; padding: 1%">
-
-        <div class="columnContainer">
-          <div class="column col1">
-            <div style="margin: 10px;">
-              <div class= "Graphs">
-                <h2 class = "title"> Graphical Representations of Data</h2>
-                <div class="small-container">
-                  <div class = "row">
-                    <div class = "col-3">
-                      <app-graphs></app-graphs>
-                    </div>
-                    <div class = "col-3">
-                      <h4>Frequency of mentions of Red Tide per city</h4>
-                      <p>We used a Text mining program that would find out how many times someone tweeted about Red Tide in Different cities in Florida. The data was collected during the 2018 Red Tide wave.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br/><br/><br/>
-
-      <div style="margin-bottom: 30px">
-        <!-- youtube -->
-        <app-youtube-display></app-youtube-display>
-        <!-- youtube -->
-      </div>
-
-      <br/>
-
-      <h3 style="font-size: x-large; text-align: left; margin-top: 30px">
-        <strong>Related Podcasts:</strong>
-      </h3>
-      <div style="margin-bottom: 30px; margin-top: 30px">
-        <!-- spotify  -->
-       <app-spotify-display></app-spotify-display>
-        <!-- spotify -->
-      </div>
-      <br/>
-    </div>
-
-
-    <div class="column col2">
-      <br/>
-      <div style="overflow-y: scroll; max-height: 120vh; border: 5px solid #657786; border-radius: 2%; box-shadow: 10px 10px 8px #888888;">
-        <br/>
-        <h3>Related Tweets:</h3><br/>
-        <!-- tweets -->
-        <app-twitter-display></app-twitter-display>
-        <!-- tweets -->
-      </div>
-      <br/>
-
-      <div>
-        <div class="placeholderItem" style="text-align: center;">
-          <br/><br/>
-          <h3 style="font-size: x-large; text-align: left;">
-            <strong>Symptoms and Guidelines:</strong>
-          </h3> <br/>
-          <div style="color: black; height: 100%;">
-            <app-symptoms-display></app-symptoms-display>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br/>
-</div>
-</html>
+</section>

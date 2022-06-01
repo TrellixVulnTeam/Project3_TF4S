@@ -14,6 +14,7 @@ import { SymptomsDisplayComponent } from './symptoms-display/symptoms-display.co
 import { ForumDisplayComponent } from './forum-displayUNUSED/forum-display.component';
 import { GraphsComponent } from './graphs/graphs.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,3 +37,6 @@ import { GraphsComponent } from './graphs/graphs.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

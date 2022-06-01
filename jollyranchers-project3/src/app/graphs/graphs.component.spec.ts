@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GraphsComponent } from './graphs.component';
 
 describe('GraphsComponent', () => {
@@ -23,3 +22,4 @@ describe('GraphsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

@@ -6,166 +6,162 @@ works smoothly.
 
 Author: Nisanur Genc
 -->
-<div class="body">
+  <div class="body">
+        <div class="reqInfo" style="margin: 20px">
+          <!-- header for the form -->
+            <h2>Share <i>your</i> side of the story with a post:</h2>
+            <p> * indicates a required field.</p>
+          <!-- form to be able to check fields if they are empty and be able to enter information -->
+          <form id="postForm"   onsubmit="return checkReqFields()">
+            <!-- input field for the text -->
+            <div class="textEntry">
+              <h3 class = "textTitle">* Text: </h3>
+                <div >
+                  <textarea class="textArea" type="text" id="textArea" maxlength="300" minlength="1" rows="8" cols="50"
+                            placeholder="Start typing here..." [(ngModel)]="textArea" [ngModelOptions]="{standalone: true}"
+                  ></textarea>
+                  <span id='charLimit'>Remaining characters: {{300-textArea.length}}</span>
+                </div>
+                <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
+            </div>
+            <!-- input field for the location -->
 
-  <div class="form-bar">
-    <div class="sidenav" style="border-right: 2px solid #791313;"><!-- sidebar -->
-      <div class="reqInfo" style="margin: 20px">
-        <!-- header for the form -->
-        <h1 style="border-bottom: solid; border-color: #172C58; padding-bottom: 2px;">Create a post:</h1>
-        <p style="color: #a3475e">* indicates required fields.</p><br/>
+            <div class="tagAddition">
+              <h3 style="cursor: pointer;"><strong>Add a tag:</strong></h3>
+              <input class="tag" name="tag" id="tag" placeholder="Please use # for your tag"
+                     style="width: 100%; box-shadow: 3px 3px 10px #654f7a; height: 30px">
+            </div>
 
-        <!-- form to be able to check fields if they are empty and be able to enter information -->
-        <form id="postForm"   onsubmit="return checkReqFields()">
-          <!-- input field for the text -->
-          <strong>* Text: </strong><br/><br/>
-          <textarea class="field" type="text" id="textArea" maxlength="300" minlength="1" rows="8" cols="50"
-                    placeholder="Start typing here..." [(ngModel)]="textArea" [ngModelOptions]="{standalone: true}"
-          ></textarea>
-          <br/>
-          <!-- checks how many characters remaining for the text area in the from -->
-          <span id='charLimit'>Remaining characters: {{300-textArea.length}}</span>
-          <br/>
-          <span id="reqtextArea" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
-          <br/>
-          <!-- input field for the location -->
-          <label style="cursor: pointer;"><strong>Add a tag:</strong></label>
-          <input class="tag" name="tag" id="tag" placeholder="Please use # for your tag"
-                 style="width: 100%; box-shadow: 3px 3px 10px #654f7a; height: 30px"><br/><br/>
+            <div class="locationSelector">
+              <h3>* Choose your location: </h3>
+              <input class="field" list="locations" name="location" id="location" style="width: 100%" placeholder="Choose your county here"><br/>
+              <span id="reqLocation" class="reqError"></span>
+              <!-- counties dropdown list-->
+              <datalist id="locations">
+              <option value="Miami-Dade County">
+              <option value="Broward County">
+              <option value="Palm Beach County">
+              <option value="Hillsborough County">
+              <option value="Orange County">
+              <option value="Pinellas County">
+              <option value="Duval County">
+              <option value="Lee County">
+              <option value="Polk County">
+              <option value="Brevard County">
+              <option value="Volusia County">
+              <option value="Pasco County">
+              <option value="Seminole County">
+              <option value="Sarasota County">
+              <option value="Manatee County">
+              <option value="Collier County">
+              <option value="Osceola County">
+              <option value="Marion County">
+              <option value="Lake County">
+              <option value="St.Lucie County">
+              <option value="Escambia County">
+              <option value="Leon County">
+              <option value="Alachua County">
+              <option value="St.Johns County">
+              <option value="Clay County">
+              <option value="Okaloosa County">
+              <option value="Hernando County">
+              <option value="Charlotte County">
+              <option value="Bay County">
+              <option value="Santa Rosa County">
+              <option value="Martin County">
+              <option value="Indian River County">
+              <option value="Citrus County">
+              <option value="Sumter County">
+              <option value="Flagler County">
+              <option value="Highlands County">
+              <option value="Nassau County">
+              <option value="Monroe County">
+              <option value="Putnam County">
+              <option value="Walton County">
+              <option value="Columbia County">
+              <option value="Jackson County">
+              <option value="Gadsden County">
+              <option value="Suwannee County">
+              <option value="Okeechobee County">
+              <option value="Hendry County">
+              <option value="Levy County">
+              <option value="De Soto County">
+              <option value="Wakulla County">
+              <option value="Baker County">
+              <option value="Bradford County">
+              <option value="Hardee County">
+              <option value="Washington County">
+              <option value="Taylor County">
+              <option value="Holmes County">
+              <option value="Madison County">
+              <option value="Gilchrist County">
+              <option value="Dixie County">
+              <option value="Union County">
+              <option value="Gulf County">
+              <option value="Hamilton County">
+              <option value="Calhoun County">
+              <option value="Jefferson County">
+              <option value="Glades County">
+              <option value="Franklin County">
+              <option value="Lafayette County">
+              <option value="Liberty County">
+            </datalist>
+            </div>
+
+            <div class ="imageUpload">
+              <h3 for="file" style="cursor: pointer;">Upload Image:</h3>
+              <!-- gets only jpeg and png type of files for input -->
+              <input type="file"  accept="image/jpeg, image/png"
+                        style="box-shadow: 3px 3px 10px #654f7a;"
+                        name="image" id="file" onchange="loadFile(event)"/><br/><br/> <!-- input field for pictures -->
+            </div>
+
+            <!--Uses form value to obtain the contents of the form on submit event
+             Has an onClick event added in Forum.component.typescript to call the submit event-->
+            <div class="submitButton">
+              <input id="submit" type="submit" form="postForm" value="Submit" style=" cursor: pointer;"/><!-- submit button for the information -->
+            </div>
+          </form>
+        </div>
+      </div>
+  <hr class = "breakHor">
+      <!--Uses one Forum Post template to use when iterating over every available forum post from the database
+      Autohrs: Robert Kleszczynski: getting data from ngfor loop and plugging in the correct values where needed
+       Nisanur Genc layoout, css, and overall design-->
+
+    <div *ngIf="getForumPosts()"> <!--makes sure the function does not return null -->
+      <div class="main" *ngFor="let postData of getForumPosts()"><!-- non-sidebar    Calls getForumPosts() from forum.component.ts -->
+        <!-- Each section represents one forum post-->
+
+        <section>
+          <figure class = "card">
+
+            <div class="cardImage">
+              <img class="card_img" id="outputIMG"  [src]='getImage(postData)'> <!--gets post image if there is one -->
+            </div>
+            <div class="content">
+              <div class="cardText">
+                <p>{{postData.textArea}} </p> <!--returns typed out content from post -->
+                <p>Tags: {{postData.tag}} </p> <!-- returns post's tags -->
+              </div>
+
+              <div class="locationText">
+                <p> This was spotted at: {{postData.location}} on {{postData.datePosted}}</p> <!--returns location  of post -->
+              </div>
+            </div>
+            <div class="likeButton">
+              <p [id]="getCounterID(postData)" >{{postData.likeCount}}</p>
+
+              <button type="button" [id]="getLikeButtonID(postData)" class ="card_btn" (click)="incrementLike(postData)">
+                <img  src="assets/likebutton.png" height ="40" width="50" />
+              </button>
+            </div>
+          </figure>
+        </section>
 
 
-          <strong>* Choose your location: </strong><br/><br/>
-          <input class="field" list="locations" name="location" id="location" style="width: 100%" placeholder="Choose your county here"><br/>
-          <span id="reqLocation" class="reqError"></span><br/> <!-- shows an error in case previous field is empty -->
-          <!-- counties dropdown list-->
-          <datalist id="locations">
-            <option value="Miami-Dade County">
-            <option value="Broward County">
-            <option value="Palm Beach County">
-            <option value="Hillsborough County">
-            <option value="Orange County">
-            <option value="Pinellas County">
-            <option value="Duval County">
-            <option value="Lee County">
-            <option value="Polk County">
-            <option value="Brevard County">
-            <option value="Volusia County">
-            <option value="Pasco County">
-            <option value="Seminole County">
-            <option value="Sarasota County">
-            <option value="Manatee County">
-            <option value="Collier County">
-            <option value="Osceola County">
-            <option value="Marion County">
-            <option value="Lake County">
-            <option value="St.Lucie County">
-            <option value="Escambia County">
-            <option value="Leon County">
-            <option value="Alachua County">
-            <option value="St.Johns County">
-            <option value="Clay County">
-            <option value="Okaloosa County">
-            <option value="Hernando County">
-            <option value="Charlotte County">
-            <option value="Bay County">
-            <option value="Santa Rosa County">
-            <option value="Martin County">
-            <option value="Indian River County">
-            <option value="Citrus County">
-            <option value="Sumter County">
-            <option value="Flagler County">
-            <option value="Highlands County">
-            <option value="Nassau County">
-            <option value="Monroe County">
-            <option value="Putnam County">
-            <option value="Walton County">
-            <option value="Columbia County">
-            <option value="Jackson County">
-            <option value="Gadsden County">
-            <option value="Suwannee County">
-            <option value="Okeechobee County">
-            <option value="Hendry County">
-            <option value="Levy County">
-            <option value="De Soto County">
-            <option value="Wakulla County">
-            <option value="Baker County">
-            <option value="Bradford County">
-            <option value="Hardee County">
-            <option value="Washington County">
-            <option value="Taylor County">
-            <option value="Holmes County">
-            <option value="Madison County">
-            <option value="Gilchrist County">
-            <option value="Dixie County">
-            <option value="Union County">
-            <option value="Gulf County">
-            <option value="Hamilton County">
-            <option value="Calhoun County">
-            <option value="Jefferson County">
-            <option value="Glades County">
-            <option value="Franklin County">
-            <option value="Lafayette County">
-            <option value="Liberty County">
-          </datalist>
-          <br/>
-          <label for="file" style="cursor: pointer;">Upload Image:</label>
-          <!-- gets only jpeg and png type of files for input -->
-          <input type="file"  accept="image/jpeg, image/png"
-                    style="box-shadow: 3px 3px 10px #654f7a;"
-                    name="image" id="file" onchange="loadFile(event)"/><br/><br/> <!-- input field for pictures -->
-
-          <!--Uses form value to obtain the contents of the form on submit event
-           Has an onClick event added in Forum.component.typescript to call the submit event-->
-          <input id="submit" type="submit" form="postForm" value="Submit" style=" cursor: pointer;"/><!-- submit button for the information -->
-          <br/>
-          <br/>
-          <br/>
-
-
-        </form>
       </div>
     </div>
-    <!--Uses one Forum Post template to use when iterating over every available forum post from the database
-    Autohrs: Robert Kleszczynski: getting data from ngfor loop and plugging in the correct values where needed
-     Nisanur Genc layoout, css, and overall design-->
-  <div *ngIf="getForumPosts()"> <!--makes sure the function does not return null -->
-    <div class="main" *ngFor="let post of getForumPosts()"><!-- non-sidebar    Calls getForumPosts() from forum.component.ts -->
-      <br/>
-      <!-- Each section represents one forum post-->
-      <section>
-        <figure class = "card">
-          <div class = "card_hero">
-            <img class="card_img" id="outputIMG"  [src]='getImage(post)'> <!--gets post image if there is one -->
-            <div class="card_middle">
-              <p class="card_middle-text">LOCATION: {{post.location}}</p> <!--returns location  of post -->
-            </div>
-          </div>
-          <div class = "card_content">
-            <div class="card_info">
-              <p class = "card_address">{{post.textArea}} </p> <!--returns typed out content from post -->
-              <p class="card_details"><strong>Tags:</strong> {{post.tag}} </p> <br/><!-- returns post's tags -->
-              <p class="card_details"><strong>Date Posted:</strong> {{post.datePosted}} </p> <!-- returns date of Post -->
-
-            </div>
-            <div class="card_buttons">
-              <!-- <img  src="assets/likebutton.png" height ="80" width="100" />
-                  put this in between the 2 button tags to embed the thumbs up image....it breaks the click event listener though.....
-                  id doesn't work either since we make copies of this for each post-->
-              <p class="card_Details" [id]="getCounterID(post)" >{{post.likeCount}}</p>
-              <button type="button" [id]="getLikeButtonID(post)" class ="card_btn" (click)="incrementLike(post)"><img  src="assets/likebutton.png" height ="40" width="50" /></button>
-            </div>
-          </div>
-        </figure>
-      </section>
-      <br/>
-
-      <br/>
-
-
-    </div>
-  </div>
-  </div>
-</div>
 
 </body>
 

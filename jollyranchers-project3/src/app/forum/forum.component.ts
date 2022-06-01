@@ -8,12 +8,16 @@ import { checkIfTestingLocally } from '../home/home.component' //used for changi
 //Author: Robert Kleszczynski
 
 @Component({
-  templateUrl: 'forum.component.html', styleUrls:["forum.component.scss"]})
+  selector: 'app-forum',
+  templateUrl: 'forum.component.html',
+  styleUrls:["forum.component.scss"]})
 export class ForumComponent
 {
   // textArea variable is to check the characters typed to the post text area
   textArea = '';
   private forumPosts : any = [];
+  private map1 : any = new Map();
+  private map2 : any = new Map();
 
 
   constructor(private service: AppServiceService) { }
@@ -31,6 +35,7 @@ export class ForumComponent
     });
 
     this.CallForumPostApi();
+    this.cleanPostsData();
   }
 
   //Retrieves Forum Posts from MongoDB
@@ -66,7 +71,7 @@ export class ForumComponent
             }
             else
             {
-              url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
+              url =  "http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
             }
 
 
@@ -152,7 +157,7 @@ export class ForumComponent
         }
         else
         {
-            fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
+            fetch("http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
               method: 'POST',
               body: formData
 
@@ -181,7 +186,7 @@ export class ForumComponent
         }
         else
         {
-          fetch("http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
+          fetch("http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
             method: 'POST',
             body: formData
 
@@ -200,7 +205,6 @@ export class ForumComponent
   //Returns forum posts to front end
   getForumPosts()
   {
-
     let posts = this.forumPosts.sort((a: { datePosted: string; }, b: { datePosted: string; }) => (a.datePosted > b.datePosted) ? -1 : 1)
     return posts;
   }
@@ -226,7 +230,7 @@ export class ForumComponent
       }
       else
       {
-        url =  "http://ec2-13-59-24-7.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
+        url =  "http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
       }
 
       return url;
@@ -371,6 +375,76 @@ export class ForumComponent
     let name = "likeButton";
     name = name + post.datePosted.toString();
     return name;
+
+  }
+
+
+  /***
+   Forum post  format:
+   textArea : "test3"
+   location : "Lee County" <--------- What I need
+   likeCount : "7"
+   datePosted :"2022-05-17 22:20:57"
+   tag : "dd"
+
+   What I want to do:
+    - Get all Forum posts from the Database
+    - Set a data structure that would keep track of how many times each county has been mentioned
+    - Rank the counties based on how many times they were mentioned
+    - Take the top 10 counties
+    - use the Name and the counter number as data to feed into the graphs in graphs.ts file
+   */
+  async cleanPostsData(){
+    // const map = new Map();
+
+    /***
+     What I want to do is:
+     - Make first map
+     - Save all of the mentions in it in the form : ( County : # of Mentions)
+     - Make a second map
+     - Get all of the 1st Map Keys
+     - For Every key:
+        get value of that key
+        put that value in the new map as a key
+        put the key in the new map as value
+    KEEP IN MIND THAT 2 COUNTIES COULD HAVE THE SAME VALUE
+     -----------------------------------------
+
+     HERE WE WANT TO SORT
+     get all keys
+     put them in an array
+     sort Array
+     Loop through array and get the values(County) corresponding to each item of the array ( # of mentions)
+     We could either : - make 2 arrays with corresponding indexes and return in to the Graphs component
+                  OR : - Return a new map that has 10 items in it (County name : # of Mentions
+     ------------------------------------------------------------------------------------------------------------------
+    A different way:
+      - Get all values,
+      - sort them
+      - iterate through map
+      - if any given value is less than the sorted list value's smallest value
+      - drop it from the hashmap
+
+
+    THIS IS NOT GOING TO WORK IN TYPESCRIPT -> SWITCHING TO PYTHON
+     */
+
+    for (let i = 0; i < this.forumPosts.length; i++) {
+      this.map1.set(this.forumPosts.get(i).location, 0);
+      console.log(this.map1.get(this.forumPosts.get(i).location));
+      console.log("Hello from the forum")
+    }
+    /***for (let i = 0; i < this.forumPosts.length; i++) {
+      this.map1.set(this.forumPosts.get(i).location, this.map1.get(this.forumPosts.get(i).location) + 1);
+      console.log(this.map1.get(this.forumPosts.get(i).location.toString()));
+    }
+    let values = this.map1.keys
+    console.log("before");
+    console.log(values);
+    values = values.sort();
+    console.log("after:");
+    console.log(values)*/
+
 
   }
 }

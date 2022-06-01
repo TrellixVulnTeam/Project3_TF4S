@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   private symptomsData: any = [];
   private graphsData: any = [];
   private youtubeData: any = [];
-  spotifyData: any = [];
+  private spotifyData: any = [];
   private sensorData: any = [];
   private lastUpdated: any = [];
 

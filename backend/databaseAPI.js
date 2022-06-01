@@ -40,6 +40,7 @@ app.use(express.static('serverBuild'));
 app.use(cors(corsOptions), bodyParser.json(), methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -65,7 +66,6 @@ app.route('/api/twitter').get(async (req, res) => {
     const results = await require('./mongoAccess.js').getDatabaseInfo("jollyranchers",'tweets');
     res.header("Access-Control-Allow-Private-Network","*").send(results);
 })
-
 
 //@route GET
 //@desc Retrieves Graph data from MongoDB

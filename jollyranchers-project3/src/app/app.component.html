@@ -1,54 +1,28 @@
-<!-- NAV STARTS HERE
-      /* Author: Nisanur Genc*/-->
-<div class="nav">
-  <div class="nav">
-    <div class="rtr-title" id="title">
-      <div class="logo" id="logo">
-        <!-- page logo -->
-        <img src="https://i.imgur.com/7a5nN29.png?1" alt="RTR Logo" height="70px"/>
-      </div>
-      <div class="menu-title" id="menuTitle">
-        <p style="font-size: x-large;">
-          <!-- when clicked, it sends the user to the home page -->
-          <a href="index.html" style="text-decoration: none; color: #791313;"> Red Tide Radar </a>
-        </p>
-      </div>
-      <div class="options" id="options">
-        <ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Red Tide Radar</title>
+  <link rel="stylesheet" href="app.component.scss">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class = "news-link">
           <!-- navigation bar items -->
-          <li><a class="nav-item nav-link" routerLink="/"
-                 [style.display]="path == '' ? 'none' : 'inherit'">Home</a></li>
-          <li><a class="nav-item nav-link" routerLink="/forum"
-                 [style.display]="path == '' ? 'inherit' : 'none'">Forum</a></li>
-        </ul>
-      </div>
+          <a class="nav-link" routerLink="/"
+                 [style.display]="path == '' ? 'none' : 'inherit'">Home</a>
+          <a class="nav-link" routerLink="/forum"
+                 [style.display]="path == '' ? 'inherit' : 'none'">Forum</a>
     </div>
-  </div>
-</div>
-<br/>
-<br/>
-<br/>
-<br/>
-<!-- NAV ENDS HERE -->
+    <hr class = "hr1">
+    <h1  href="index.html" ><span>RED TIDE</span> RADAR</h1>
+    <p class = "ad"> Your main source about everything Red Tide!</p>
+</header>
 
-<!-- main content container -->
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 offset-sm-2">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>
 
-<!-- FOOTER STARTS HERE -->
-<div class="footer">
-  <div>
-    <div class="textContainer">
-      Presented by JollyRanchers  |  2022 | DISCLAIMER: This page is designed for NCF Software Engineering Class 2022,
-      only for educational purposes.
-    </div>
-  </div>
-</div>
-<!-- FOOTER ENDS HERE -->
+</body>
+</html>
+
+
+

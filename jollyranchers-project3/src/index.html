@@ -11,6 +11,7 @@
 <body>
 <app-root></app-root>
 
+
 <script>
   /*
   This document is used in Request Info page to check the required fields
@@ -55,32 +56,8 @@
   then divide by two to get the offset for the left side of the screen to insure it's in the middle.
   - Ender
   */
-  function resizeNav() {
-    console.log("Resizing nav bar");
-    const menuTitle = document.getElementById("menuTitle");
-    const options = document.getElementById("options");
 
-    if (innerWidth > 450 && innerWidth < 1150) {
-      const logoContainerWidth = document.getElementById("logo").clientWidth;
-      let offset = ((innerWidth - menuTitle.clientWidth) + (logoContainerWidth / 2)) / 2
-      menuTitle.style.left = `${offset}px`;
-    } else {
-      if (menuTitle.style.left != "140px") {
-        menuTitle.style.left = "140px";
-      }
-    }
 
-    if (innerWidth < 1150) {
-      options.style.display = "none";
-    } else {
-      options.style.display = "inline-block";
-    }
-  }
-
-  window.addEventListener("load", () => {
-    resizeNav()
-    window.addEventListener("resize", resizeNav);
-  })
 </script>
 
 </body>

@@ -1,38 +1,41 @@
 
 /* Author: Nisanur Genc*/
 .body{
-  display: flex;
-  font-family: futura-pt, sans-serif;
+align-items: center;
+  padding-left: 40px;
 }
 
-/* The sidebar menu */
-.sidenav {
-  width: 30%; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  height: 100%;  /*Full-height: remove this if you want "auto" height */
-}
 
 /* Style page content */
 .main {
-  //margin-left: 300px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-  width: 55%;
-  float: right;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-}
-
-#textArea {
-  resize: none;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.field {
+.textArea {
   box-shadow: 3px 3px 10px #654f7a;
+}
+.textEntry{
+  width: 40%;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.tagAddition{
+  width: 50%;
+  float: left;
+}
+.locationSelector{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 50%;
+  float: left;
+  height: 50%;
+}
+.imageUpload{
+  float: left;
+}
+.submitButton{
+  float: right;
+  padding-right: 100px;
 }
 
 /* Style of the error */
@@ -46,104 +49,70 @@
   width: 150px;
   font-weight: bold;
   font-size: large;
-  background-color: #791313;
+  background-color: #8C001A;
   color: white;
   border-radius: 15px;
   box-shadow: 5px 5px 10px #654f7a;
 }
+.breakHor{
+  display: block;
+  margin-left: 50px;
+  width: 94%;
+  border-style: inset;
+  border-width: 4px;
+  color: black;
+  background-color: black;
+
+}
 
 /* ------------ display posts -----------*/
 section{
-  height: fit-content;
-  display: inline-flex;
-  justify-content: flex-start;
   align-items: center;
-  margin-right: 100px;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 10px;
-  width: 90%;
-  font-family: "Roboto";}
+  margin-left: 50px;
+  font-family: "Roboto";
+  width: 94%;
+}
 
 .card{
   background-color: #ffffff;
   box-shadow: 0 0 0.9375em rgb(103, 4, 4);
   width: 100%;
-  height: 350px;
+  height: 270px;
   border-radius: 4px;
-  display: flex;
-  padding: 3%;
-}
-
-.card_hero{
-  flex: 0 0 50%;
-  position: relative;
-}
-
-.card_content{
-  flex: 1;
-  padding: 4%;
-  font-size: large;
-  font-family: "Roboto";
+  display: flex ;
 }
 
 .card_img{
-  display: block;
   width: 250px;
   height: 250px;
+  float: left;
+  padding-left: 15px;
+  padding-top: 15px;
+
+}
+.content{
+  margin-left: 30px;
+  margin-top: 15px;
+  width: 70%;
+}
+.cardText{
+  margin-bottom: 20px;
+  height: 70%;
+  width: 60%;
 }
 
-.card_middle{
-  flex: 1;
-  padding: 35px 35px 25px 35px;
+.locationText{
+  float: bottom;
+  width: 50%;
+  height: 10%;
+
 }
 
-.card_middle-text{
-  background-color: #ffffff;
-  font-size: 13.5px;
-  font-weight: 400;
-  border-radius: 2px;
-  padding: 10px 22px;
-  box-shadow: 0 0 0.9375em;
-}
-
-.card_content{
-  //flex:1;
-
-
-  display: flex;
-  flex-direction: column;
-}
-
-.card_info{
-  display: flex;
-  flex-direction: column;
-  margin-bottom: auto;
-}
-
-.card_address{
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 8px;
-  align-items: center;
-  font-size: x-large;
-}
-
-.card_details{
-  font-size: 12.5px;
-  font-weight: 400;
-  font-size: x-large;
-}
-
-.card_buttons{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card_btn{
+.likeButton{
   cursor: pointer;
-  width: 20px;
+  padding-top: 180px;
 }
-
 /* ------------ display posts -----------*/
 

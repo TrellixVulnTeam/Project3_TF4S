@@ -1,16 +1,17 @@
-<!--Author: Fehmi Neffati -->
-<div *ngIf="getGraphsData()">
-  <div *ngFor="let graph of getGraphsData()">
-      <div style="background-color: #f3eaea;
-                    color: black;
-                    text-decoration: bold;
-                    border: 2px solid #791313;
-                    box-shadow: 10px 10px 8px #888888;
-                    font-size: large;
-                    padding: 1%;
-                    width: 100%;">
-        <img style="width: 100%" [src]='getSanitizedURL(graph.graph_b64)'>
-      </div>
+
+<div class = "graphs">
+  <div class="chartDiv">
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
+  <div class="chartDiv">
+    <canvas id="myChart2" width="400" height="400"></canvas>
+  </div>
+  <div class="chartDiv">
+    <canvas id="myChart3" width="400" height="400"></canvas>
+  </div>
+  <div class="chartDiv">
+    <canvas id="myChart4" width="400" height="400"></canvas>
   </div>
 </div>
+
 
