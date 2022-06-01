@@ -31,7 +31,7 @@ export class AppServiceService
     }
     else
     {
-      let result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/');
+      let result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000');
     }
 
 
@@ -53,7 +53,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/twitter');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/twitter');
       }
 
 
@@ -68,7 +68,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/symptoms');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/symptoms');
       }
 
 
@@ -83,7 +83,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/spotify');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/spotify');
       }
 
 
@@ -98,7 +98,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/lastUpdate');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/lastUpdate');
 
       }
       return result;
@@ -113,7 +113,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/Graphs');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/Graphs');
       }
 
 
@@ -129,7 +129,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/sensorData');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/sensorData');
       }
 
 
@@ -161,7 +161,7 @@ export class AppServiceService
         }
         else
         {
-          result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/youtube/fox13');
+          result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/youtube/fox13');
         }
 
 
@@ -176,7 +176,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/youtube/tampa10');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/youtube/tampa10');
       }
 
 
@@ -191,7 +191,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/youtube/abcAction');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/youtube/abcAction');
       }
 
 
@@ -206,7 +206,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/youtube/wfla8');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/youtube/wfla8');
       }
 
 
@@ -221,7 +221,7 @@ export class AppServiceService
       }
       else
       {
-        result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/youtube/general');
+        result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/youtube/general');
       }
 
 
@@ -245,7 +245,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/twitter');
+      result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/twitter');
     }
 
 
@@ -263,7 +263,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/spotify');
+      result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/spotify');
     }
 
 
@@ -281,7 +281,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts');
+      result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/posts');
     }
 
 
@@ -305,7 +305,7 @@ export class AppServiceService
     }
     else
     {
-      url = 'http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts/likes/'  + postID + '/' + likeCount;
+      url = 'http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/posts/likes/'  + postID + '/' + likeCount;
     }
 
     result = await this.http.get(url);
@@ -323,7 +323,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/' + fileName);
+      result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/' + fileName);
     }
 
 
@@ -342,7 +342,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/Graphs');
+      result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/Graphs');
     }
 
 
@@ -363,7 +363,7 @@ export class AppServiceService
     }
     else
     {
-      result = await this.http.get('http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/symptoms');
+      result = await this.http.get('http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/symptoms');
     }
 
 

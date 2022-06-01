@@ -34,7 +34,7 @@ let app = express();
 
 //Change the string to 'localBuild' for LocalHosting
 //Change the string to 'serverBuild' for AWS hosting
-app.use(express.static('serverBuild'));
+//app.use(express.static('serverBuild'));
 //app.use(express.static('localBuild'));
 
 app.use(cors(corsOptions), bodyParser.json(), methodOverride('_method'));

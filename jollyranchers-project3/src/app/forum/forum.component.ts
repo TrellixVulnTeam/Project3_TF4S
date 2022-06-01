@@ -71,7 +71,7 @@ export class ForumComponent
             }
             else
             {
-              url =  "http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
+              url =  "http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/" + this.forumPosts[i].postNumber;
             }
 
 
@@ -157,7 +157,7 @@ export class ForumComponent
         }
         else
         {
-            fetch("http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
+            fetch("http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/submitImg", {
               method: 'POST',
               body: formData
 
@@ -186,7 +186,7 @@ export class ForumComponent
         }
         else
         {
-          fetch("http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
+          fetch("http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/submit", {
             method: 'POST',
             body: formData
 
@@ -230,7 +230,7 @@ export class ForumComponent
       }
       else
       {
-        url =  "http://ec2-3-135-231-108.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
+        url =  "http://ec2-3-142-247-55.us-east-2.compute.amazonaws.com:8000/api/forum/posts/images/2022-05-17-23:2:57";
       }
 
       return url;

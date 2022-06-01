@@ -5,47 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61afba0f-211a-4f8c-ab2c-4a01659a9be6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/ForumDataGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Project3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Butler.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Butler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/databaseAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/databaseAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/localBuild/3rdpartylicenses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/assets/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/localBuild/assets/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/localBuild/assets/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/localBuild/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/main.73f26d3c21a7db99.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/polyfills.a6a7698bf9fe06e9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/localBuild/styles.8a550468384b3408.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/serverBuild/main.4f6ac034425dd8b1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/serverBuild/polyfills.a6a7698bf9fe06e9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/serverBuild/styles.8a550468384b3408.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/app-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/app-service.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/forum/forum.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/graphs/graphs.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/symptoms-display/symptoms-display.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/symptoms-display/symptoms-display.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/twitter-display/twitter-display.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/twitter-display/twitter-display.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/twitter-display/twitter-display.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/twitter-display/twitter-display.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/youtube-display/youtube-display.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/youtube-display/youtube-display.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/app/youtube-display/youtube-display.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/app/youtube-display/youtube-display.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/assets/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/assets/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/assets/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jollyranchers-project3/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/jollyranchers-project3/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +76,7 @@
       <workItem from="1653097177405" duration="901000" />
       <workItem from="1653439818863" duration="35728000" />
       <workItem from="1653885028302" duration="15541000" />
-      <workItem from="1654035180538" duration="6882000" />
+      <workItem from="1654035180538" duration="9210000" />
     </task>
     <servers />
   </component>
